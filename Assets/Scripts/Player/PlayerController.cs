@@ -2,17 +2,11 @@ using System;
 using UnityEngine;
 
 
-[RequireComponent(typeof(Rigidbody), typeof(Renderer))] // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Renderer
+[RequireComponent(typeof(Rigidbody), typeof(Renderer))] 
 public class PlayerController : MonoBehaviour
 {
-
-<<<<<<< HEAD
-    public float moveSpeed = 5f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
-    public float mouseSensitivity = 100f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
-=======
-    public float moveSpeed = 2f; // Скорость передвижения
-    public float mouseSensitivity = 100f; // Чувствительность мыши
->>>>>>> 643ff71e2145c8dc5345994a40ae966dab65c948
+    public float moveSpeed = 5f;
+    public float mouseSensitivity = 100f; 
 
     private Transform playerBody;
     private float xRotation = 0f;
@@ -23,13 +17,11 @@ public class PlayerController : MonoBehaviour
     [Header("Effects")]
     public float runningSpeedMultiplier = 1.5f;
     public float stunDuration = 2f;
-    public Material hitMaterial; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    public Material hitMaterial;
 
 
     private Coroutine stunCoroutine;
-    /// <summary>
-    /// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ UI
-    /// </summary>
+ 
     public Renderer screenRenderer;
     public PhotoSystem photoSystem;
 
@@ -42,11 +34,10 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         screenRenderer = GetComponent<Renderer>();
-<<<<<<< HEAD
     }
 
 
-    void KeyBounds()
+    /*void KeyBounds()
     {
         if (Input.GetButtonDown("Photo"))
         {
@@ -56,11 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             photoSystem.ChangeActive(false);
         }
-=======
-        //rb.interpolation = RigidbodyInterpolation.Interpolate;
-        
->>>>>>> 643ff71e2145c8dc5345994a40ae966dab65c948
-    }
+    }*/
     public void Update()
     {
         effectController.UpdateEffects();
@@ -79,13 +66,6 @@ public class PlayerController : MonoBehaviour
     }
     void Movement()
     {
-<<<<<<< HEAD
-        float moveX = Input.GetAxis("Horizontal"); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (A/D пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅ)
-        float moveZ = Input.GetAxis("Vertical"); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (W/S пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅ)
-
-        Vector3 move = transform.right * moveX + transform.forward * moveZ; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
-        playerBody.position += move * moveSpeed * Time.deltaTime; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
-=======
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
@@ -100,7 +80,6 @@ public class PlayerController : MonoBehaviour
         }
 
         rb.MovePosition(rb.position + move * currentSpeed * Time.fixedDeltaTime);
->>>>>>> 643ff71e2145c8dc5345994a40ae966dab65c948
     }
 
     void Looking()
@@ -112,21 +91,7 @@ public class PlayerController : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-
-<<<<<<< HEAD
-        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
-        Camera.main.transform.localRotation = Quaternion.Slerp(
-            Camera.main.transform.localRotation,
-            Quaternion.Euler(xRotation, 0f, 0f),
-            Time.deltaTime * 10f // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
-        );
-
-        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         playerBody.Rotate(Vector3.up * mouseX);
-=======
-        // Горизонтальное вращение игрока
-        transform.Rotate(Vector3.up * mouseX); // Простое вращение без физики
->>>>>>> 643ff71e2145c8dc5345994a40ae966dab65c948
     }
 }
 

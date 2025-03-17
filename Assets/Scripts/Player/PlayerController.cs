@@ -23,8 +23,11 @@ public class PlayerController : MonoBehaviour
     private float baseMoveSpeed;
     private float baseMouseSensitivity;
     private Coroutine stunCoroutine;
+    /// <summary>
+    /// Потом можно будет перевести в UI
+    /// </summary>
     public Renderer screenRenderer;
-
+    public PhotoSystem photoSystem;
 
     public void Start()
     {
@@ -38,12 +41,23 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    void KeyBounds()
+    {
+        if (Input.GetButtonDown("Photo"))
+        {
+            photoSystem.ChangeActive();
+        }
+        if (Input.GetButtonDown("Сancel"))
+        {
+            photoSystem.ChangeActive(false);
+        }
+    }
     public void Update()
     {
         effectController.UpdateEffects();
         //Movement();
-        Looking(); 
+        Looking();
+        KeyBounds();
     }
     public void FixedUpdate()
     {

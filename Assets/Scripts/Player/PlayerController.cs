@@ -6,22 +6,26 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+<<<<<<< HEAD
     public float moveSpeed = 5f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public float mouseSensitivity = 100f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+=======
+    public float moveSpeed = 2f; // Скорость передвижения
+    public float mouseSensitivity = 100f; // Чувствительность мыши
+>>>>>>> 643ff71e2145c8dc5345994a40ae966dab65c948
 
     private Transform playerBody;
     private float xRotation = 0f;
     EffectController effectController;
     Rigidbody rb;
 
-
+    [SerializeField]private GameObject playerCamera;
     [Header("Effects")]
     public float runningSpeedMultiplier = 1.5f;
     public float stunDuration = 2f;
     public Material hitMaterial; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
-    private float baseMoveSpeed;
-    private float baseMouseSensitivity;
+
     private Coroutine stunCoroutine;
     /// <summary>
     /// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ UI
@@ -34,10 +38,11 @@ public class PlayerController : MonoBehaviour
         effectController = new EffectController(this);
         playerBody = GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
+
+
         rb = GetComponent<Rigidbody>();
-        baseMoveSpeed = moveSpeed;
-        baseMouseSensitivity = mouseSensitivity;
         screenRenderer = GetComponent<Renderer>();
+<<<<<<< HEAD
     }
 
 
@@ -51,13 +56,16 @@ public class PlayerController : MonoBehaviour
         {
             photoSystem.ChangeActive(false);
         }
+=======
+        //rb.interpolation = RigidbodyInterpolation.Interpolate;
+        
+>>>>>>> 643ff71e2145c8dc5345994a40ae966dab65c948
     }
     public void Update()
     {
         effectController.UpdateEffects();
         //Movement();
         Looking();
-        KeyBounds();
     }
     public void FixedUpdate()
     {
@@ -71,20 +79,41 @@ public class PlayerController : MonoBehaviour
     }
     void Movement()
     {
+<<<<<<< HEAD
         float moveX = Input.GetAxis("Horizontal"); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (A/D пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅ)
         float moveZ = Input.GetAxis("Vertical"); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (W/S пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅ)
 
         Vector3 move = transform.right * moveX + transform.forward * moveZ; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         playerBody.position += move * moveSpeed * Time.deltaTime; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+=======
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
+        Vector3 move = transform.right * moveX + transform.forward * moveZ;
+
+        if (move.magnitude > 1f)
+            move.Normalize();
+
+        float currentSpeed = moveSpeed;
+        if (Input.GetKey(KeyCode.LeftShift)) // Бег при зажатом Shift
+        {
+            currentSpeed *= runningSpeedMultiplier;
+        }
+
+        rb.MovePosition(rb.position + move * currentSpeed * Time.fixedDeltaTime);
+>>>>>>> 643ff71e2145c8dc5345994a40ae966dab65c948
     }
+
     void Looking()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity; // Убрать Time.deltaTime
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity; // Убрать Time.deltaTime
 
+        // Вертикальное вращение камеры
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
+<<<<<<< HEAD
         // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Camera.main.transform.localRotation = Quaternion.Slerp(
             Camera.main.transform.localRotation,
@@ -94,6 +123,10 @@ public class PlayerController : MonoBehaviour
 
         // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         playerBody.Rotate(Vector3.up * mouseX);
+=======
+        // Горизонтальное вращение игрока
+        transform.Rotate(Vector3.up * mouseX); // Простое вращение без физики
+>>>>>>> 643ff71e2145c8dc5345994a40ae966dab65c948
     }
 }
 

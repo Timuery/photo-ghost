@@ -3,104 +3,97 @@ using UnityEngine.UI;
 
 public class PhotoSystem : MonoBehaviour
 {
-    [Header("Camera Settings")]
-    [SerializeField] private Camera photoCamera; // Камера фотоаппарата
-    [SerializeField] private Camera mainCamera; // Основная камера
-    [SerializeField] private RenderTexture photoRenderTexture; // Рендер-текстура для фото
+    [Header("Main Camera")]
+    [SerializeField] private Camera mainCamera;
 
-    [Header("UI Settings")]
-    [SerializeField] private Canvas photoUICanvas; // UI фотоаппарата
-    [SerializeField] private RawImage photoPreview; // Превью фотографии
+    [Header("UI Elements")]
+    [SerializeField] private CanvasGroup photoUI;
+    [SerializeField] private RawImage photoFrame;
 
-    [Header("Photo Object")]
-    [SerializeField] private GameObject photoPaperPrefab; // Префаб "бумаги" для фото
+    [Header("Photo Settings")]
+    [SerializeField] private RenderTexture photoTexture;
+    [SerializeField] private GameObject photoPrefab;
+    [SerializeField] private float photoDistance = 2f;
 
-    private bool _isActive;
-    private Texture2D _currentPhoto;
+    private bool isPhotoMode;
+    private Texture2D currentPhoto;
 
     private void Start()
     {
-        // Инициализация состояний
-        SetCameraState(false);
-        photoUICanvas.gameObject.SetActive(false);
+        SetPhotoMode(false);
     }
 
-    public void ChangeActive(bool active = true)
+    private void Update()
     {
-        if (active)
+        // Активация/деактивация фоторежима
+        if (Input.GetButtonDown("Photo"))
         {
-            _isActive = !_isActive;
+            TogglePhotoMode();
         }
-        else
+
+        // Создание фото при активном режиме
+        if (isPhotoMode && Input.GetMouseButtonDown(0))
         {
-            _isActive = false;
+            CreatePhoto();
         }
-        SetCameraState(_isActive);
-
-        // Переключение UI
-        photoUICanvas.gameObject.SetActive(_isActive);
-
-        // Синхронизация с основной камерой
-        if (_isActive) SyncCameraPosition();
-
-            
     }
 
-    private void SetCameraState(bool state)
+    private void TogglePhotoMode()
     {
-        photoCamera.gameObject.SetActive(state);
-        mainCamera.gameObject.SetActive(!state);
+        isPhotoMode = !isPhotoMode;
+        SetPhotoMode(isPhotoMode);
+    }
+
+    private void SetPhotoMode(bool state)
+    {
+        photoUI.alpha = state ? 1 : 0;
+        photoUI.blocksRaycasts = state;
+        photoUI.interactable = state;
+
+        Cursor.lockState = state ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = state;
     }
 
     public void CreatePhoto()
     {
-        if (!_isActive) return;
+        StartCoroutine(CapturePhoto());
+    }
 
-        // Создание текстуры из рендер-текстуры
-        _currentPhoto = new Texture2D(
-            photoRenderTexture.width,
-            photoRenderTexture.height,
+    private System.Collections.IEnumerator CapturePhoto()
+    {
+        yield return new WaitForEndOfFrame();
+
+        currentPhoto = new Texture2D(
+            photoTexture.width,
+            photoTexture.height,
             TextureFormat.RGB24,
             false
         );
 
-        RenderTexture.active = photoRenderTexture;
-        _currentPhoto.ReadPixels(new Rect(0, 0,
-            photoRenderTexture.width,
-            photoRenderTexture.height), 0, 0);
-        _currentPhoto.Apply();
+        RenderTexture.active = photoTexture;
+        currentPhoto.ReadPixels(new Rect(0, 0, photoTexture.width, photoTexture.height), 0, 0);
+        currentPhoto.Apply();
         RenderTexture.active = null;
 
-        // Создание объекта "бумага"
-        CreatePhotoPaper();
-
-        // Обновление превью
-        photoPreview.texture = _currentPhoto;
+        InstantiatePhoto();
+        photoFrame.texture = currentPhoto;
     }
 
-    private void CreatePhotoPaper()
+    private void InstantiatePhoto()
     {
-        var paper = Instantiate(photoPaperPrefab,
-            transform.position + transform.forward * 2,
-            Quaternion.identity);
+        Vector3 spawnPos = mainCamera.transform.position +
+                         mainCamera.transform.forward * photoDistance;
 
-        var renderer = paper.GetComponent<Renderer>();
+        GameObject newPhoto = Instantiate(
+            photoPrefab,
+            spawnPos,
+            Quaternion.LookRotation(-mainCamera.transform.forward)
+        );
+
+        MeshRenderer renderer = newPhoto.GetComponent<MeshRenderer>();
         if (renderer != null)
         {
-            renderer.material.mainTexture = _currentPhoto;
+            renderer.material.mainTexture = currentPhoto;
         }
     }
-
-    private void SyncCameraPosition()
-    {
-        // Синхронизация позиции с основной камерой
-        photoCamera.transform.SetPositionAndRotation(
-            mainCamera.transform.position,
-            mainCamera.transform.rotation
-        );
-    }
-
-    // Дополнительные методы
-    public void AdjustFOV(float value) => photoCamera.fieldOfView = value;
-    public void ToggleFilter() { /* Реализация фильтров */ }
 }

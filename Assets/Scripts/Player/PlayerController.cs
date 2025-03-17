@@ -6,53 +6,58 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float mouseSensitivity = 100f; 
+    public float mouseSensitivity = 1f; 
 
     private Transform playerBody;
     private float xRotation = 0f;
     EffectController effectController;
     Rigidbody rb;
 
-    [SerializeField]private GameObject playerCamera;
+    [SerializeField]private Camera playerCamera;
+    [Header("MainComponent")]
+    [HideInInspector] public SceneController _mainController;
+
+
+
     [Header("Effects")]
     public float runningSpeedMultiplier = 1.5f;
     public float stunDuration = 2f;
-    public Material hitMaterial;
 
+    private void CameraChecker()
+    {
+        // Создаем луч из центра камеры
+        Ray ray = playerCamera.
+            ScreenPointToRay(new Vector3
+            (Screen.width / 2, Screen.height / 2, 0));
+        RaycastHit hit;
 
-    private Coroutine stunCoroutine;
- 
-    public Renderer screenRenderer;
-    public PhotoSystem photoSystem;
+        // Проверяем, попадает ли луч на объект
+        if (Physics.Raycast(ray, out hit))
+        {
+            // Проверяем, имеет ли объект тег "Useble"
+            if (hit.collider.CompareTag("Useble"))
+            {
+                Debug.Log("FinD!");
+                _mainController.UIcontroller.ActiveUsePanel();
+            }
+        }
+
+        
+    }
 
     public void Start()
     {
         effectController = new EffectController(this);
         playerBody = GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
-
-
         rb = GetComponent<Rigidbody>();
-        screenRenderer = GetComponent<Renderer>();
     }
-
-
-    /*void KeyBounds()
-    {
-        if (Input.GetButtonDown("Photo"))
-        {
-            photoSystem.ChangeActive();
-        }
-        if (Input.GetButtonDown("РЎancel"))
-        {
-            photoSystem.ChangeActive(false);
-        }
-    }*/
     public void Update()
     {
         effectController.UpdateEffects();
         //Movement();
         Looking();
+        CameraChecker();
     }
     public void FixedUpdate()
     {
@@ -126,15 +131,12 @@ class EffectController
 
     public void UpdateEffects()
     {
-        Debug.Log("1");
         if (HasEffect(PlayerEffect.Running))
             player.moveSpeed = originalSpeed * player.runningSpeedMultiplier;
         else
             player.moveSpeed = originalSpeed;
-        Debug.Log("2");
         if (HasEffect(PlayerEffect.Stunning))
             player.transform.Rotate(Vector3.up * 100 * Time.deltaTime);
-        Debug.Log("3");
         if (HasEffect(PlayerEffect.Hit))
             HandleHitEffect();
     }
@@ -147,7 +149,6 @@ class EffectController
                 player.StartCoroutine(StunCoroutine());
                 break;
             case PlayerEffect.Hit:
-                player.screenRenderer.material = player.hitMaterial;
                 break;
         }
     }
@@ -157,7 +158,6 @@ class EffectController
         switch (effect)
         {
             case PlayerEffect.Hit:
-                player.screenRenderer.material = null;
                 break;
         }
     }

@@ -2,12 +2,12 @@ using System;
 using UnityEngine;
 
 
-[RequireComponent(typeof(Rigidbody), typeof(Renderer))] // Добавлен Renderer
+[RequireComponent(typeof(Rigidbody), typeof(Renderer))] // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Renderer
 public class PlayerController : MonoBehaviour
 {
 
-    public float moveSpeed = 5f; // Скорость передвижения
-    public float mouseSensitivity = 100f; // Чувствительность мыши
+    public float moveSpeed = 5f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    public float mouseSensitivity = 100f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
     private Transform playerBody;
     private float xRotation = 0f;
@@ -18,13 +18,13 @@ public class PlayerController : MonoBehaviour
     [Header("Effects")]
     public float runningSpeedMultiplier = 1.5f;
     public float stunDuration = 2f;
-    public Material hitMaterial; // Материал для эффекта попадания
+    public Material hitMaterial; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
     private float baseMoveSpeed;
     private float baseMouseSensitivity;
     private Coroutine stunCoroutine;
     /// <summary>
-    /// Потом можно будет перевести в UI
+    /// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ UI
     /// </summary>
     public Renderer screenRenderer;
     public PhotoSystem photoSystem;
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             photoSystem.ChangeActive();
         }
-        if (Input.GetButtonDown("Сancel"))
+        if (Input.GetButtonDown("РЎancel"))
         {
             photoSystem.ChangeActive(false);
         }
@@ -71,11 +71,11 @@ public class PlayerController : MonoBehaviour
     }
     void Movement()
     {
-        float moveX = Input.GetAxis("Horizontal"); // Получаем ввод по горизонтали (A/D или стрелки влево/вправо)
-        float moveZ = Input.GetAxis("Vertical"); // Получаем ввод по вертикали (W/S или стрелки вверх/вниз)
+        float moveX = Input.GetAxis("Horizontal"); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (A/D пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅ)
+        float moveZ = Input.GetAxis("Vertical"); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (W/S пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅ)
 
-        Vector3 move = transform.right * moveX + transform.forward * moveZ; // Рассчитываем направление движения
-        playerBody.position += move * moveSpeed * Time.deltaTime; // Применяем движение
+        Vector3 move = transform.right * moveX + transform.forward * moveZ; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        playerBody.position += move * moveSpeed * Time.deltaTime; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     }
     void Looking()
     {
@@ -85,14 +85,14 @@ public class PlayerController : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        // Плавный поворот камеры по вертикали
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Camera.main.transform.localRotation = Quaternion.Slerp(
             Camera.main.transform.localRotation,
             Quaternion.Euler(xRotation, 0f, 0f),
-            Time.deltaTime * 10f // Скорость интерполяции
+            Time.deltaTime * 10f // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         );
 
-        // Поворот игрока по горизонтали
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         playerBody.Rotate(Vector3.up * mouseX);
     }
 }
@@ -172,7 +172,7 @@ class EffectController
 
     private void HandleHitEffect()
     {
-        // Дополнительная логика эффекта попадания
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     }
 }
 

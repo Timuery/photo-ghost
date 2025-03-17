@@ -519,8 +519,14 @@ PrefabInstance:
       propertyPath: screenRenderer
       value: 
       objectReference: {fileID: 421492672}
+    - target: {fileID: 7752789875666276822, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7304298317128917688, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+    - {fileID: 998292261823127869, guid: f4132969f957d1d468c558439f0463c3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4132969f957d1d468c558439f0463c3, type: 3}

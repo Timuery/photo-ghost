@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float moveSpeed = 5f; // Скорость передвижения
+    public float moveSpeed = 2f; // Скорость передвижения
     public float mouseSensitivity = 100f; // Чувствительность мыши
 
     private Transform playerBody;
@@ -14,14 +14,13 @@ public class PlayerController : MonoBehaviour
     EffectController effectController;
     Rigidbody rb;
 
-
+    [SerializeField]private GameObject playerCamera;
     [Header("Effects")]
     public float runningSpeedMultiplier = 1.5f;
     public float stunDuration = 2f;
     public Material hitMaterial; // Материал для эффекта попадания
 
-    private float baseMoveSpeed;
-    private float baseMouseSensitivity;
+
     private Coroutine stunCoroutine;
     /// <summary>
     /// Потом можно будет перевести в UI
@@ -34,30 +33,18 @@ public class PlayerController : MonoBehaviour
         effectController = new EffectController(this);
         playerBody = GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
+
+
         rb = GetComponent<Rigidbody>();
-        baseMoveSpeed = moveSpeed;
-        baseMouseSensitivity = mouseSensitivity;
         screenRenderer = GetComponent<Renderer>();
-    }
-
-
-    void KeyBounds()
-    {
-        if (Input.GetButtonDown("Photo"))
-        {
-            photoSystem.ChangeActive();
-        }
-        if (Input.GetButtonDown("Сancel"))
-        {
-            photoSystem.ChangeActive(false);
-        }
+        //rb.interpolation = RigidbodyInterpolation.Interpolate;
+        
     }
     public void Update()
     {
         effectController.UpdateEffects();
         //Movement();
         Looking();
-        KeyBounds();
     }
     public void FixedUpdate()
     {
@@ -71,29 +58,34 @@ public class PlayerController : MonoBehaviour
     }
     void Movement()
     {
-        float moveX = Input.GetAxis("Horizontal"); // Получаем ввод по горизонтали (A/D или стрелки влево/вправо)
-        float moveZ = Input.GetAxis("Vertical"); // Получаем ввод по вертикали (W/S или стрелки вверх/вниз)
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
+        Vector3 move = transform.right * moveX + transform.forward * moveZ;
 
-        Vector3 move = transform.right * moveX + transform.forward * moveZ; // Рассчитываем направление движения
-        playerBody.position += move * moveSpeed * Time.deltaTime; // Применяем движение
+        if (move.magnitude > 1f)
+            move.Normalize();
+
+        float currentSpeed = moveSpeed;
+        if (Input.GetKey(KeyCode.LeftShift)) // Бег при зажатом Shift
+        {
+            currentSpeed *= runningSpeedMultiplier;
+        }
+
+        rb.MovePosition(rb.position + move * currentSpeed * Time.fixedDeltaTime);
     }
+
     void Looking()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity; // Убрать Time.deltaTime
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity; // Убрать Time.deltaTime
 
+        // Вертикальное вращение камеры
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        // Плавный поворот камеры по вертикали
-        Camera.main.transform.localRotation = Quaternion.Slerp(
-            Camera.main.transform.localRotation,
-            Quaternion.Euler(xRotation, 0f, 0f),
-            Time.deltaTime * 10f // Скорость интерполяции
-        );
-
-        // Поворот игрока по горизонтали
-        playerBody.Rotate(Vector3.up * mouseX);
+        // Горизонтальное вращение игрока
+        transform.Rotate(Vector3.up * mouseX); // Простое вращение без физики
     }
 }
 

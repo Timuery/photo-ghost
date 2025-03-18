@@ -159,7 +159,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   mouseSensitivity: 1
+  interactionDistance: 5
+  arm: {fileID: 6772424921331625000}
   playerCamera: {fileID: 7755421484405002857}
+  _mainController: {fileID: 0}
   runningSpeedMultiplier: 1.5
   stunDuration: 2
 --- !u!54 &7845909581194126269
@@ -249,6 +252,11 @@ PrefabInstance:
 --- !u!4 &746909371577513828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1477043404372389190, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
+  m_PrefabInstance: {fileID: 2171312518326819362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6772424921331625000 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4890471240474818058, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
   m_PrefabInstance: {fileID: 2171312518326819362}
   m_PrefabAsset: {fileID: 0}
 --- !u!20 &7755421484405002857 stripped

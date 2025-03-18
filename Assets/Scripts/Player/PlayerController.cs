@@ -5,45 +5,32 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(Renderer))] 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Settings")]
     public float moveSpeed = 5f;
     public float mouseSensitivity = 1f; 
-
-    private Transform playerBody;
+    
     private float xRotation = 0f;
-    EffectController effectController;
-    Rigidbody rb;
+    public float interactionDistance = 5f;
+    private GameObject _objectOnArm;
 
+    [Header("Body Parts")]
+    [SerializeField] private Transform arm;
+    private Transform playerBody;
+    
+    
+    [Header("Camera")]
     [SerializeField]private Camera playerCamera;
+
     [Header("MainComponent")]
     [HideInInspector] public SceneController _mainController;
-
-
+    EffectController effectController;
+    Rigidbody rb;
 
     [Header("Effects")]
     public float runningSpeedMultiplier = 1.5f;
     public float stunDuration = 2f;
 
-    private void CameraChecker()
-    {
-        // Создаем луч из центра камеры
-        Ray ray = playerCamera.
-            ScreenPointToRay(new Vector3
-            (Screen.width / 2, Screen.height / 2, 0));
-        RaycastHit hit;
-
-        // Проверяем, попадает ли луч на объект
-        if (Physics.Raycast(ray, out hit))
-        {
-            // Проверяем, имеет ли объект тег "Useble"
-            if (hit.collider.CompareTag("Useble"))
-            {
-                Debug.Log("FinD!");
-                _mainController.UIcontroller.ActiveUsePanel();
-            }
-        }
-
-        
-    }
+    
 
     public void Start()
     {
@@ -86,7 +73,6 @@ public class PlayerController : MonoBehaviour
 
         rb.MovePosition(rb.position + move * currentSpeed * Time.fixedDeltaTime);
     }
-
     void Looking()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity; // Убрать Time.deltaTime
@@ -98,7 +84,62 @@ public class PlayerController : MonoBehaviour
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
     }
+    void CameraChecker()
+    {
+        // Создаем луч из центра камеры
+        Ray ray = playerCamera.
+            ScreenPointToRay(new Vector3
+            (Screen.width / 2, Screen.height / 2, 0));
+        RaycastHit hit;
+
+        // Проверяем, попадает ли луч на объект
+        if (Physics.Raycast(ray, out hit, interactionDistance))
+        {
+            if (hit.collider.CompareTag("Useble"))
+            {
+                Debug.Log("FinD!");
+                _mainController.UIcontroller.ActiveUsePanel();
+            }
+            // Takeble
+            if (hit.transform.gameObject.layer == 6)
+            {
+                // Выполняется метод проверки при нажатии
+
+                ArmController(hit.transform.gameObject);
+            }
+        }
+        ArmController();
+    }
+    void ArmController(GameObject _item = null)
+    {
+        // ЛКМ
+        if (_item != null && _objectOnArm == null)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                _objectOnArm = _item;
+                _itemManager manager = _objectOnArm.GetComponent<_itemManager>();
+                _objectOnArm.transform.SetParent(gameObject.transform);
+                manager.RigidbodyState(false);
+            }
+        }
+
+        if (_objectOnArm != null)
+        {
+            _itemManager manager = _objectOnArm.GetComponent<_itemManager>();
+            if (Input.GetMouseButtonUp(0))
+            {
+                manager.RigidbodyState(true);
+                _objectOnArm.transform.SetParent(null); // Отменяем родительский объект
+                _objectOnArm = null;
+            }
+
+            manager.MoveItem(arm);
+        }
+
+    }
 }
+
 
 class EffectController
 {

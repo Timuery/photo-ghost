@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7447997042286550354}
   - component: {fileID: 2794585854644483903}
   - component: {fileID: 5475178379379225946}
-  - component: {fileID: 6431230698563558056}
   - component: {fileID: 7845909581194126269}
+  - component: {fileID: 9068301520720290760}
   m_Layer: 0
   m_Name: AilinPlayer
   m_TagString: Untagged
@@ -36,7 +36,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 746909371577513828}
-  - {fileID: 8158989058576104031}
   - {fileID: 2236826536356940847}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -146,24 +145,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 7755421484405002857}
---- !u!114 &6431230698563558056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6262210563864459029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9702cb41094c7f14cba42dc0659bac58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  mouseSensitivity: 1
-  playerCamera: {fileID: 7755421484405002857}
-  _mainController: {fileID: 0}
-  runningSpeedMultiplier: 1.5
-  stunDuration: 2
 --- !u!54 &7845909581194126269
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -191,6 +172,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &9068301520720290760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6262210563864459029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9702cb41094c7f14cba42dc0659bac58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  mouseSensitivity: 1
+  interactionDistance: 5
+  arm: {fileID: 0}
+  playerCamera: {fileID: 7755421484405002857}
+  _mainController: {fileID: 0}
+  runningSpeedMultiplier: 1.5
+  stunDuration: 2
 --- !u!1001 &2171312518326819362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,13 +244,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7031688420470240768, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
+      value: 257
+      objectReference: {fileID: 0}
     - target: {fileID: 8467550131105695819, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 55
+      value: 311
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1477043404372389190, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8158989058576104031}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
 --- !u!4 &746909371577513828 stripped
@@ -374,7 +382,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4336496490956713196}
+    m_TransformParent: {fileID: 746909371577513828}
     m_Modifications:
     - target: {fileID: 106698542821500304, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
       propertyPath: m_Name
@@ -420,8 +428,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7031688420470240768, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
+      value: 513
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467550131105695819, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467550131105695819, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 759
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1132083374658674118, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}

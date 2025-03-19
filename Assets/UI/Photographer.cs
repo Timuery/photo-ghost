@@ -12,6 +12,9 @@ public class Photographer : MonoBehaviour
 
     [SerializeField] private AudioSource audioSource;
 
+    [SerializeField] private PhotoCollectionManager photoCollectionManager;
+
+
 
     void Update()
     {
@@ -21,7 +24,17 @@ public class Photographer : MonoBehaviour
             audioSource.Play();
 
         }
+
+            if (Input.GetKeyDown(KeyCode.G))
+        {
+            Debug.Log('п');
+            photoCollectionManager.TogglePanel();
+        }
+
+
+    
     }
+    
 
 
 

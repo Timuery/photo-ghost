@@ -1,3 +1,5 @@
+using System;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,15 +16,17 @@ public class Photographer : MonoBehaviour
 
     [SerializeField] private PhotoCollectionManager photoCollectionManager;
 
-
+    private bool isActive = false;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (isActive)
         {
-            CaptureRenderTexture(ghostRT);
-            audioSource.Play();
-
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                CaptureRenderTexture(ghostRT);
+                audioSource.Play();
+            }
         }
 
             if (Input.GetKeyDown(KeyCode.G))
@@ -34,9 +38,12 @@ public class Photographer : MonoBehaviour
 
     
     }
-    
 
+    public void CameraOpen(bool state)
+    {
+        isActive = state;
 
+    }
 
 
 

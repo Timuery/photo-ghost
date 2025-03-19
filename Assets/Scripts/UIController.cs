@@ -8,11 +8,12 @@ public class UIController : MonoBehaviour
     public float fadeDuration = 2f;
     [SerializeField] Image _prefabUsePanel;
     Coroutine _fadeCoroutine;
+    [SerializeField] private Photographer photoController;
 
     private void Start()
     {
         _prefabUsePanel = 
-            GameObject.Find("UsePanel").
+            GameObject.Find("Image").
             GetComponent<Image>();
     }
     public void ActiveUsePanel()
@@ -23,48 +24,55 @@ public class UIController : MonoBehaviour
     {
 
         _prefabUsePanel = p;
-        // Устанавливаем альфа-канал в 1 (полная непрозрачность)
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅ пїЅ 1 (пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
         Color color = _prefabUsePanel.color;
-        color.a = 1f; // Устанавливаем альфа-канал в 1 (0-1)
+        color.a = 1f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅ пїЅ 1 (0-1)
         _prefabUsePanel.color = color;
 
-        // Если корутина уже выполняется, останавливаем её
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ
         if (_fadeCoroutine != null)
         {
             StopCoroutine(_fadeCoroutine);
         }
 
-        // Запускаем корутину, которая ждет перед затуханием
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         _fadeCoroutine = StartCoroutine(WaitAndFadeOut(delay));
     }
     private IEnumerator WaitAndFadeOut(float delay)
     {
-        // Ждем заданное время
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         yield return new WaitForSeconds(delay);
 
-        // Запускаем затухание
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         StartCoroutine(FadeOut());
     }
     private IEnumerator FadeOut()
     {
         Color color = _prefabUsePanel.color;
-        float startAlpha = color.a; // Начальный альфа-канал 
-        // Время, за которое альфа-канал станет 0
-        float time = 0f; // Время, прошедшее с начала
+        float startAlpha = color.a; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅ 
+        // пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 0
+        float time = 0f; // пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
         while (time < fadeDuration)
         {
-            time += Time.deltaTime; // Увеличиваем время
-            float t = time / fadeDuration; // Нормализуем время от 0 до 1
-            color.a = Mathf.Lerp(startAlpha, 0, t); // Линейная интерполяция альфа-канала
-            _prefabUsePanel.color = color; // Применяем измененный цвет
-            yield return null; // Ждем следующего кадра
+            time += Time.deltaTime; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+            float t = time / fadeDuration; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 0 пїЅпїЅ 1
+            color.a = Mathf.Lerp(startAlpha, 0, t); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅ
+            _prefabUsePanel.color = color; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+            yield return null; // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         }
 
-        // Убедимся, что альфа-канал точно равен 0 в конце
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 0 пїЅ пїЅпїЅпїЅпїЅпїЅ
         color.a = 0;
         _prefabUsePanel.color = color;
     }
+
+    public void ToggleCameraUI(bool state)
+    {
+        photoController.CameraOpen(state);
+    }
+
+    
 
 
 }

@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
         Looking();
         CameraChecker();
         Keys();
+
     }
     public void FixedUpdate()
     {
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
             move.Normalize();
 
         float currentSpeed = moveSpeed;
-        if (Input.GetKey(KeyCode.LeftShift)) // Бег при зажатом Shift
+        if (Input.GetKey(KeyCode.LeftShift)) // пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Shift
         {
             currentSpeed *= runningSpeedMultiplier;
         }
@@ -77,10 +78,10 @@ public class PlayerController : MonoBehaviour
     }
     void Looking()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity; // Убрать Time.deltaTime
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity; // Убрать Time.deltaTime
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity; // пїЅпїЅпїЅпїЅпїЅпїЅ Time.deltaTime
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity; // пїЅпїЅпїЅпїЅпїЅпїЅ Time.deltaTime
 
-        // Вертикальное вращение камеры
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
@@ -88,13 +89,13 @@ public class PlayerController : MonoBehaviour
     }
     void CameraChecker()
     {
-        // Создаем луч из центра камеры
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         Ray ray = playerCamera.
             ScreenPointToRay(new Vector3
             (Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
 
-            // Проверяем, попадает ли луч на объект
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             if (Physics.Raycast(ray, out hit, interactionDistance))
         {
             if (findObject != hit.transform.gameObject)
@@ -106,7 +107,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if (hit.transform.gameObject.layer == 6)
                 {
-                    // Выполняется метод проверки при нажатии
+                    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     ArmController(hit.transform.gameObject);
                 }
             }
@@ -116,14 +117,24 @@ public class PlayerController : MonoBehaviour
 
     void Keys()
     {
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log("bb");
+            ApplyEffect(PlayerEffect.Photo);
+            
+        }
+
         if (Input.GetButtonDown("Use") && findObject.CompareTag("Door"))
         {
             findObject.GetComponent<DoorScript.Door>().OpenDoor();
         }
+
+     
     }
     void ArmController(GameObject _item = null)
     {
-        // ЛКМ
+        // пїЅпїЅпїЅ
         if (_item != null && _objectOnArm == null)
         {
             if (Input.GetMouseButtonDown(0))
@@ -140,7 +151,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 _mainController._ItemManager.RigidbodyState(true, _objectOnArm);
-                _objectOnArm.transform.SetParent(null); // Отменяем родительский объект
+                _objectOnArm.transform.SetParent(null); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 _objectOnArm = null;
             }
 
@@ -175,6 +186,12 @@ public class EffectController
 
     public bool HasEffect(PlayerEffect effect)
     {
+        if (effect == PlayerEffect.Photo)
+        {
+            RemoveEffect(PlayerEffect.Photo);
+            player._mainController.UIcontroller.ToggleCameraUI(false);
+            
+        }
         return (activeEffects & effect) == effect;
     }
 
@@ -198,6 +215,9 @@ public class EffectController
                 player.StartCoroutine(StunCoroutine());
                 break;
             case PlayerEffect.Hit:
+                break;
+            case PlayerEffect.Photo:
+                player._mainController.UIcontroller.ToggleCameraUI(true);
                 break;
         }
     }
@@ -229,5 +249,6 @@ public enum PlayerEffect
     None = 0,
     Running = 1 << 0,   // 1
     Stunning = 1 << 1,  // 2
-    Hit = 1 << 2        // 4
+    Hit = 1 << 2,        // 4
+    Photo = 1 << 3
 }

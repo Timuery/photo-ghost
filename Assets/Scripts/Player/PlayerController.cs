@@ -118,23 +118,22 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 _objectOnArm = _item;
-                _itemManager manager = _objectOnArm.GetComponent<_itemManager>();
                 _objectOnArm.transform.SetParent(gameObject.transform);
-                manager.RigidbodyState(false);
+                _mainController._ItemManager.RigidbodyState(false, _objectOnArm);
             }
         }
 
         if (_objectOnArm != null)
         {
-            _itemManager manager = _objectOnArm.GetComponent<_itemManager>();
+            
             if (Input.GetMouseButtonUp(0))
             {
-                manager.RigidbodyState(true);
+                _mainController._ItemManager.RigidbodyState(true, _objectOnArm);
                 _objectOnArm.transform.SetParent(null); // Отменяем родительский объект
                 _objectOnArm = null;
             }
 
-            manager.MoveItem(arm);
+            _mainController._ItemManager.MoveItem(arm);
         }
 
     }

@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Profiling;
 
-public class _itemManager : MonoBehaviour
+public class ItemManager : MonoBehaviour
 {
     private Rigidbody rb;
 
@@ -10,14 +10,9 @@ public class _itemManager : MonoBehaviour
     public float maxSpeed = 15f;    // Максимальная скорость
     private Vector3 _velocity;      // Текущая скорость
 
-
-    private void Start()
+    public void RigidbodyState(bool state, GameObject item)
     {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    public void RigidbodyState(bool state)
-    {
+        rb = item.GetComponent<Rigidbody>();
         if (!state)
         {
             rb.constraints = RigidbodyConstraints.FreezeRotation;
@@ -30,17 +25,22 @@ public class _itemManager : MonoBehaviour
             rb.constraints = RigidbodyConstraints.None;
             rb.useGravity = true;
             rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
+            rb = null;
         }
     }
     public void MoveItem(Transform arm)
     {
-        Vector3 targetPosition = arm.position;
-        Vector3 direction = (targetPosition - rb.position).normalized;
+        if (rb != null)
+        {
+            Vector3 targetPosition = arm.position;
+            Vector3 direction = (targetPosition - rb.position).normalized;
 
-        // Рассчитываем скорость
-        rb.linearVelocity = direction * Mathf.Min(
-            maxSpeed,
-            Vector3.Distance(rb.position, targetPosition) * acceleration
-        );
+            // Рассчитываем скорость
+            rb.linearVelocity = direction * Mathf.Min(
+                maxSpeed,
+                Vector3.Distance(rb.position, targetPosition) * acceleration
+            );
+        }
+        
     }
 }

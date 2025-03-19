@@ -6,8 +6,10 @@ public class SceneController : MonoBehaviour
     private GameObject ghost;
 
     [HideInInspector] public UIController UIcontroller;
+    [HideInInspector] public ItemManager _ItemManager;
     private void Start()
     {
+        _ItemManager = GetComponent<ItemManager>();
         FindPlayer();
         FindCanvas();
     }

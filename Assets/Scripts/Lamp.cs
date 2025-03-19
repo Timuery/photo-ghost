@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Lamp : MonoBehaviour, IUseble
 {
-    [SerializeField] Condition condition;
+    public Condition condition;
 
     Light lightComponent;
 

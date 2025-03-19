@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Misk : MonoBehaviour, IUseble
 {
-    Condition condition;
+    public Condition condition;
     public virtual void Use()
     {
         Debug.Log("Using the Misk");

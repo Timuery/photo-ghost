@@ -13,7 +13,7 @@ public class CameraOpenDoor : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	/*void Update () {
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position, transform.forward, out hit, DistanceOpen)) {
 				if (hit.transform.GetComponent<DoorScript.Door> ()) {
@@ -26,6 +26,6 @@ public class CameraOpenDoor : MonoBehaviour {
 		}else{
 			text.SetActive (false);
 		}
-	}
+	}*/
 }
 }

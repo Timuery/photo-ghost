@@ -5,7 +5,8 @@ public enum Condition
 {
     Deactive,
     Active,
-    Destroyed 
+    Destroyed,
+    Anywhere
 
 }
 public enum EntityCondition
@@ -14,17 +15,13 @@ public enum EntityCondition
     Neutral,
     Agressive
 }
-
-
 public interface IUseble
 {
-    
     public void Use();
     public string Information();
     public Condition GetCondition();
     public void SetCondition(Condition cdn);
 }
-
 public interface IEntity
 {
     public string Information();

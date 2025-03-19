@@ -19,9 +19,7 @@ public class UIController : MonoBehaviour
     {
         ActivatePanel(fadeTo, _prefabUsePanel);
     }
-
-
-    public void ActivatePanel(float delay, Image p)
+    private void ActivatePanel(float delay, Image p)
     {
 
         _prefabUsePanel = p;

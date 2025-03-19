@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     
     private float xRotation = 0f;
     public float interactionDistance = 5f;
+    private GameObject findObject;
     private GameObject _objectOnArm;
 
     [Header("Body Parts")]
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("MainComponent")]
     [HideInInspector] public SceneController _mainController;
-    EffectController effectController;
+    [HideInInspector] public EffectController effectController;
     Rigidbody rb;
 
     [Header("Effects")]
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
         //Movement();
         Looking();
         CameraChecker();
+        Keys();
     }
     public void FixedUpdate()
     {
@@ -58,6 +60,8 @@ public class PlayerController : MonoBehaviour
     }
     void Movement()
     {
+
+        ApplyEffect(PlayerEffect.Stunning);
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
@@ -92,23 +96,32 @@ public class PlayerController : MonoBehaviour
             (Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
 
-        // Проверяем, попадает ли луч на объект
-        if (Physics.Raycast(ray, out hit, interactionDistance))
+            // Проверяем, попадает ли луч на объект
+            if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            if (hit.collider.CompareTag("Useble"))
+            if (findObject != hit.transform.gameObject)
             {
-                Debug.Log("FinD!");
-                _mainController.UIcontroller.ActiveUsePanel();
-            }
-            // Takeble
-            if (hit.transform.gameObject.layer == 6)
-            {
-                // Выполняется метод проверки при нажатии
-
-                ArmController(hit.transform.gameObject);
+                findObject = hit.transform.gameObject;
+                if (hit.collider.CompareTag("Useble"))
+                {
+                    _mainController.UIcontroller.ActiveUsePanel();
+                }
+                if (hit.transform.gameObject.layer == 6)
+                {
+                    // Выполняется метод проверки при нажатии
+                    ArmController(hit.transform.gameObject);
+                }
             }
         }
         ArmController();
+    }
+
+    void Keys()
+    {
+        if (Input.GetButtonDown("Use") && findObject.CompareTag("Door"))
+        {
+            findObject.GetComponent<DoorScript.Door>().OpenDoor();
+        }
     }
     void ArmController(GameObject _item = null)
     {
@@ -138,9 +151,7 @@ public class PlayerController : MonoBehaviour
 
     }
 }
-
-
-class EffectController
+public class EffectController
 {
     private PlayerEffect activeEffects;
     private PlayerController player;

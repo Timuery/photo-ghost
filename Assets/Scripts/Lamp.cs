@@ -46,7 +46,7 @@ public class Lamp : MonoBehaviour, IUseble
     public void SetCondition(Condition cdn)
     {
         condition = cdn;
-        if (condition == Condition.Destroyed)
+        if (cdn == Condition.Destroyed)
         {
             StartDestroy();
         }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class UIPhoto : MonoBehaviour
 {
@@ -19,5 +20,10 @@ public class UIPhoto : MonoBehaviour
         {
             Debug.LogError("Не найден Image с именем 'Photo' внутри Palaroid!");
         }
+    
     }
 }
+
+
+
+

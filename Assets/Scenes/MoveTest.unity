@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 201819837}
   - component: {fileID: 201819836}
   - component: {fileID: 201819835}
-  - component: {fileID: 201819834}
   - component: {fileID: 201819833}
   m_Layer: 6
   m_Name: IcanTake (2)
@@ -167,20 +166,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &201819834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201819832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b4f3a6f623dd8438976b364a3d1e3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 8
-  maxSpeed: 15
 --- !u!135 &201819835
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -287,7 +272,6 @@ GameObject:
   - component: {fileID: 363878125}
   - component: {fileID: 363878124}
   - component: {fileID: 363878123}
-  - component: {fileID: 363878122}
   - component: {fileID: 363878121}
   m_Layer: 6
   m_Name: IcanTake (3)
@@ -323,20 +307,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &363878122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363878120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b4f3a6f623dd8438976b364a3d1e3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 8
-  maxSpeed: 15
 --- !u!135 &363878123
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -579,7 +549,6 @@ GameObject:
   - component: {fileID: 492383892}
   - component: {fileID: 492383891}
   - component: {fileID: 492383890}
-  - component: {fileID: 492383889}
   - component: {fileID: 492383894}
   m_Layer: 6
   m_Name: IcanTake
@@ -588,20 +557,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &492383889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492383888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b4f3a6f623dd8438976b364a3d1e3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 4
-  maxSpeed: 15
 --- !u!135 &492383890
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1010,6 +965,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6431230698563558056, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      propertyPath: interactionDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7752789875666276822, guid: f4132969f957d1d468c558439f0463c3, type: 3}
       propertyPath: m_RenderMode
       value: 0
@@ -1045,7 +1004,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6262210563864459029, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1092441038}
   m_SourcePrefab: {fileID: 100100000, guid: f4132969f957d1d468c558439f0463c3, type: 3}
 --- !u!1 &1049709892
 GameObject:
@@ -1059,7 +1021,6 @@ GameObject:
   - component: {fileID: 1049709897}
   - component: {fileID: 1049709896}
   - component: {fileID: 1049709895}
-  - component: {fileID: 1049709894}
   - component: {fileID: 1049709893}
   m_Layer: 6
   m_Name: IcanTake (4)
@@ -1095,20 +1056,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &1049709894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049709892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b4f3a6f623dd8438976b364a3d1e3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 8
-  maxSpeed: 15
 --- !u!135 &1049709895
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1198,6 +1145,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1092441029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6262210563864459029, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+  m_PrefabInstance: {fileID: 1018509142}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1092441038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092441029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e448fbe0f0fc4b449553a0b7c0deb3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkClip: {fileID: 0}
+  runClip: {fileID: 0}
+  stunClip: {fileID: 0}
+  hurtClip: {fileID: 0}
+  rotateStrength: 0
 --- !u!1 &1104278140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,7 +1300,6 @@ GameObject:
   - component: {fileID: 1825487887}
   - component: {fileID: 1825487886}
   - component: {fileID: 1825487885}
-  - component: {fileID: 1825487884}
   - component: {fileID: 1825487883}
   m_Layer: 6
   m_Name: IcanTake (6)
@@ -1367,20 +1335,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &1825487884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825487882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b4f3a6f623dd8438976b364a3d1e3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 8
-  maxSpeed: 15
 --- !u!135 &1825487885
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1529,6 +1483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b4f3a6f623dd8438976b364a3d1e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStrength: 1
+  resistanceForce: 25
   acceleration: 2
   maxSpeed: 15
 --- !u!1 &2009019455
@@ -1543,7 +1499,6 @@ GameObject:
   - component: {fileID: 2009019460}
   - component: {fileID: 2009019459}
   - component: {fileID: 2009019458}
-  - component: {fileID: 2009019457}
   - component: {fileID: 2009019456}
   m_Layer: 6
   m_Name: IcanTake (1)
@@ -1579,20 +1534,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &2009019457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009019455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b4f3a6f623dd8438976b364a3d1e3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 8
-  maxSpeed: 15
 --- !u!135 &2009019458
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1694,7 +1635,6 @@ GameObject:
   - component: {fileID: 2105591932}
   - component: {fileID: 2105591931}
   - component: {fileID: 2105591930}
-  - component: {fileID: 2105591929}
   - component: {fileID: 2105591928}
   m_Layer: 6
   m_Name: IcanTake (5)
@@ -1730,20 +1670,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &2105591929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105591927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b4f3a6f623dd8438976b364a3d1e3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 8
-  maxSpeed: 15
 --- !u!135 &2105591930
 SphereCollider:
   m_ObjectHideFlags: 0

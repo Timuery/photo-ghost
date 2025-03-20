@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     public void Start()
     {
-        effectController = new EffectController(this);
+        effectController = new EffectController(this, GetComponent<AudioSource>());
         playerBody = GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
@@ -64,16 +64,20 @@ public class PlayerController : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
-
+        
         if (move.magnitude > 1f)
             move.Normalize();
 
         float currentSpeed = moveSpeed;
         if (Input.GetKey(KeyCode.LeftShift)) // ��� ��� ������� Shift
         {
-            currentSpeed *= runningSpeedMultiplier;
+            ApplyEffect(PlayerEffect.Running);
         }
-
+        else if (moveX == 0 && moveZ == 0)
+        {
+            ApplyEffect(PlayerEffect.Walk);
+        }
+        
         rb.MovePosition(rb.position + move * currentSpeed * Time.fixedDeltaTime);
     }
     void Looking()
@@ -98,23 +102,20 @@ public class PlayerController : MonoBehaviour
             // ���������, �������� �� ��� �� ������
             if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            if (findObject != hit.transform.gameObject)
+            findObject = hit.transform.gameObject;
+            if (hit.collider.CompareTag("Useble"))
             {
-                findObject = hit.transform.gameObject;
-                if (hit.collider.CompareTag("Useble"))
-                {
-                    _mainController.UIcontroller.ActiveUsePanel();
-                }
-                if (hit.transform.gameObject.layer == 6)
-                {
-                    // ����������� ����� �������� ��� �������
-                    ArmController(hit.transform.gameObject);
-                }
+                Debug.Log("Find10");
+                _mainController.UIcontroller.ActiveUsePanel();
+            }
+            if (hit.transform.gameObject.layer == 6)
+            {
+
+                ArmController(hit.transform.gameObject);
             }
         }
         ArmController();
     }
-
     void Keys()
     {
 
@@ -159,96 +160,4 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-}
-public class EffectController
-{
-    private PlayerEffect activeEffects;
-    private PlayerController player;
-    private float originalSpeed;
-
-    public EffectController(PlayerController player)
-    {
-        this.player = player;
-        originalSpeed = player.moveSpeed;
-    }
-
-    public void AddEffect(PlayerEffect effect)
-    {
-        activeEffects |= effect;
-        HandleEffectStart(effect);
-    }
-
-    public void RemoveEffect(PlayerEffect effect)
-    {
-        activeEffects &= ~effect;
-        HandleEffectEnd(effect);
-    }
-
-    public bool HasEffect(PlayerEffect effect)
-    {
-        if (effect == PlayerEffect.Photo)
-        {
-            RemoveEffect(PlayerEffect.Photo);
-            player._mainController.UIcontroller.ToggleCameraUI(false);
-            
-        }
-        return (activeEffects & effect) == effect;
-    }
-
-    public void UpdateEffects()
-    {
-        if (HasEffect(PlayerEffect.Running))
-            player.moveSpeed = originalSpeed * player.runningSpeedMultiplier;
-        else
-            player.moveSpeed = originalSpeed;
-        if (HasEffect(PlayerEffect.Stunning))
-            player.transform.Rotate(Vector3.up * 100 * Time.deltaTime);
-        if (HasEffect(PlayerEffect.Hit))
-            HandleHitEffect();
-    }
-
-    private void HandleEffectStart(PlayerEffect effect)
-    {
-        switch (effect)
-        {
-            case PlayerEffect.Stunning:
-                player.StartCoroutine(StunCoroutine());
-                break;
-            case PlayerEffect.Hit:
-                break;
-            case PlayerEffect.Photo:
-                player._mainController.UIcontroller.ToggleCameraUI(true);
-                break;
-        }
-    }
-
-    private void HandleEffectEnd(PlayerEffect effect)
-    {
-        switch (effect)
-        {
-            case PlayerEffect.Hit:
-                break;
-        }
-    }
-
-    private System.Collections.IEnumerator StunCoroutine()
-    {
-        yield return new WaitForSeconds(player.stunDuration);
-        RemoveEffect(PlayerEffect.Stunning);
-    }
-
-    private void HandleHitEffect()
-    {
-        // �������������� ������ ������� ���������
-    }
-}
-
-[Flags]
-public enum PlayerEffect
-{
-    None = 0,
-    Running = 1 << 0,   // 1
-    Stunning = 1 << 1,  // 2
-    Hit = 1 << 2,        // 4
-    Photo = 1 << 3
 }

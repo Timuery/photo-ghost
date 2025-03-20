@@ -20,14 +20,13 @@ public class Photographer : MonoBehaviour
 
     void Update()
     {
-        if (isActive)
+
+        if (Input.GetKeyDown(KeyCode.T))
         {
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                CaptureRenderTexture(ghostRT);
-                audioSource.Play();
-            }
+            CaptureRenderTexture(ghostRT);
+            audioSource.Play();
         }
+ 
 
             if (Input.GetKeyDown(KeyCode.G))
         {

@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     public void Start()
     {
-        effectController = new EffectController(this);
+        effectController = new EffectController(this, GetComponent<AudioSource>());
         playerBody = GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();

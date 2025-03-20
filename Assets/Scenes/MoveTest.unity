@@ -1004,7 +1004,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6262210563864459029, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1092441038}
   m_SourcePrefab: {fileID: 100100000, guid: f4132969f957d1d468c558439f0463c3, type: 3}
 --- !u!1 &1049709892
 GameObject:
@@ -1142,6 +1145,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1092441029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6262210563864459029, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+  m_PrefabInstance: {fileID: 1018509142}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1092441038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092441029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e448fbe0f0fc4b449553a0b7c0deb3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkClip: {fileID: 0}
+  runClip: {fileID: 0}
+  stunClip: {fileID: 0}
+  hurtClip: {fileID: 0}
+  rotateStrength: 0
 --- !u!1 &1104278140
 GameObject:
   m_ObjectHideFlags: 0

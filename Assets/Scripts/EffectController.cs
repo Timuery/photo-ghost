@@ -131,13 +131,11 @@ public class EffectController: MonoBehaviour
 
     public void UpdateEffects()
     {
-
-        if (HasEffect(PlayerEffect.Walk))
+        if (HasEffect(PlayerEffect.Running))
+             player.moveSpeed = originalSpeed * player.runningSpeedMultiplier;
+        else
             player.moveSpeed = originalSpeed;
 
-        if (HasEffect(PlayerEffect.Running))
-            player.moveSpeed = originalSpeed * player.runningSpeedMultiplier;
-        
         if (HasEffect(PlayerEffect.Stunning))
         {
             player.transform.Rotate(Vector3.up * rotateStrength * Time.deltaTime);

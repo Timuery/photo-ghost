@@ -59,6 +59,10 @@ public class PlayerController : MonoBehaviour
     {
         effectController.AddEffect(effect);
     }
+    public void RemoveEffect(PlayerEffect effect)
+    {
+        effectController.RemoveEffect(effect);
+    }
     void Movement()
     {
         float moveX = Input.GetAxis("Horizontal");
@@ -69,15 +73,15 @@ public class PlayerController : MonoBehaviour
             move.Normalize();
 
         float currentSpeed = moveSpeed;
-        if (Input.GetKey(KeyCode.LeftShift)) // ��� ��� ������� Shift
+        if (Input.GetButtonDown("Run")) // ��� ��� ������� Shift
         {
             ApplyEffect(PlayerEffect.Running);
         }
-        else if (moveX == 0 && moveZ == 0)
+        else if (Input.GetButtonUp("Run"))
         {
-            ApplyEffect(PlayerEffect.Walk);
+            RemoveEffect(PlayerEffect.Running);
         }
-        
+
         rb.MovePosition(rb.position + move * currentSpeed * Time.fixedDeltaTime);
     }
     void Looking()

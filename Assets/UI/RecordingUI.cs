@@ -16,16 +16,16 @@ public class RecordingUI : MonoBehaviour
     {
         while (isBlinking)
         {
-            for (float alpha = 1; alpha >= 0; alpha -= 0.5f)
+            for (float alpha = 1; alpha >= 0; alpha -= 0.05f)
             {
                 SetAlpha(alpha);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.05f);
             }
 
-            for (float alpha = 0; alpha <= 1; alpha += 0.5f)
+            for (float alpha = 0; alpha <= 1; alpha += 0.05f)
             {
                 SetAlpha(alpha);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.05f);
             }
         }
     }

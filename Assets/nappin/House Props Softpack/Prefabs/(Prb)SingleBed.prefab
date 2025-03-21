@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 1863161634600001033}
   - component: {fileID: 5452546365920639123}
   - component: {fileID: 7592340698192365233}
-  - component: {fileID: 7871683952505573327}
+  - component: {fileID: 6205848980435914952}
   m_Layer: 0
   m_Name: singleBed_frame
   m_TagString: Untagged
@@ -158,8 +158,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7871683952505573327
-BoxCollider:
+--- !u!64 &6205848980435914952
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -176,9 +176,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.6466072, y: 2.8134499, z: 1.8756334}
-  m_Center: {x: 1.8031734, y: 1.4067247, z: 0.00000047683716}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4183364460908127028, guid: 8c9ff27c4343b5e41b0c944eb72ca800, type: 3}
 --- !u!1 &3535501918814593024
 GameObject:
   m_ObjectHideFlags: 0

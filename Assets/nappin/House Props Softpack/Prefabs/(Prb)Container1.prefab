@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 6556800533723177851}
   - component: {fileID: 6761354472780921223}
   - component: {fileID: 6077615591274245713}
+  - component: {fileID: 8045767794138715173}
   m_Layer: 0
   m_Name: container1_toothbrush2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8725152357574142054
 Transform:
@@ -111,6 +112,33 @@ CapsuleCollider:
   m_Height: 0.25180385
   m_Direction: 1
   m_Center: {x: -0.00011821722, y: -0.0937679, z: -0.008216588}
+--- !u!54 &8045767794138715173
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802138118264252554}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2698087628780429697
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +150,7 @@ GameObject:
   - component: {fileID: 7215127580446721659}
   - component: {fileID: 4759568171267504837}
   - component: {fileID: 8479960988081157369}
-  - component: {fileID: 2120534646179521441}
+  - component: {fileID: 3271793200397974825}
   m_Layer: 0
   m_Name: container1_body
   m_TagString: Untagged
@@ -198,7 +226,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2120534646179521441
+--- !u!65 &3271793200397974825
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1212253656945265560}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: container1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +290,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4251633939917721312}
-  m_Layer: 0
+  - component: {fileID: -7552152932170513988}
+  m_Layer: 6
   m_Name: (Prb)Container1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,6 +314,33 @@ Transform:
   - {fileID: 1212253656945265560}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &-7552152932170513988
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479881898786427994}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7181972979801684468
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,12 +353,13 @@ GameObject:
   - component: {fileID: 4893464786514148429}
   - component: {fileID: 2663796267814299821}
   - component: {fileID: 8256292926471143256}
+  - component: {fileID: 2338109274861913456}
   m_Layer: 0
   m_Name: container1_toothbrush1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5225267852186205486
 Transform:
@@ -396,3 +453,30 @@ CapsuleCollider:
   m_Height: 0.25180385
   m_Direction: 1
   m_Center: {x: -0.00011821714, y: -0.0937679, z: -0.008216593}
+--- !u!54 &2338109274861913456
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181972979801684468}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

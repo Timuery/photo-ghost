@@ -126,9 +126,15 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        if (Input.GetButtonDown("Use") && findObject.CompareTag("Door"))
+         if (findObject.CompareTag("Door"))
+
         {
             findObject.GetComponent<DoorScript.Door>().OpenDoor();
+        }
+        else if (findObject.CompareTag("Drawer"))
+        
+        {
+            findObject.GetComponent<DoorScript.Drawer>().ToggleDrawer();
         }
 
      

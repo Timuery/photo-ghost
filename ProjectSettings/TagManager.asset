@@ -8,6 +8,8 @@ TagManager:
   - Ghost
   - Canvas
   - Door
+  - Drawer
+  - Picture
   layers:
   - Default
   - TransparentFX

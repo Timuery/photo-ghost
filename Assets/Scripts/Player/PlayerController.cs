@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 
@@ -32,6 +33,9 @@ public class PlayerController : MonoBehaviour
     [Header("Effects")]
     public float runningSpeedMultiplier = 1.5f;
     public float stunDuration = 2f;
+    [Header("Lights")]
+    public Light photoLight;
+    
 
     
 
@@ -176,5 +180,12 @@ public class PlayerController : MonoBehaviour
             _mainController._ItemManager.MoveItem(arm);
         }
 
+    }
+
+    public System.Collections.IEnumerator PhotoCoroutine()
+    {
+        photoLight.enabled = true;
+        yield return new WaitForSeconds(1f);
+        photoLight.enabled = false;
     }
 }

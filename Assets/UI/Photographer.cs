@@ -16,6 +16,12 @@ public class Photographer : MonoBehaviour
 
     private bool isActive = false;
 
+    PlayerController player;
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent< PlayerController>();
+    }
+
     void Update()
     {
         if (isActive == true)
@@ -23,6 +29,7 @@ public class Photographer : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.T))
             {
+                StartCoroutine(player.PhotoCoroutine());
                 CaptureRenderTexture(ghostRT);
                 audioSource.Play();
             }
@@ -50,9 +57,9 @@ public class Photographer : MonoBehaviour
 
     public void CaptureRenderTexture(RenderTexture renderTexture)
     {
+        
         Texture2D texture = SaveRenderTextureToTexture2D(renderTexture);
         Sprite sprite = ConvertTextureToSprite(texture);
-
         if (sprite != null)
         {
             MakePhoto(sprite);
@@ -61,6 +68,7 @@ public class Photographer : MonoBehaviour
 
     private void MakePhoto(Sprite image)
     {
+        
         UIPhoto photo = Instantiate(uiPhotoPrefab, uiPhotosRoot);
         photo.Init(image);
 
@@ -70,11 +78,13 @@ public class Photographer : MonoBehaviour
             latestPhotoDisplay.sprite = image;
             latestPhotoDisplay.enabled = true; // Показываем Image, если он скрыт
         }
+        player.photoLight.enabled = false;
     }
     
     
     public static Texture2D SaveRenderTextureToTexture2D(RenderTexture renderTexture)
     {
+        
         // Создаем новую текстуру
         Texture2D texture = new Texture2D(renderTexture.width, renderTexture.height, TextureFormat.RGBA32, false);
 

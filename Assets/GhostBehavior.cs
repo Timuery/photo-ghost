@@ -9,6 +9,9 @@ public class GhostBehavior : MonoBehaviour
 
     private float nextTeleportTime; // Время следующей телепортации
 
+    public AudioSource audioSource;
+    public AudioClip ghostSound;
+
     private void Start()
     {
         // Устанавливаем время следующей телепортации
@@ -47,6 +50,7 @@ public class GhostBehavior : MonoBehaviour
 
         // Телепортируем призрака на новую позицию
         transform.position = newPosition.position;
+        audioSource.PlayOneShot(ghostSound);
 
         Debug.Log("Призрак телепортировался на новую позицию!");
     }

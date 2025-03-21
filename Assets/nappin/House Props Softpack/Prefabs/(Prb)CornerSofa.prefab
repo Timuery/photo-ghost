@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 6717947096112815484}
   - component: {fileID: 2233271872084998997}
   - component: {fileID: 1038800054207658088}
-  - component: {fileID: 2384144278979977999}
-  m_Layer: 0
+  - component: {fileID: 1773645559650986786}
+  - component: {fileID: 7824366362352600643}
+  m_Layer: 6
   m_Name: cornerSofa_pillow8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6717947096112815484
 Transform:
@@ -87,8 +88,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2384144278979977999
-BoxCollider:
+--- !u!54 &1773645559650986786
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772258413354600424}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &7824366362352600643
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,9 +133,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.46060923, y: 0.39068207, z: 0.34501097}
-  m_Center: {x: -0.0032227708, y: 0.0015390142, z: -0.0015624388}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6180439061669593103, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &1077012792176210725
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,13 +148,14 @@ GameObject:
   - component: {fileID: 7001374806624169436}
   - component: {fileID: 4526596602091820491}
   - component: {fileID: 899571962576013858}
-  - component: {fileID: 8541543426488542844}
-  m_Layer: 0
+  - component: {fileID: 2524527642393573878}
+  - component: {fileID: 8510238628190451670}
+  m_Layer: 6
   m_Name: cornerSofa_pillow6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7001374806624169436
 Transform:
@@ -195,8 +225,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8541543426488542844
-BoxCollider:
+--- !u!54 &2524527642393573878
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077012792176210725}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &8510238628190451670
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -213,9 +270,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.26589602, y: 0.4018717, z: 0.42442092}
-  m_Center: {x: -0.0002493113, y: 0.0018889605, z: -0.0035292876}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2116262968152566487, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &1111712996224595239
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +285,7 @@ GameObject:
   - component: {fileID: 5057299169968248877}
   - component: {fileID: 8538109420022140446}
   - component: {fileID: 343778560146076878}
-  - component: {fileID: 5489809618676808860}
+  - component: {fileID: 2729145072897495426}
   m_Layer: 0
   m_Name: cornerSofa_cuscin3
   m_TagString: Untagged
@@ -303,8 +361,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5489809618676808860
-BoxCollider:
+--- !u!64 &2729145072897495426
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -321,9 +379,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0761672, y: 0.27586597, z: 1.1180562}
-  m_Center: {x: -0.02564591, y: 0.009349628, z: 0.00045505163}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -785530564744479961, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &1518198290480185302
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,13 +394,14 @@ GameObject:
   - component: {fileID: 7544023900117872353}
   - component: {fileID: 5053119209378659168}
   - component: {fileID: 8553548108432816252}
-  - component: {fileID: 539533197391621184}
-  m_Layer: 0
+  - component: {fileID: 323171280771601370}
+  - component: {fileID: 3719429845201067756}
+  m_Layer: 6
   m_Name: cornerSofa_pillow11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7544023900117872353
 Transform:
@@ -411,8 +471,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &539533197391621184
-BoxCollider:
+--- !u!54 &323171280771601370
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518198290480185302}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &3719429845201067756
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -429,9 +516,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.46327382, y: 0.40043917, z: 0.30029136}
-  m_Center: {x: -0.0032659618, y: 0.0017060562, z: 0.00049181277}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2210881881188131691, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &2344233128116868446
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,13 +531,14 @@ GameObject:
   - component: {fileID: 238998125016662190}
   - component: {fileID: 2927278374164537555}
   - component: {fileID: 711064492041460386}
-  - component: {fileID: 7723131006614411930}
-  m_Layer: 0
+  - component: {fileID: 1873577166144853972}
+  - component: {fileID: 3253326245738928107}
+  m_Layer: 6
   m_Name: cornerSofa_pillow4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &238998125016662190
 Transform:
@@ -519,8 +608,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7723131006614411930
-BoxCollider:
+--- !u!54 &1873577166144853972
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2344233128116868446}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &3253326245738928107
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -537,9 +653,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.2729314, y: 0.43390068, z: 0.44883332}
-  m_Center: {x: 0.0009584128, y: 0.0017429142, z: -0.003163874}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4813435501680643514, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &2349431067586431530
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,13 +668,14 @@ GameObject:
   - component: {fileID: 5606598749351010597}
   - component: {fileID: 8697710067833738677}
   - component: {fileID: 7156849087069681666}
-  - component: {fileID: 4747441104006847825}
-  m_Layer: 0
+  - component: {fileID: 4432394154013637980}
+  - component: {fileID: 8680070190401111481}
+  m_Layer: 6
   m_Name: cornerSofa_pillow2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5606598749351010597
 Transform:
@@ -627,8 +745,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4747441104006847825
-BoxCollider:
+--- !u!54 &4432394154013637980
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2349431067586431530}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &8680070190401111481
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -645,9 +790,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.3097473, y: 0.390682, z: 0.4583492}
-  m_Center: {x: 0.0009544864, y: 0.0015389993, z: -0.0031768603}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7927248687674137433, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &2460028927311600624
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +805,7 @@ GameObject:
   - component: {fileID: 8321854282069086025}
   - component: {fileID: 7442749218748743060}
   - component: {fileID: 1138834648494487604}
-  - component: {fileID: 3050880618950032651}
+  - component: {fileID: 6451928150162482636}
   m_Layer: 0
   m_Name: cornerSofa_cuscin9
   m_TagString: Untagged
@@ -735,8 +881,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3050880618950032651
-BoxCollider:
+--- !u!64 &6451928150162482636
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -753,9 +899,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0035135, y: 0.66720074, z: 0.33635995}
-  m_Center: {x: 0.0007797777, y: -0.010134055, z: 0.01692385}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8412451250114987248, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &2637006186218575824
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,7 +914,7 @@ GameObject:
   - component: {fileID: 520891316348130042}
   - component: {fileID: 5561423508228571373}
   - component: {fileID: 6307758650887424013}
-  - component: {fileID: 190505739435570006}
+  - component: {fileID: 2467401257533924398}
   m_Layer: 0
   m_Name: cornerSofa_cuscin4
   m_TagString: Untagged
@@ -843,8 +990,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &190505739435570006
-BoxCollider:
+--- !u!64 &2467401257533924398
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -861,9 +1008,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2763121, y: 0.30140042, z: 1.1926197}
-  m_Center: {x: 0.0032547114, y: 0.010719939, z: 0.00048634407}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7242268675409207802, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &3058182577981572522
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +1023,7 @@ GameObject:
   - component: {fileID: 4947245713828962681}
   - component: {fileID: 4116160227054862275}
   - component: {fileID: 5417297744685321844}
-  - component: {fileID: 6569214982840826020}
+  - component: {fileID: 953516246965865764}
   m_Layer: 0
   m_Name: cornerSofa_cuscin8
   m_TagString: Untagged
@@ -951,8 +1099,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6569214982840826020
-BoxCollider:
+--- !u!64 &953516246965865764
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -969,9 +1117,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.3757196, y: 0.6556241, z: 1.0035139}
-  m_Center: {x: -0.02014826, y: -0.013302981, z: 0.0007784664}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1237106452154681558, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &3249894151534402882
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +1132,7 @@ GameObject:
   - component: {fileID: 2448604170254626303}
   - component: {fileID: 1657417902316623369}
   - component: {fileID: 6458166073127338049}
-  - component: {fileID: 197363257179381883}
+  - component: {fileID: 6319010425721504100}
   m_Layer: 0
   m_Name: cornerSofa_cuscin7
   m_TagString: Untagged
@@ -1059,8 +1208,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &197363257179381883
-BoxCollider:
+--- !u!64 &6319010425721504100
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1077,9 +1226,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.38923612, y: 0.6590299, z: 1.2412784}
-  m_Center: {x: -0.020653268, y: -0.014272808, z: 0.0008673071}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5008606275308427132, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &3571592519154806200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,13 +1273,14 @@ GameObject:
   - component: {fileID: 3585637808108547247}
   - component: {fileID: 3992682848896405581}
   - component: {fileID: 7179494854546963673}
-  - component: {fileID: 724898534744773817}
-  m_Layer: 0
+  - component: {fileID: 6594771024494652509}
+  - component: {fileID: 5216484567299897014}
+  m_Layer: 6
   m_Name: cornerSofa_pillow5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3585637808108547247
 Transform:
@@ -1199,8 +1350,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &724898534744773817
-BoxCollider:
+--- !u!54 &6594771024494652509
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3583478690879435965}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &5216484567299897014
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1217,9 +1395,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.28462008, y: 0.38159266, z: 0.42451116}
-  m_Center: {x: 0.0008891746, y: 0.0012725963, z: -0.002925567}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5900068382023122869, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &3899414611803421093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,13 +1410,14 @@ GameObject:
   - component: {fileID: 6644826389279256913}
   - component: {fileID: 6264491909796518406}
   - component: {fileID: 8175290077735404097}
-  - component: {fileID: 8114418231456637429}
-  m_Layer: 0
+  - component: {fileID: 4378840765125981241}
+  - component: {fileID: 189068144559872447}
+  m_Layer: 6
   m_Name: cornerSofa_pillow1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6644826389279256913
 Transform:
@@ -1307,8 +1487,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8114418231456637429
-BoxCollider:
+--- !u!54 &4378840765125981241
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3899414611803421093}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &189068144559872447
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1325,9 +1532,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.37888864, y: 0.4229406, z: 0.46141317}
-  m_Center: {x: 0.0019642783, y: 0.0017752944, z: -0.0026399863}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -563450261892662936, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &3966518049416717760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,13 +1547,14 @@ GameObject:
   - component: {fileID: 6608085943664815117}
   - component: {fileID: 4270615450971958199}
   - component: {fileID: 7191020932281462616}
-  - component: {fileID: 1379196986030778001}
-  m_Layer: 0
+  - component: {fileID: 1889851619053017895}
+  - component: {fileID: 8130002205909726310}
+  m_Layer: 6
   m_Name: cornerSofa_pillow13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6608085943664815117
 Transform:
@@ -1415,8 +1624,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1379196986030778001
-BoxCollider:
+--- !u!54 &1889851619053017895
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966518049416717760}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &8130002205909726310
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1433,9 +1669,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.41877383, y: 0.41683927, z: 0.272151}
-  m_Center: {x: -0.0030344573, y: 0.0019241496, z: -0.00052364165}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -250243038239737347, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &4291205664622900496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,8 +1741,7 @@ GameObject:
   - component: {fileID: 7737131791087652813}
   - component: {fileID: 1695636345212434236}
   - component: {fileID: 4115211023958926234}
-  - component: {fileID: 4389455121601292027}
-  - component: {fileID: 2291163789593918896}
+  - component: {fileID: 1590269499012732278}
   m_Layer: 0
   m_Name: cornerSofa_body
   m_TagString: Untagged
@@ -1582,8 +1818,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4389455121601292027
-BoxCollider:
+--- !u!64 &1590269499012732278
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1600,30 +1836,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2798469, y: 0.91132396, z: 3.7135892}
-  m_Center: {x: -0.6268012, y: 0.4556618, z: -0.5108238}
---- !u!65 &2291163789593918896
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4561609670849473618}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.6567416, y: 0.91132396, z: 1.2502613}
-  m_Center: {x: 0.5616465, y: 0.4556618, z: 0.72084016}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4674724132709054782, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &4824691713965026193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,13 +1851,14 @@ GameObject:
   - component: {fileID: 5651944107013678972}
   - component: {fileID: 9194425354370534536}
   - component: {fileID: 5268122455288005096}
-  - component: {fileID: 34783056557147363}
-  m_Layer: 0
+  - component: {fileID: 3905582168224962320}
+  - component: {fileID: 2679246109574133187}
+  m_Layer: 6
   m_Name: cornerSofa_pillow12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5651944107013678972
 Transform:
@@ -1711,8 +1928,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &34783056557147363
-BoxCollider:
+--- !u!54 &3905582168224962320
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824691713965026193}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &2679246109574133187
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1729,9 +1973,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.47985125, y: 0.50208086, z: 0.26424435}
-  m_Center: {x: -0.0031926779, y: 0.00050203496, z: 0.00037374345}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6621925137722777767, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &5403425382363944003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,7 +1988,7 @@ GameObject:
   - component: {fileID: 8595938469851142853}
   - component: {fileID: 7469508265034182840}
   - component: {fileID: 5681832759607559225}
-  - component: {fileID: 8156901512093257606}
+  - component: {fileID: 1551121179835903732}
   m_Layer: 0
   m_Name: cornerSofa_cuscin6
   m_TagString: Untagged
@@ -1819,8 +2064,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8156901512093257606
-BoxCollider:
+--- !u!64 &1551121179835903732
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1837,9 +2082,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.38923606, y: 0.6590299, z: 1.2412783}
-  m_Center: {x: -0.020653045, y: -0.014272808, z: 0.00086644286}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5338317649685998271, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &5929001710903341162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,13 +2097,14 @@ GameObject:
   - component: {fileID: 3836806075002092769}
   - component: {fileID: 1620121043685047513}
   - component: {fileID: 2968525810659574375}
-  - component: {fileID: 4781615704894250169}
-  m_Layer: 0
+  - component: {fileID: 5702769939814620119}
+  - component: {fileID: 7932309881727439504}
+  m_Layer: 6
   m_Name: cornerSofa_pillow10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3836806075002092769
 Transform:
@@ -1927,8 +2174,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4781615704894250169
-BoxCollider:
+--- !u!54 &5702769939814620119
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5929001710903341162}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &7932309881727439504
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1945,9 +2219,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.4400652, y: 0.38201723, z: 0.2899041}
-  m_Center: {x: -0.0029543487, y: 0.0012958198, z: -0.00081553304}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4997779744851895394, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &6000152971800279139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,7 +2234,7 @@ GameObject:
   - component: {fileID: 5092823062088468637}
   - component: {fileID: 5899730485617902436}
   - component: {fileID: 1940477818310001977}
-  - component: {fileID: 4010202069209384505}
+  - component: {fileID: 1849055871518936952}
   m_Layer: 0
   m_Name: cornerSofa_cuscin2
   m_TagString: Untagged
@@ -2035,8 +2310,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4010202069209384505
-BoxCollider:
+--- !u!64 &1849055871518936952
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2053,9 +2328,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2847639, y: 0.30140054, z: 1.3177432}
-  m_Center: {x: -0.0005207955, y: 0.0107198795, z: -0.000921756}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -365601019284960168, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &6145550324885752242
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,13 +2343,14 @@ GameObject:
   - component: {fileID: 3999108741251336714}
   - component: {fileID: 2407023114052054406}
   - component: {fileID: 522902802016646844}
-  - component: {fileID: 8455096779475077218}
-  m_Layer: 0
+  - component: {fileID: 5999875999081248038}
+  - component: {fileID: 588538445943524439}
+  m_Layer: 6
   m_Name: cornerSofa_pillow9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3999108741251336714
 Transform:
@@ -2143,8 +2420,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8455096779475077218
-BoxCollider:
+--- !u!54 &5999875999081248038
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6145550324885752242}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &588538445943524439
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2161,9 +2465,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.24362387, y: 0.40433434, z: 0.41411045}
-  m_Center: {x: -0.0006276443, y: 0.0019106119, z: 0.0027593223}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5449970957781288745, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &6641012103641877099
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,7 +2480,7 @@ GameObject:
   - component: {fileID: 4526268978635666415}
   - component: {fileID: 2920117121033716715}
   - component: {fileID: 4845674050534977985}
-  - component: {fileID: 2230623315715898281}
+  - component: {fileID: 3442903796349721489}
   m_Layer: 0
   m_Name: cornerSofa_cuscin1
   m_TagString: Untagged
@@ -2251,8 +2556,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2230623315715898281
-BoxCollider:
+--- !u!64 &3442903796349721489
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2269,9 +2574,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2359012, y: 0.30140054, z: 1.3177431}
-  m_Center: {x: -0.00050672883, y: 0.0107198795, z: -0.0009220242}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -518943787963531055, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &6723159415510543338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2283,13 +2589,14 @@ GameObject:
   - component: {fileID: 4569169935059070812}
   - component: {fileID: 3361619507849135934}
   - component: {fileID: 7497225539950954415}
-  - component: {fileID: 2853032008942351603}
-  m_Layer: 0
+  - component: {fileID: 3453262998530840674}
+  - component: {fileID: 6042269079809534307}
+  m_Layer: 6
   m_Name: cornerSofa_pillow14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4569169935059070812
 Transform:
@@ -2359,8 +2666,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2853032008942351603
-BoxCollider:
+--- !u!54 &3453262998530840674
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6723159415510543338}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &6042269079809534307
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2377,9 +2711,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.40315586, y: 0.3890777, z: 0.41965166}
-  m_Center: {x: -0.0017064511, y: 0.001369655, z: 0.0024668497}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5981107790844145742, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &7671559947646129563
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,13 +2726,14 @@ GameObject:
   - component: {fileID: 6952075461011602301}
   - component: {fileID: 4607155772222728018}
   - component: {fileID: 8402949028703204759}
-  - component: {fileID: 4127743028241082342}
-  m_Layer: 0
+  - component: {fileID: 994510195297306507}
+  - component: {fileID: 2231604616702580732}
+  m_Layer: 6
   m_Name: cornerSofa_pillow7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6952075461011602301
 Transform:
@@ -2467,8 +2803,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4127743028241082342
-BoxCollider:
+--- !u!54 &994510195297306507
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7671559947646129563}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &2231604616702580732
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2485,9 +2848,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.461413, y: 0.4229407, z: 0.3788887}
-  m_Center: {x: -0.0026411337, y: 0.0017752944, z: -0.0019651426}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4977332480350483594, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &7788229449647629177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,7 +2863,7 @@ GameObject:
   - component: {fileID: 3631830777384241759}
   - component: {fileID: 6082403495113683347}
   - component: {fileID: 5933720513045594408}
-  - component: {fileID: 6842500480063079582}
+  - component: {fileID: 8198235955259727515}
   m_Layer: 0
   m_Name: cornerSofa_cuscin11
   m_TagString: Untagged
@@ -2575,8 +2939,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6842500480063079582
-BoxCollider:
+--- !u!64 &8198235955259727515
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2593,9 +2957,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.1707858, y: 0.655713, z: 0.3767006}
-  m_Center: {x: 0.011219232, y: -0.014049663, z: 0.020190349}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9092571138806059397, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &8834389405542548523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,7 +2972,7 @@ GameObject:
   - component: {fileID: 5341747529984445306}
   - component: {fileID: 5278857582907568328}
   - component: {fileID: 5429478144826500202}
-  - component: {fileID: 6909269368883680414}
+  - component: {fileID: 3051845045795965998}
   m_Layer: 0
   m_Name: cornerSofa_cuscin5
   m_TagString: Untagged
@@ -2683,8 +3048,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6909269368883680414
-BoxCollider:
+--- !u!64 &3051845045795965998
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2701,9 +3066,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.245425, y: 0.30140042, z: 1.2334515}
-  m_Center: {x: -0.0035014746, y: 0.010719939, z: 0.0005026161}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2729217773197588997, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &9015184592336556250
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,7 +3081,7 @@ GameObject:
   - component: {fileID: 3116332388935588214}
   - component: {fileID: 3107393477792387409}
   - component: {fileID: 1257281612398956589}
-  - component: {fileID: 3987879665195869883}
+  - component: {fileID: 5990570581740269721}
   m_Layer: 0
   m_Name: cornerSofa_cuscin10
   m_TagString: Untagged
@@ -2791,8 +3157,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3987879665195869883
-BoxCollider:
+--- !u!64 &5990570581740269721
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2809,9 +3175,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2385129, y: 0.6672011, z: 0.33636}
-  m_Center: {x: 0.0009602606, y: -0.010134085, z: 0.016923962}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5411274163363652475, guid: edf24df09d11374469d9e785eb18fb26, type: 3}
 --- !u!1 &9084086043301750958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2823,13 +3190,14 @@ GameObject:
   - component: {fileID: 8673421992342739307}
   - component: {fileID: 3895466800657717250}
   - component: {fileID: 2658247059141784725}
-  - component: {fileID: 7297116258229282631}
-  m_Layer: 0
+  - component: {fileID: 7043477454130279538}
+  - component: {fileID: 1987082729848251226}
+  m_Layer: 6
   m_Name: cornerSofa_pillow3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8673421992342739307
 Transform:
@@ -2899,8 +3267,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7297116258229282631
-BoxCollider:
+--- !u!54 &7043477454130279538
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9084086043301750958}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &1987082729848251226
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2917,6 +3312,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.2436239, y: 0.40433434, z: 0.41411045}
-  m_Center: {x: 0.0006298832, y: 0.0019106119, z: -0.0027632785}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4944655993727574479, guid: edf24df09d11374469d9e785eb18fb26, type: 3}

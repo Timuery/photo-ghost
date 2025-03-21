@@ -44,8 +44,16 @@ public class EffectController: MonoBehaviour
 
     public void AddEffect(PlayerEffect effect)
     {
-        activeEffects |= effect;
-        HandleEffectStart(effect);
+        
+        if (HasEffect(effect))
+        {
+            RemoveEffect(effect);
+        }
+        else
+        {
+            activeEffects |= effect;
+            HandleEffectStart(effect);
+        }
         UpdateSound();
     }
 
@@ -127,8 +135,6 @@ public class EffectController: MonoBehaviour
 
         return highestEffect;
     }
-
-
     public void UpdateEffects()
     {
         if (HasEffect(PlayerEffect.Running))
@@ -146,10 +152,9 @@ public class EffectController: MonoBehaviour
             HandleHitEffect();
         if (HasEffect(PlayerEffect.Photo))
         {
-            // Логика для эффекта фотокамеры
+            player.photographer.CameraOpen(true);
         }
     }
-
     private void HandleEffectStart(PlayerEffect effect)
     {
         switch (effect)
@@ -160,16 +165,20 @@ public class EffectController: MonoBehaviour
             case PlayerEffect.Hit:
                 break;
             case PlayerEffect.Photo:
-                player._mainController.UIcontroller.ToggleCameraUI(true);
+                player.photographer.CameraOpen(true);
+                player.PhotoCamera.SetActive(true);
                 break;
         }
     }
-
     private void HandleEffectEnd(PlayerEffect effect)
     {
         switch (effect)
         {
             case PlayerEffect.Hit:
+                break;
+            case PlayerEffect.Photo:
+                player.photographer.CameraOpen(false);
+                player.PhotoCamera.SetActive(false);
                 break;
         }
     }

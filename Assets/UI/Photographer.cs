@@ -1,5 +1,3 @@
-using System;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,18 +18,22 @@ public class Photographer : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.T))
+        if (isActive == true)
         {
-            CaptureRenderTexture(ghostRT);
-            audioSource.Play();
-        }
- 
+
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                CaptureRenderTexture(ghostRT);
+                audioSource.Play();
+            }
+
 
             if (Input.GetKeyDown(KeyCode.G))
-        {
-            Debug.Log('п');
-            photoCollectionManager.TogglePanel();
+            {
+                Debug.Log('п');
+                photoCollectionManager.TogglePanel();
+            }
+
         }
 
 

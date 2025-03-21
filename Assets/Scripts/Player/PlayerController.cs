@@ -20,12 +20,14 @@ public class PlayerController : MonoBehaviour
     
     
     [Header("Camera")]
-    [SerializeField]private Camera playerCamera;
+    [SerializeField] private Camera playerCamera;
+    [SerializeField] public GameObject PhotoCamera;
 
     [Header("MainComponent")]
     [HideInInspector] public SceneController _mainController;
     [HideInInspector] public EffectController effectController;
     Rigidbody rb;
+    public Photographer photographer;
 
     [Header("Effects")]
     public float runningSpeedMultiplier = 1.5f;
@@ -39,6 +41,10 @@ public class PlayerController : MonoBehaviour
         playerBody = GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
+
+        if (photographer == null) 
+            photographer = GameObject.Find("PhotoMaker").
+                GetComponent<Photographer>();
     }
     public void Update()
     {
@@ -58,6 +64,7 @@ public class PlayerController : MonoBehaviour
     public void ApplyEffect(PlayerEffect effect)
     {
         effectController.AddEffect(effect);
+        
     }
     public void RemoveEffect(PlayerEffect effect)
     {

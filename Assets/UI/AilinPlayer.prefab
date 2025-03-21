@@ -190,6 +190,7 @@ MonoBehaviour:
   arm: {fileID: 6772424921331625000}
   playerCamera: {fileID: 7755421484405002857}
   _mainController: {fileID: 0}
+  effectController: {fileID: 0}
   runningSpeedMultiplier: 1.5
   stunDuration: 2
 --- !u!1001 &2171312518326819362

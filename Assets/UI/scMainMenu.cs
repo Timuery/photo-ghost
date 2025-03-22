@@ -10,7 +10,7 @@ public class scMainMenu : MonoBehaviour
     
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadScene("BUILD");
     }
 
     public void QuitGame()

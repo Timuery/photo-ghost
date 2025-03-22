@@ -105,7 +105,9 @@ public class Photographer : MonoBehaviour
                 {
                 if (hit.collider.gameObject == ghost)
                 {
-                    Destroy(ghost);
+                    hit.collider.gameObject.
+                        GetComponent<GhostBehavior>().
+                        GetDamage(1);
                     findBool = true;
                 }
             }

@@ -1,13 +1,30 @@
+using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
+
+enum GhostState
+{
+    None,
+    Aggressive
+}
 
 public class GhostBehavior : MonoBehaviour
 {
+    [SerializeField] private int ghostHP;
     public Transform[] teleportPoints; // Массив точек для телепортации
     public float teleportDistance = 3f; // Расстояние, на котором призрак телепортируется
     public float minTeleportDelay = 2f; // Минимальная задержка между телепортациями
     public float maxTeleportDelay = 5f; // Максимальная задержка между телепортациями
 
+    [SerializeField] private float attachDistane = 6f;
+    public float minAttach = 2f; // Минимальная задержка между телепортациями
+    public float maxAttach = 5f; // Максимальная задержка между телепортациями
+    public float nextAttachtime = 0f;
+    [SerializeField] private LayerMask mask;
+    public GameObject Player;
     private float nextTeleportTime; // Время следующей телепортации
+
+    private GhostState state;
 
     public AudioSource audioSource;
     public AudioClip ghostSound;
@@ -34,8 +51,18 @@ public class GhostBehavior : MonoBehaviour
             Teleport();
             SetNextTeleportTime();
         }
+        GhostLogic();
     }
-
+    public void GetDamage(int damage)
+    {
+        Teleport();
+        SetNextTeleportTime();
+        ghostHP -= damage;
+        if (ghostHP <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Teleport()
     {
         if (teleportPoints.Length == 0)
@@ -54,10 +81,76 @@ public class GhostBehavior : MonoBehaviour
 
         Debug.Log("Призрак телепортировался на новую позицию!");
     }
-
     private void SetNextTeleportTime()
     {
         // Устанавливаем случайное время для следующей телепортации
         nextTeleportTime = Time.time + Random.Range(minTeleportDelay, maxTeleportDelay);
+    }
+    private void GhostLogic()
+    {
+        if (state == GhostState.Aggressive)
+        {
+            var objectsInCollider = GetObjectsInRadius();
+
+            if (objectsInCollider.Count != 0)
+            {
+                GameObject item = objectsInCollider
+                    [Random.Range(0,
+                    objectsInCollider.Count)];
+                ThrowItem(item.GetComponent<Rigidbody>(), Player.transform, 5f);
+            }
+        }
+        
+    }
+    private List<GameObject> GetObjectsInRadius()
+    {                                                       
+        // Используем позицию текущего объекта как центр сферы
+        Vector3 center = transform.position;
+
+        // Находим все коллайдеры в радиусе
+        Collider[] hitColliders = Physics.OverlapSphere(center, attachDistane, mask);
+
+        // Преобразуем коллайдеры в GameObject
+        List<GameObject> result = new List<GameObject>();
+        foreach (var collider in hitColliders)
+        {
+            result.Add(collider.gameObject);
+        }
+
+        return result;
+    }
+    private void ThrowItem(Rigidbody a, Transform b, float forceMultiplier = 1f)
+    {
+        if (a == null || b == null)
+        {
+            Debug.LogError("Не найден объек");
+            return;
+        }        
+        Vector3 dir = (b.position - a.position).normalized;
+
+        float mass = a.mass;
+
+        Vector3 force = dir * mass * forceMultiplier;
+
+        // Применяем силу к объекту A
+        a.AddForce(force, ForceMode.Impulse);
+        nextAttachtime = Time.time + Random.Range(minAttach, maxAttach);
+        Debug.Log($"Объект {a.name} брошен в {b.name} с силой {force.magnitude}");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            nextAttachtime = Time.time + Random.Range(minAttach, maxAttach);
+            state = GhostState.Aggressive;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            state = GhostState.None;
+        }
     }
 }

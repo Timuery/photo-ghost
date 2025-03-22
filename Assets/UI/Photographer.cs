@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,20 +7,33 @@ public class Photographer : MonoBehaviour
 
     [SerializeField] private RenderTexture ghostRT;
     [SerializeField] private UIPhoto uiPhotoPrefab;
-    [SerializeField] private Transform uiPhotosRoot;
+
+
+    private Transform nowPhotoRoot;
+    [SerializeField] private Transform ghostPhotoRoot;
+    [SerializeField] private Transform allPhotoRoot;
+
 
     [SerializeField] private Image latestPhotoDisplay;
 
     [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private PhotoCollectionManager photoCollectionManager;
+    [SerializeField] private Camera photoCamera;
+    [SerializeField] private LayerMask obstacleLayer;
+
+    private bool findBool;
 
     private bool isActive = false;
+
+    private GameObject findGhost;
 
     PlayerController player;
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent< PlayerController>();
+        nowPhotoRoot = ghostPhotoRoot;
+        player = GameObject.FindGameObjectWithTag("Player")
+            .GetComponent<PlayerController>();
     }
 
     void Update()
@@ -37,24 +51,18 @@ public class Photographer : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.G))
             {
-                Debug.Log('п');
+                nowPhotoRoot = (nowPhotoRoot == ghostPhotoRoot)
+                    ? allPhotoRoot : ghostPhotoRoot;
                 photoCollectionManager.TogglePanel();
             }
 
         }
-
-
-    
     }
 
     public void CameraOpen(bool state)
     {
         isActive = state;
-
     }
-
-
-
     public void CaptureRenderTexture(RenderTexture renderTexture)
     {
         
@@ -66,10 +74,48 @@ public class Photographer : MonoBehaviour
         }
     }
 
+    // Вызовите этот метод когда нужно проверить (например по нажатию кнопки)
+    public bool CheckAndDestroyGhosts()
+    {
+        findBool = false;
+        var ghosts = GameObject.FindGameObjectsWithTag("Ghost");
+
+        foreach (var ghost in ghosts)
+        {
+            if (ghost.layer != 7) continue;
+
+
+            // Проверка позиции в кадре камеры
+            Vector3 viewportPos = photoCamera.WorldToViewportPoint(ghost.transform.position);
+            bool inFrame = viewportPos.z > 0
+                        && viewportPos.x >= 0 && viewportPos.x <= 1
+                        && viewportPos.y >= 0 && viewportPos.y <= 1;
+
+            if (!inFrame) continue;
+
+            // Проверка на препятствия
+            Ray ray = new Ray(
+                photoCamera.transform.position,
+                ghost.transform.position - photoCamera.transform.position
+            );
+            
+
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, 
+                obstacleLayer | (1 << ghost.layer)))
+                {
+                if (hit.collider.gameObject == ghost)
+                {
+                    Destroy(ghost);
+                    findBool = true;
+                }
+            }
+        }
+        return findBool;
+    }
     private void MakePhoto(Sprite image)
     {
-        
-        UIPhoto photo = Instantiate(uiPhotoPrefab, uiPhotosRoot);
+        nowPhotoRoot = CheckAndDestroyGhosts() ? ghostPhotoRoot : allPhotoRoot;
+        UIPhoto photo = Instantiate(uiPhotoPrefab, nowPhotoRoot);
         photo.Init(image);
 
         // Обновляем отображение последней фотографии
@@ -78,10 +124,8 @@ public class Photographer : MonoBehaviour
             latestPhotoDisplay.sprite = image;
             latestPhotoDisplay.enabled = true; // Показываем Image, если он скрыт
         }
-        player.photoLight.enabled = false;
+        CheckAndDestroyGhosts();
     }
-    
-    
     public static Texture2D SaveRenderTextureToTexture2D(RenderTexture renderTexture)
     {
         

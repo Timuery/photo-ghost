@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: a9473316bc1ba3740a1ec3a91ce57660, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: a88ec864e1a9c704f901b331887e870c, type: 2}
+      objectReference: {fileID: 2100000, guid: 3dcfe217b5cd0f5438c1f67af0346f3b, type: 2}
     - target: {fileID: 919132149155446097, guid: a9473316bc1ba3740a1ec3a91ce57660, type: 3}
       propertyPath: m_Name
       value: bathroom_item_001

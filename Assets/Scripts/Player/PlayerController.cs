@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
         Looking();
         CameraChecker();
         Keys();
+        ArmController();
 
     }
     public void FixedUpdate()
@@ -64,11 +65,10 @@ public class PlayerController : MonoBehaviour
         if (!effectController.HasEffect(PlayerEffect.Stunning))
             Movement();
     }
-
     public void ApplyEffect(PlayerEffect effect)
     {
         effectController.AddEffect(effect);
-        
+
     }
     public void RemoveEffect(PlayerEffect effect)
     {
@@ -114,8 +114,8 @@ public class PlayerController : MonoBehaviour
             (Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
 
-            // ���������, �������� �� ��� �� ������
-            if (Physics.Raycast(ray, out hit, interactionDistance))
+        // ���������, �������� �� ��� �� ������
+        if (Physics.Raycast(ray, out hit, interactionDistance))
         {
             findObject = hit.transform.gameObject;
             if (hit.collider.CompareTag("Useble"))
@@ -125,11 +125,10 @@ public class PlayerController : MonoBehaviour
             }
             if (hit.transform.gameObject.layer == 6)
             {
-
                 ArmController(hit.transform.gameObject);
             }
         }
-        ArmController();
+        
     }
     void Keys()
     {
@@ -140,17 +139,21 @@ public class PlayerController : MonoBehaviour
             ApplyEffect(PlayerEffect.Photo);
             
         }
-
-         if (findObject.CompareTag("Door"))
-
+        if (Input.GetButtonDown("Use"))
         {
-            findObject.GetComponent<DoorScript.Door>().OpenDoor();
+            if (findObject.CompareTag("Door"))
+
+            {
+                findObject.GetComponent<DoorScript.Door>().OpenDoor();
+            }
+            else if (findObject.CompareTag("Drawer"))
+
+            {
+                findObject.GetComponent<DoorScript.Drawer>().ToggleDrawer();
+            }
         }
-        else if (findObject.CompareTag("Drawer"))
+
         
-        {
-            findObject.GetComponent<DoorScript.Drawer>().ToggleDrawer();
-        }
 
      
     }

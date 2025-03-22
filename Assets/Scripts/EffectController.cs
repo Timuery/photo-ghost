@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -11,9 +12,9 @@ public class EffectController: MonoBehaviour
     {
         {PlayerEffect.Stunning, 90},
         {PlayerEffect.Hit, 80},
-        {PlayerEffect.Running, 50},
-        {PlayerEffect.Walk, 40},
-        {PlayerEffect.Photo, 10},
+        {PlayerEffect.Running, 60},
+        {PlayerEffect.Walk, 50},
+        {PlayerEffect.Photo, 70},
         {PlayerEffect.None, 0}
     };
 
@@ -41,7 +42,6 @@ public class EffectController: MonoBehaviour
         originalSpeed = player.moveSpeed;
         
     }
-
     public void AddEffect(PlayerEffect effect)
     {
         
@@ -56,7 +56,6 @@ public class EffectController: MonoBehaviour
         }
         UpdateSound();
     }
-
     public void RemoveEffect(PlayerEffect effect)
     {
         activeEffects &= ~effect;

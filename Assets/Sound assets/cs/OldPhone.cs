@@ -1,0 +1,97 @@
+using UnityEngine;
+
+public class OldPhone : MonoBehaviour
+{
+    public AudioClip ringSound;  
+    public float minTimeBetweenRings = 10f; 
+    public float maxTimeBetweenRings = 30f; 
+    public float ringDuration = 5f; 
+
+    private AudioSource audioSource; 
+    private float nextRingTime; 
+    private bool isPlayerNear = false; 
+    private bool isRinging = false; 
+
+    private void Start()
+    {
+        
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        
+        audioSource.clip = ringSound;
+        audioSource.playOnAwake = false; 
+
+       
+        SetNextRingTime();
+    }
+
+    private void Update()
+    {
+        
+        if (Time.time >= nextRingTime && !isRinging)
+        {
+            StartCoroutine(RingPhone());
+            SetNextRingTime(); 
+        }
+
+        // Если игрок рядом и нажал E, выключаем телефон
+        if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
+        {
+            StopPhone();
+        }
+    }
+
+    private void SetNextRingTime()
+    {
+        
+        nextRingTime = Time.time + Random.Range(minTimeBetweenRings, maxTimeBetweenRings);
+    }
+
+    private System.Collections.IEnumerator RingPhone()
+    {
+        isRinging = true; 
+        audioSource.Play(); 
+
+        
+        yield return new WaitForSeconds(ringDuration);
+
+        
+        if (isRinging)
+        {
+            audioSource.Stop();
+            isRinging = false;
+        }
+    }
+
+    private void StopPhone()
+    {
+        if (isRinging) 
+        {
+            audioSource.Stop(); 
+            isRinging = false; 
+            Debug.Log("Телефон выключен.");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNear = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNear = false;
+        }
+    }
+}

@@ -263,10 +263,13 @@ MonoBehaviour:
   interactionDistance: 10
   arm: {fileID: 6772424921331625000}
   playerCamera: {fileID: 7755421484405002857}
+  PhotoCamera: {fileID: 0}
   _mainController: {fileID: 0}
   effectController: {fileID: 0}
+  photographer: {fileID: 0}
   runningSpeedMultiplier: 1.5
   stunDuration: 2
+  photoLight: {fileID: 0}
 --- !u!54 &7845909581194126269
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -403,8 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e448fbe0f0fc4b449553a0b7c0deb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkClip: {fileID: 0}
-  runClip: {fileID: 0}
+  walkClip: {fileID: 8300000, guid: 2d4ee35f9ec0aa94fa8b82955068c073, type: 3}
+  runClip: {fileID: 8300000, guid: 1a9be15fe4022054989af57a10a75570, type: 3}
   stunClip: {fileID: 0}
   hurtClip: {fileID: 0}
   rotateStrength: 0

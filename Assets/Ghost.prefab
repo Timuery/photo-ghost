@@ -145,7 +145,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3070639911042378941}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: eb58ff268ed2caa4bab6177415f937d4, type: 3}
@@ -247,9 +247,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272893d99011f5f44883504eeeef77e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostHP: 0
   teleportPoints: []
   teleportDistance: 3
   minTeleportDelay: 2
   maxTeleportDelay: 5
+  attachDistane: 6
+  minAttach: 2
+  maxAttach: 5
+  nextAttachtime: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
+  Player: {fileID: 0}
   audioSource: {fileID: 1704726829393205464}
   ghostSound: {fileID: 8300000, guid: eb58ff268ed2caa4bab6177415f937d4, type: 3}

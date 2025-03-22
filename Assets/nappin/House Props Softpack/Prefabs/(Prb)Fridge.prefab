@@ -366,8 +366,8 @@ MonoBehaviour:
   smooth: 1
   directionMultiplier: 1
   asource: {fileID: 0}
-  openDoor: {fileID: 0}
-  closeDoor: {fileID: 0}
+  openDoor: {fileID: 8300000, guid: 6d588e1b1df78df4c980623f55128bbd, type: 3}
+  closeDoor: {fileID: 8300000, guid: b004ec2c395cff948aa579ac2d6cf6ea, type: 3}
 --- !u!1 &7546884429290622553
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,5 +647,5 @@ MonoBehaviour:
   smooth: 1
   directionMultiplier: -1
   asource: {fileID: 0}
-  openDoor: {fileID: 0}
-  closeDoor: {fileID: 0}
+  openDoor: {fileID: 8300000, guid: 6d588e1b1df78df4c980623f55128bbd, type: 3}
+  closeDoor: {fileID: 8300000, guid: b004ec2c395cff948aa579ac2d6cf6ea, type: 3}

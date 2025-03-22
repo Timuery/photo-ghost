@@ -315,8 +315,8 @@ MonoBehaviour:
   drawerDistance: 0.3
   openDirection: {x: 1, y: 0, z: 0}
   asource: {fileID: 0}
-  openDrawer: {fileID: 0}
-  closeDrawer: {fileID: 0}
+  openDrawer: {fileID: 8300000, guid: ba5ea408280c3d54ab2eac14ef70bf47, type: 3}
+  closeDrawer: {fileID: 8300000, guid: 6f7eeb24845fb2945ade14af8b1f9594, type: 3}
 --- !u!65 &7905140874537081296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -457,8 +457,8 @@ MonoBehaviour:
   drawerDistance: 0.3
   openDirection: {x: 1, y: 0, z: 0}
   asource: {fileID: 0}
-  openDrawer: {fileID: 0}
-  closeDrawer: {fileID: 0}
+  openDrawer: {fileID: 8300000, guid: ba5ea408280c3d54ab2eac14ef70bf47, type: 3}
+  closeDrawer: {fileID: 8300000, guid: 6f7eeb24845fb2945ade14af8b1f9594, type: 3}
 --- !u!65 &3993599925845003509
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -599,8 +599,8 @@ MonoBehaviour:
   drawerDistance: 0.5
   openDirection: {x: 0, y: 0, z: 0}
   asource: {fileID: 0}
-  openDrawer: {fileID: 0}
-  closeDrawer: {fileID: 0}
+  openDrawer: {fileID: 8300000, guid: ba5ea408280c3d54ab2eac14ef70bf47, type: 3}
+  closeDrawer: {fileID: 8300000, guid: bac3a6cac46f70d478ea74b92341c9dd, type: 3}
 --- !u!1 &6115581153683328324 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1995867253173500742, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
@@ -741,5 +741,5 @@ MonoBehaviour:
   drawerDistance: 0.3
   openDirection: {x: 1, y: 0, z: 0}
   asource: {fileID: 0}
-  openDrawer: {fileID: 0}
-  closeDrawer: {fileID: 0}
+  openDrawer: {fileID: 8300000, guid: ba5ea408280c3d54ab2eac14ef70bf47, type: 3}
+  closeDrawer: {fileID: 8300000, guid: 6f7eeb24845fb2945ade14af8b1f9594, type: 3}

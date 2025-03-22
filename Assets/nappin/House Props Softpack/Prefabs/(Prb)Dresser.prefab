@@ -88,10 +88,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 6d48330e399457949bb20bb149537694, type: 2}
+    - target: {fileID: -5801374171703111789, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.176
+      objectReference: {fileID: 0}
     - target: {fileID: -4051483116923549578, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 6d48330e399457949bb20bb149537694, type: 2}
+    - target: {fileID: -1995867253173500742, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
+      propertyPath: m_TagString
+      value: Drawer
+      objectReference: {fileID: 0}
     - target: {fileID: 566424158288044942, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
       propertyPath: m_TagString
       value: Drawer
@@ -112,6 +120,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b4dfb4cd1e13f3b49aa7bb3f86bc2335, type: 2}
+    - target: {fileID: 6808428572801135024, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.199
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -300,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: 0
   smooth: 1
-  drawerDistance: 0.5
+  drawerDistance: 0.3
   openDirection: {x: 1, y: 0, z: 0}
   asource: {fileID: 0}
   openDrawer: {fileID: 0}
@@ -442,7 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: 1
   smooth: 1
-  drawerDistance: 0.5
+  drawerDistance: 0.3
   openDirection: {x: 1, y: 0, z: 0}
   asource: {fileID: 0}
   openDrawer: {fileID: 0}
@@ -726,7 +738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: 1
   smooth: 1
-  drawerDistance: 0.5
+  drawerDistance: 0.3
   openDirection: {x: 1, y: 0, z: 0}
   asource: {fileID: 0}
   openDrawer: {fileID: 0}

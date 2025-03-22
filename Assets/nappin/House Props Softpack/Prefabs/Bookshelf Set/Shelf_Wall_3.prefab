@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1977024391509273548}
   - component: {fileID: 537156734786654274}
   - component: {fileID: 7128462185537056532}
+  - component: {fileID: -7635270536198413215}
   m_Layer: 0
   m_Name: Shelf_Wall_3
   m_TagString: Untagged
@@ -87,3 +88,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-7635270536198413215
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31007469961598264}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2346945779288544784, guid: 7ef199417f15caa4297086b372fcce27, type: 3}

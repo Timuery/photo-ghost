@@ -133,11 +133,15 @@ public class PlayerController : MonoBehaviour
     void Keys()
     {
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("bb");
             ApplyEffect(PlayerEffect.Photo);
             
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+
         }
         if (Input.GetButtonDown("Use") && findObject != null)
         {

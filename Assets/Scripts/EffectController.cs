@@ -80,6 +80,7 @@ public class EffectController: MonoBehaviour
     }
     private void PlayCurrentEffectSound()
     {
+        Debug.Log("Current Effect: " + currentSoundEffect);
         AudioClip clip = null;
         bool loop = false;
 

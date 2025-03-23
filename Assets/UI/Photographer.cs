@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,10 +44,14 @@ public class Photographer : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.T))
             {
-                StartCoroutine(player.PhotoCoroutine());
-                CaptureRenderTexture(ghostRT);
-                audioSource.Play();
+                StartCoroutine(Time());
+
+
+                
+               
             }
+
+    
 
 
             if (Input.GetKeyDown(KeyCode.G))
@@ -57,6 +62,16 @@ public class Photographer : MonoBehaviour
             }
 
         }
+    }
+
+    public IEnumerator Time()
+    {
+        StartCoroutine(player.PhotoCoroutine());
+
+        yield return new WaitForSeconds(0.1f);
+        CaptureRenderTexture(ghostRT);
+        audioSource.Play();
+
     }
 
     public void CameraOpen(bool state)

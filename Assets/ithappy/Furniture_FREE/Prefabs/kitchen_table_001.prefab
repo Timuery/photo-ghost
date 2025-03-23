@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e4a219c91f34ce74ab295a64b6a63f61, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: a88ec864e1a9c704f901b331887e870c, type: 2}
+      objectReference: {fileID: 2100000, guid: 6dc678eac97cd034094b82c17e9b0dfe, type: 2}
     - target: {fileID: 919132149155446097, guid: e4a219c91f34ce74ab295a64b6a63f61, type: 3}
       propertyPath: m_Name
       value: kitchen_table_001

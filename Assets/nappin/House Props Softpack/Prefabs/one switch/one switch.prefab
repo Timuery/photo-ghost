@@ -104,6 +104,7 @@ MonoBehaviour:
   interactKey: 101
   pressAngle: 15
   pressSpeed: 5
+  pressSound: {fileID: 0}
 --- !u!135 &7066988301460569323
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.00021735186
+  m_Radius: 0.001
   m_Center: {x: -1.4551915e-11, y: -1.1320248e-12, z: -0.00003798444}
 --- !u!1 &6864701806673760164
 GameObject:

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5113505529017366750}
   - component: {fileID: 4394423653460163354}
   - component: {fileID: 4522293350855851147}
+  - component: {fileID: 703121180357678885}
   m_Layer: 6
   m_Name: Mixing spooni
   m_TagString: Untagged
@@ -114,3 +115,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &703121180357678885
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7666509144521705194}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.26337922, y: 1.2005405, z: 0.13168767}
+  m_Center: {x: 0.00012310594, y: -0.028391272, z: -0.013922527}

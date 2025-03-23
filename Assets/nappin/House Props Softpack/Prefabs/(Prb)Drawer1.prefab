@@ -122,12 +122,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -7338961655973598327, guid: b80c7b1c4f9ffd3429945039b892ed4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6669656072543156271}
+    - targetCorrespondingSourceObject: {fileID: -7338961655973598327, guid: b80c7b1c4f9ffd3429945039b892ed4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2961176158357109652}
     - targetCorrespondingSourceObject: {fileID: 3082946252811666237, guid: b80c7b1c4f9ffd3429945039b892ed4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4697710968601453596}
     - targetCorrespondingSourceObject: {fileID: 3082946252811666237, guid: b80c7b1c4f9ffd3429945039b892ed4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3819663862545146893}
+    - targetCorrespondingSourceObject: {fileID: 3082946252811666237, guid: b80c7b1c4f9ffd3429945039b892ed4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 700720742010478088}
   m_SourcePrefab: {fileID: 100100000, guid: b80c7b1c4f9ffd3429945039b892ed4a, type: 3}
 --- !u!1 &1994810080807433024 stripped
 GameObject:
@@ -247,8 +253,54 @@ MonoBehaviour:
   smooth: 1
   directionMultiplier: 1
   asource: {fileID: 0}
-  openDoor: {fileID: 0}
-  closeDoor: {fileID: 0}
+  openDoor: {fileID: 8300000, guid: ba5ea408280c3d54ab2eac14ef70bf47, type: 3}
+  closeDoor: {fileID: 8300000, guid: 6f7eeb24845fb2945ade14af8b1f9594, type: 3}
+--- !u!61 &700720742010478088
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994810080807433024}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.04704876, y: -0.00034716725}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.094098754, y: 1.5117745}
+  m_EdgeRadius: 0
 --- !u!1 &3116749578962476020 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7338961655973598327, guid: b80c7b1c4f9ffd3429945039b892ed4a, type: 3}
@@ -369,6 +421,27 @@ MonoBehaviour:
   asource: {fileID: 0}
   openDoor: {fileID: 0}
   closeDoor: {fileID: 0}
+--- !u!65 &2961176158357109652
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116749578962476020}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.094098814, y: 1.5117745, z: 0.4677053}
+  m_Center: {x: 0.047048863, y: -0.00034734607, z: 0.23351139}
 --- !u!4 &3957704224815339414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b80c7b1c4f9ffd3429945039b892ed4a, type: 3}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8452119938270221982}
   - component: {fileID: 1422701339264130645}
   - component: {fileID: 8360564836295865456}
+  - component: {fileID: -7177390267028761094}
   m_Layer: 6
   m_Name: grater
   m_TagString: Untagged
@@ -114,3 +115,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &-7177390267028761094
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7439958506915560002}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5324681, y: 1.0500228, z: 0.5321084}
+  m_Center: {x: -0.12617043, y: 0.08922443, z: -0.0064283162}

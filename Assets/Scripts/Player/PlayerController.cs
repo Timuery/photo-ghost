@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     
     private float xRotation = 0f;
     public float interactionDistance = 5f;
+    public float takeDistance = 10f;
     private GameObject findObject;
     private GameObject _objectOnArm;
 
@@ -35,10 +36,6 @@ public class PlayerController : MonoBehaviour
     public float stunDuration = 2f;
     [Header("Lights")]
     public Light photoLight;
-    
-
-    
-
     public void Start()
     {
         effectController = new EffectController(this, GetComponent<AudioSource>());
@@ -118,17 +115,20 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
             findObject = hit.transform.gameObject;
-            if (hit.collider.CompareTag("Useble"))
+            if (hit.collider.CompareTag("Useble") || hit.collider.CompareTag("Door"))
             {
                 Debug.Log("Find10");
                 _mainController.UIcontroller.ActiveUsePanel();
             }
+
+        }
+        if (Physics.Raycast(ray, out hit, takeDistance))
+        {
             if (hit.transform.gameObject.layer == 6)
             {
                 ArmController(hit.transform.gameObject);
             }
         }
-        
     }
     void Keys()
     {
@@ -139,8 +139,9 @@ public class PlayerController : MonoBehaviour
             ApplyEffect(PlayerEffect.Photo);
             
         }
-        if (Input.GetButtonDown("Use"))
+        if (Input.GetButtonDown("Use") && findObject != null)
         {
+            
             if (findObject.CompareTag("Door"))
 
             {

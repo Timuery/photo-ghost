@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7066988301460569323}
   m_Layer: 0
   m_Name: placca_01
-  m_TagString: Untagged
+  m_TagString: Useble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   interactKey: 101
   pressAngle: 15
   pressSpeed: 5
-  pressSound: {fileID: 0}
+  switchSound: {fileID: 0}
 --- !u!135 &7066988301460569323
 SphereCollider:
   m_ObjectHideFlags: 0

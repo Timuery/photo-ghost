@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-enum GhostState
+public enum GhostState
 {
     None,
     Aggressive
@@ -24,7 +24,7 @@ public class GhostBehavior : MonoBehaviour
     public GameObject Player;
     private float nextTeleportTime; // Время следующей телепортации
 
-    private GhostState state;
+    public GhostState state;
 
     public AudioSource audioSource;
     public AudioClip ghostSound;
@@ -45,15 +45,12 @@ public class GhostBehavior : MonoBehaviour
         }
 
         // Проверяем, находится ли игрок слишком близко
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null && 
-            Vector3.Distance(transform.position,
-            player.transform.position) < teleportDistance)
+        Player = GameObject.FindGameObjectWithTag("Player");
+        if (Player != null)
         {
-            Teleport();
-            SetNextTeleportTime();
+            GhostLogic();
         }
-        GhostLogic();
+        
     }
     public void GetDamage(int damage)
     {
@@ -93,13 +90,14 @@ public class GhostBehavior : MonoBehaviour
         if (state == GhostState.Aggressive)
         {
             var objectsInCollider = GetObjectsInRadius();
-
+            Debug.Log("БРОСОК начало");
             if (objectsInCollider.Count != 0)
             {
                 GameObject item = objectsInCollider
                     [Random.Range(0,
                     objectsInCollider.Count)];
                 ThrowItem(item.GetComponent<Rigidbody>(), Player.transform, 5f);
+                Debug.Log("БРОСОК конец");
             }
         }
         
@@ -123,21 +121,25 @@ public class GhostBehavior : MonoBehaviour
     }
     private void ThrowItem(Rigidbody a, Transform b, float forceMultiplier = 1f)
     {
-        if (a == null || b == null)
+        if (Time.time >= nextAttachtime)
         {
-            Debug.LogError("Не найден объек");
-            return;
-        }        
-        Vector3 dir = (b.position - a.position).normalized;
+            if (a == null || b == null)
+            {
+                Debug.LogError("Не найден объект");
+                return;
+            }
+            Vector3 dir = (b.position - a.position).normalized;
 
-        float mass = a.mass;
+            float mass = a.mass;
 
-        Vector3 force = dir * mass * forceMultiplier;
+            Vector3 force = dir * mass * forceMultiplier;
 
-        // Применяем силу к объекту A
-        a.AddForce(force, ForceMode.Impulse);
-        nextAttachtime = Time.time + Random.Range(minAttach, maxAttach);
-        Debug.Log($"Объект {a.name} брошен в {b.name} с силой {force.magnitude}");
+            // Применяем силу к объекту A
+            a.AddForce(force, ForceMode.Impulse);
+            nextAttachtime = Time.time + Random.Range(minAttach, maxAttach);
+            Debug.Log($"Объект {a.name} брошен в {b.name} с силой {force.magnitude}");
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)

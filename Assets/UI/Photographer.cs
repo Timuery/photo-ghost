@@ -46,10 +46,6 @@ public class Photographer : MonoBehaviour
             {
                 StartCoroutine(Time());
             }
-
-    
-
-
             if (Input.GetKeyDown(KeyCode.G))
             {
                 nowPhotoRoot = (nowPhotoRoot == ghostPhotoRoot)

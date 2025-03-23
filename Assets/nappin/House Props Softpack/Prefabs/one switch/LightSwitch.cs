@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class LightSwitch : MonoBehaviour
 {
-    public Light lightSource; // Ссылка на источник света
+    public Light[] lightSources; // Массив источников света
     public KeyCode interactKey = KeyCode.E; // Клавиша для взаимодействия
     public float pressAngle = 15f; // Угол, на который поворачивается кнопка при нажатии
     public float pressSpeed = 5f; // Скорость вращения кнопки
-    public AudioClip switchSound; // Звук нажатия кнопки
+    public AudioClip pressSound; // Звук нажатия кнопки
 
     private bool isPlayerNear = false; // Игрок рядом с кнопкой
     private bool isPressed = false; // Кнопка нажата
     private Quaternion initialRotation; // Начальное вращение кнопки
     private Quaternion targetRotation; // Целевое вращение кнопки
     private AudioSource audioSource; // Источник звука
+    private bool[] areLightsInitiallyEnabled; // Начальное состояние источников света
 
     private void Start()
     {
@@ -21,28 +22,32 @@ public class LightSwitch : MonoBehaviour
         // Вычисляем целевое вращение (нажатое состояние)
         targetRotation = initialRotation * Quaternion.Euler(pressAngle, 0, 0);
 
-        // Получаем или добавляем AudioSource
+        // Получаем или добавляем компонент AudioSource
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        // Убедимся, что свет включен изначально
-        if (lightSource != null)
+        // Сохраняем начальное состояние источников света
+        areLightsInitiallyEnabled = new bool[lightSources.Length];
+        for (int i = 0; i < lightSources.Length; i++)
         {
-            lightSource.enabled = true;
+            if (lightSources[i] != null)
+            {
+                areLightsInitiallyEnabled[i] = lightSources[i].enabled;
+            }
         }
     }
 
     private void Update()
     {
-        // Проверяем, находится ли игрок рядом с кнопкой
+        // Проверяем, находится ли игрок рядом с кнопкой и нажал ли клавишу
         if (isPlayerNear && Input.GetKeyDown(interactKey))
         {
-            ToggleLight(); // Включаем/выключаем свет
+            ToggleLights(); // Включаем/выключаем свет
             ToggleButton(); // Переключаем состояние кнопки
-            PlaySwitchSound(); // Проигрываем звук нажатия
+            PlayPressSound(); // Проигрываем звук нажатия
         }
 
         // Плавно вращаем кнопку в нужное состояние
@@ -56,12 +61,15 @@ public class LightSwitch : MonoBehaviour
         }
     }
 
-    private void ToggleLight()
+    private void ToggleLights()
     {
-        // Переключаем состояние света
-        if (lightSource != null)
+        // Переключаем состояние всех источников света
+        for (int i = 0; i < lightSources.Length; i++)
         {
-            lightSource.enabled = !lightSource.enabled;
+            if (lightSources[i] != null)
+            {
+                lightSources[i].enabled = !lightSources[i].enabled;
+            }
         }
     }
 
@@ -71,12 +79,12 @@ public class LightSwitch : MonoBehaviour
         isPressed = !isPressed;
     }
 
-    private void PlaySwitchSound()
+    private void PlayPressSound()
     {
-        // Проигрываем звук нажатия кнопки
-        if (switchSound != null && audioSource != null)
+        // Проигрываем звук нажатия кнопки, если он назначен
+        if (pressSound != null)
         {
-            audioSource.PlayOneShot(switchSound);
+            audioSource.PlayOneShot(pressSound);
         }
     }
 

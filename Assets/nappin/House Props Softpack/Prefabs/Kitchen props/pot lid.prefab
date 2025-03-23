@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4801532015937869436}
   - component: {fileID: 9149053817357195147}
   - component: {fileID: 6559406676497832338}
+  - component: {fileID: -1011686769909864153}
   m_Layer: 6
   m_Name: pot lid
   m_TagString: Untagged
@@ -114,3 +115,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &-1011686769909864153
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2677386258544756471}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8064712, y: 0.3723554, z: 0.8064712}
+  m_Center: {x: 0.0004261136, y: 0.031873092, z: 0.00001874566}

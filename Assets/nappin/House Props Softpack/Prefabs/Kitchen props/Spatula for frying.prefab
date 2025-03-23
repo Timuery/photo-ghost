@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4142939220184439884}
   - component: {fileID: 4685855005450221061}
   - component: {fileID: -6757471359846545130}
+  - component: {fileID: 4764321528920515660}
   m_Layer: 6
   m_Name: Spatula for frying
   m_TagString: Untagged
@@ -114,3 +115,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &4764321528920515660
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4802644427219302463}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.29120022, y: 1.2711682, z: 0.22108112}
+  m_Center: {x: 0.0026325062, y: -0.011895716, z: 0.0018387884}

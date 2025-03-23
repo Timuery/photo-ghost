@@ -45,10 +45,6 @@ public class Photographer : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.T))
             {
                 StartCoroutine(Time());
-
-
-                
-               
             }
 
     

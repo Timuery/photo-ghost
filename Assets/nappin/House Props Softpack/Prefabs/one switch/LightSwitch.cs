@@ -6,7 +6,7 @@ public class LightSwitch : MonoBehaviour
     public KeyCode interactKey = KeyCode.E; // Клавиша для взаимодействия
     public float pressAngle = 15f; // Угол, на который поворачивается кнопка при нажатии
     public float pressSpeed = 5f; // Скорость вращения кнопки
-    public AudioClip pressSound; // Звук нажатия кнопки
+    public AudioClip switchSound; // Звук нажатия кнопки
 
     private bool isPlayerNear = false; // Игрок рядом с кнопкой
     private bool isPressed = false; // Кнопка нажата
@@ -21,11 +21,17 @@ public class LightSwitch : MonoBehaviour
         // Вычисляем целевое вращение (нажатое состояние)
         targetRotation = initialRotation * Quaternion.Euler(pressAngle, 0, 0);
 
-        // Получаем или добавляем компонент AudioSource
+        // Получаем или добавляем AudioSource
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Убедимся, что свет включен изначально
+        if (lightSource != null)
+        {
+            lightSource.enabled = true;
         }
     }
 
@@ -36,7 +42,7 @@ public class LightSwitch : MonoBehaviour
         {
             ToggleLight(); // Включаем/выключаем свет
             ToggleButton(); // Переключаем состояние кнопки
-            PlayPressSound(); // Проигрываем звук нажатия
+            PlaySwitchSound(); // Проигрываем звук нажатия
         }
 
         // Плавно вращаем кнопку в нужное состояние
@@ -53,7 +59,10 @@ public class LightSwitch : MonoBehaviour
     private void ToggleLight()
     {
         // Переключаем состояние света
-        lightSource.enabled = !lightSource.enabled;
+        if (lightSource != null)
+        {
+            lightSource.enabled = !lightSource.enabled;
+        }
     }
 
     private void ToggleButton()
@@ -62,12 +71,12 @@ public class LightSwitch : MonoBehaviour
         isPressed = !isPressed;
     }
 
-    private void PlayPressSound()
+    private void PlaySwitchSound()
     {
-        // Проигрываем звук нажатия кнопки, если он назначен
-        if (pressSound != null)
+        // Проигрываем звук нажатия кнопки
+        if (switchSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(pressSound);
+            audioSource.PlayOneShot(switchSound);
         }
     }
 

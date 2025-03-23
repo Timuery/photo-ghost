@@ -31450,6 +31450,10 @@ PrefabInstance:
       propertyPath: lightSource
       value: 
       objectReference: {fileID: 409410259}
+    - target: {fileID: 8449674765932267008, guid: 952acb35e1bc5d54cb1319c3c5c94a68, type: 3}
+      propertyPath: switchSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 47a8b0ed3d1f25c48b5a36ba40e4c935, type: 3}
     - target: {fileID: 8472888322781290965, guid: 952acb35e1bc5d54cb1319c3c5c94a68, type: 3}
       propertyPath: m_Resource
       value: 
@@ -32400,13 +32404,13 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 100
-  m_Range: 10
-  m_SpotAngle: 129.03421
-  m_InnerSpotAngle: 67.47794
+  m_Intensity: 50
+  m_Range: 200
+  m_SpotAngle: 70
+  m_InnerSpotAngle: 20
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -47916,7 +47920,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9acad6f1865e2c44aa36254caa9a7cbf, type: 2}
+  - {fileID: 2100000, guid: 3af64a067f99cda4c87f3b5c5fd9becd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -55041,6 +55045,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 706836d784292a74097d31519e9337fa, type: 3}
+--- !u!20 &1106343235 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6893328624613826276, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+  m_PrefabInstance: {fileID: 710607734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1110768091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4873350149969685869, guid: 9b9a47e6447b0404fad889aea9f6360b, type: 3}
@@ -56855,6 +56864,10 @@ PrefabInstance:
       propertyPath: ghostRT
       value: 
       objectReference: {fileID: 8400000, guid: 5c8a1ebc39095df41ac1fbfab01e3671, type: 2}
+    - target: {fileID: 5598837277530577583, guid: cd81ea3e5c727e84ea0cf7b24de4b7bd, type: 3}
+      propertyPath: photoCamera
+      value: 
+      objectReference: {fileID: 1106343235}
     - target: {fileID: 5598837277530577583, guid: cd81ea3e5c727e84ea0cf7b24de4b7bd, type: 3}
       propertyPath: allPhotoRoot
       value: 
@@ -81975,7 +81988,7 @@ Transform:
   m_GameObject: {fileID: 1633989378}
   serializedVersion: 2
   m_LocalRotation: {x: -1.2824009e-14, y: 1, z: 0.000000021855696, w: 0.00000058114523}
-  m_LocalPosition: {x: 0.003476, y: 0.002239, z: -0.006991}
+  m_LocalPosition: {x: 0.0035, y: 0.00224, z: -0.00699}
   m_LocalScale: {x: 0.00094202976, y: 0.00094202976, z: 0.00094202976}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90683,20 +90696,44 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1704726829393205464, guid: e047e02c4157ccd4987db22418f54634, type: 3}
+      propertyPath: m_Volume
+      value: 0.096
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704726829393205464, guid: e047e02c4157ccd4987db22418f54634, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3070639911042378941, guid: e047e02c4157ccd4987db22418f54634, type: 3}
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 3070639911042378941, guid: e047e02c4157ccd4987db22418f54634, type: 3}
+      propertyPath: m_TagString
+      value: Ghost
+      objectReference: {fileID: 0}
     - target: {fileID: 6673041846849546035, guid: e047e02c4157ccd4987db22418f54634, type: 3}
       propertyPath: ghostHP
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673041846849546035, guid: e047e02c4157ccd4987db22418f54634, type: 3}
+      propertyPath: maxAttach
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673041846849546035, guid: e047e02c4157ccd4987db22418f54634, type: 3}
+      propertyPath: minAttach
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673041846849546035, guid: e047e02c4157ccd4987db22418f54634, type: 3}
+      propertyPath: attachDistane
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673041846849546035, guid: e047e02c4157ccd4987db22418f54634, type: 3}
+      propertyPath: maxTeleportDelay
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6673041846849546035, guid: e047e02c4157ccd4987db22418f54634, type: 3}
       propertyPath: minTeleportDelay
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6673041846849546035, guid: e047e02c4157ccd4987db22418f54634, type: 3}
       propertyPath: teleportPoints.Array.size

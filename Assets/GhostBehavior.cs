@@ -96,7 +96,7 @@ public class GhostBehavior : MonoBehaviour
                 GameObject item = objectsInCollider
                     [Random.Range(0,
                     objectsInCollider.Count)];
-                ThrowItem(item.GetComponent<Rigidbody>(), Player.transform, 5f);
+                ThrowItem(item.GetComponent<Rigidbody>(), Player.transform, 20f);
                 Debug.Log("БРОСОК конец");
             }
         }

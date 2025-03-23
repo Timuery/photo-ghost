@@ -46,7 +46,9 @@ public class GhostBehavior : MonoBehaviour
 
         // Проверяем, находится ли игрок слишком близко
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null && Vector3.Distance(transform.position, player.transform.position) < teleportDistance)
+        if (player != null && 
+            Vector3.Distance(transform.position,
+            player.transform.position) < teleportDistance)
         {
             Teleport();
             SetNextTeleportTime();

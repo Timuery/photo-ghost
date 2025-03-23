@@ -185,10 +185,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public System.Collections.IEnumerator PhotoCoroutine()
+    public IEnumerator PhotoCoroutine()
     {
         photoLight.enabled = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         photoLight.enabled = false;
     }
 }

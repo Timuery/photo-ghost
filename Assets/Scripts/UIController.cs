@@ -12,16 +12,9 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
-        try
-        {
-            _prefabUsePanel =
-                        GameObject.Find("UsePanel").
-                        GetComponent<Image>();
-        }
-        catch
-        {
-            Debug.Log("LOL");
-        }
+        _prefabUsePanel =
+            GameObject.Find("UsePanel").
+            GetComponent<Image>();
         
     }
     public void ActiveUsePanel()

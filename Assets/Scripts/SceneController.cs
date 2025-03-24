@@ -12,6 +12,7 @@ public class SceneController : MonoBehaviour
         _ItemManager = GetComponent<ItemManager>();
         FindPlayer();
         FindCanvas();
+        FindGhost();
     }
     private void FindPlayer()
     {

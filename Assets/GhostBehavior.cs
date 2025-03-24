@@ -50,8 +50,8 @@ public class GhostBehavior : MonoBehaviour
         {
             GhostLogic();
         }
-        
     }
+
     public void GetDamage(int damage)
     {
         Teleport();
@@ -62,6 +62,7 @@ public class GhostBehavior : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     private void Teleport()
     {
         if (teleportPoints.Length == 0)
@@ -80,30 +81,62 @@ public class GhostBehavior : MonoBehaviour
 
         Debug.Log("Призрак телепортировался на новую позицию!");
     }
+
     private void SetNextTeleportTime()
     {
         // Устанавливаем случайное время для следующей телепортации
         nextTeleportTime = Time.time + Random.Range(minTeleportDelay, maxTeleportDelay);
     }
+
     private void GhostLogic()
     {
         if (state == GhostState.Aggressive)
         {
             var objectsInCollider = GetObjectsInRadius();
             Debug.Log("БРОСОК начало");
-            if (objectsInCollider.Count != 0)
+
+            // Если объекты найдены, выбираем случайный и бросаем его
+            if (objectsInCollider.Count > 0)
             {
-                GameObject item = objectsInCollider
-                    [Random.Range(0,
-                    objectsInCollider.Count)];
-                ThrowItem(item.GetComponent<Rigidbody>(), Player.transform, 20f);
-                Debug.Log("БРОСОК конец");
+                // Создаем список для объектов с Rigidbody
+                List<GameObject> validObjects = new List<GameObject>();
+
+                // Фильтруем объекты, оставляя только те, у которых есть Rigidbody
+                foreach (var obj in objectsInCollider)
+                {
+                    if (obj.GetComponent<Rigidbody>() != null)
+                    {
+                        validObjects.Add(obj);
+                    }
+                }
+
+                // Если есть объекты с Rigidbody, выбираем случайный и бросаем его
+                if (validObjects.Count > 0)
+                {
+                    GameObject item = validObjects[Random.Range(0, validObjects.Count)];
+                    Rigidbody itemRigidbody = item.GetComponent<Rigidbody>();
+
+                    ThrowItem(itemRigidbody, Player.transform, 20f);
+                    Debug.Log("БРОСОК конец");
+                }
+                else
+                {
+                    // Если объектов с Rigidbody нет, перестаем "кидаться"
+                    Debug.Log("Объектов с Rigidbody для броска не найдено. Прекращаем кидаться.");
+                    state = GhostState.None; // Меняем состояние на неактивное
+                }
+            }
+            else
+            {
+                // Если объектов нет, перестаем "кидаться"
+                Debug.Log("Объектов для броска не найдено. Прекращаем кидаться.");
+                state = GhostState.None; // Меняем состояние на неактивное
             }
         }
-        
     }
+
     private List<GameObject> GetObjectsInRadius()
-    {                                                       
+    {
         // Используем позицию текущего объекта как центр сферы
         Vector3 center = transform.position;
 
@@ -119,6 +152,7 @@ public class GhostBehavior : MonoBehaviour
 
         return result;
     }
+
     private void ThrowItem(Rigidbody a, Transform b, float forceMultiplier = 1f)
     {
         if (Time.time >= nextAttachtime)
@@ -139,7 +173,6 @@ public class GhostBehavior : MonoBehaviour
             nextAttachtime = Time.time + Random.Range(minAttach, maxAttach);
             Debug.Log($"Объект {a.name} брошен в {b.name} с силой {force.magnitude}");
         }
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -150,6 +183,7 @@ public class GhostBehavior : MonoBehaviour
             state = GhostState.Aggressive;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")

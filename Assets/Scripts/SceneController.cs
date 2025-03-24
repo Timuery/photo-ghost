@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
@@ -49,5 +50,8 @@ public class SceneController : MonoBehaviour
         Debug.Log(UIcontroller.transform.name + "UI");
     }
 
-
+    public void LoadScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
 }

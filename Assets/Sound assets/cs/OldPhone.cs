@@ -10,7 +10,8 @@ public class OldPhone : SriptToUse
     private AudioSource audioSource; 
     private float nextRingTime; 
     private bool isPlayerNear = false; 
-    private bool isRinging = false; 
+    private bool isRinging = false;
+    private bool First = true;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class OldPhone : SriptToUse
     private void Update()
     {
         
-        if (Time.time >= nextRingTime && !isRinging)
+        if (Time.time >= nextRingTime && !isRinging && First)
         {
             StartCoroutine(RingPhone());
             SetNextRingTime(); 
@@ -47,6 +48,7 @@ public class OldPhone : SriptToUse
 
     private System.Collections.IEnumerator RingPhone()
     {
+        First = false;
         isRinging = true; 
         audioSource.Play(); 
 

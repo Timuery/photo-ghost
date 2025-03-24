@@ -182,6 +182,25 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _mainController.LoadScene("Menu");
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
     void ArmController(GameObject _item = null)
     {

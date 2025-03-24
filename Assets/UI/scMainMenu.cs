@@ -10,7 +10,7 @@ public class scMainMenu : MonoBehaviour
     
     public void PlayGame()
     {
-        SceneManager.LoadScene("BUILD");
+        SceneManager.LoadScene("LastUpdate");
     }
 
     public void QuitGame()

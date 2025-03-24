@@ -50,9 +50,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 7466875750160035870}
     m_Modifications:
     - target: {fileID: 4032709257001126544, guid: 26b8928478e1bff498659aa8f4c0e2ca, type: 3}
+      propertyPath: minAttach
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032709257001126544, guid: 26b8928478e1bff498659aa8f4c0e2ca, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 2736557738810032233}
+    - target: {fileID: 4032709257001126544, guid: 26b8928478e1bff498659aa8f4c0e2ca, type: 3}
+      propertyPath: maxTeleportDelay
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032709257001126544, guid: 26b8928478e1bff498659aa8f4c0e2ca, type: 3}
+      propertyPath: minTeleportDelay
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7003162732516431343, guid: 26b8928478e1bff498659aa8f4c0e2ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

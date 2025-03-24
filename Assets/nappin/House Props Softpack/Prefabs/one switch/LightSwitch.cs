@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LightSwitch : MonoBehaviour
+public class LightSwitch : SriptToUse
 {
     public Light[] lightSources; // Массив источников света
     public KeyCode interactKey = KeyCode.E; // Клавиша для взаимодействия
@@ -8,7 +8,6 @@ public class LightSwitch : MonoBehaviour
     public float pressSpeed = 5f; // Скорость вращения кнопки
     public AudioClip pressSound; // Звук нажатия кнопки
 
-    private bool isPlayerNear = false; // Игрок рядом с кнопкой
     private bool isPressed = false; // Кнопка нажата
     private Quaternion initialRotation; // Начальное вращение кнопки
     private Quaternion targetRotation; // Целевое вращение кнопки
@@ -42,14 +41,6 @@ public class LightSwitch : MonoBehaviour
 
     private void Update()
     {
-        // Проверяем, находится ли игрок рядом с кнопкой и нажал ли клавишу
-        if (isPlayerNear && Input.GetKeyDown(interactKey))
-        {
-            ToggleLights(); // Включаем/выключаем свет
-            ToggleButton(); // Переключаем состояние кнопки
-            PlayPressSound(); // Проигрываем звук нажатия
-        }
-
         // Плавно вращаем кнопку в нужное состояние
         if (isPressed)
         {
@@ -61,7 +52,7 @@ public class LightSwitch : MonoBehaviour
         }
     }
 
-    private void ToggleLights()
+    public void ToggleLights()
     {
         // Переключаем состояние всех источников света
         for (int i = 0; i < lightSources.Length; i++)
@@ -71,6 +62,8 @@ public class LightSwitch : MonoBehaviour
                 lightSources[i].enabled = !lightSources[i].enabled;
             }
         }
+        ToggleButton(); // Переключаем состояние кнопки
+        PlayPressSound(); // Проигрываем звук нажатия
     }
 
     private void ToggleButton()
@@ -88,21 +81,8 @@ public class LightSwitch : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void ToggleMode()
     {
-        // Проверяем, что игрок вошел в зону взаимодействия
-        if (other.CompareTag("Player"))
-        {
-            isPlayerNear = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        // Проверяем, что игрок вышел из зоны взаимодействия
-        if (other.CompareTag("Player"))
-        {
-            isPlayerNear = false;
-        }
+        ToggleLights();
     }
 }

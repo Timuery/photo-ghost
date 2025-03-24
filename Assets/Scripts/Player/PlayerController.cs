@@ -122,12 +122,16 @@ public class PlayerController : MonoBehaviour
             }
 
         }
-        if (Physics.Raycast(ray, out hit, takeDistance))
+        else if (Physics.Raycast(ray, out hit, takeDistance))
         {
             if (hit.transform.gameObject.layer == 6)
             {
                 ArmController(hit.transform.gameObject);
             }
+        }
+        else
+        {
+            findObject = null;
         }
     }
     void Keys()
@@ -138,10 +142,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("bb");
             ApplyEffect(PlayerEffect.Photo);
             
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-
         }
         if (Input.GetButtonDown("Use") && findObject != null)
         {
@@ -155,6 +155,10 @@ public class PlayerController : MonoBehaviour
 
             {
                 findObject.GetComponent<DoorScript.Drawer>().ToggleDrawer();
+            }
+            else
+            {
+                findObject.GetComponent<SriptToUse>().ToggleMode();
             }
         }
 

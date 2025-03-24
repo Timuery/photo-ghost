@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OldPhone : MonoBehaviour
+public class OldPhone : SriptToUse
 {
     public AudioClip ringSound;  
     public float minTimeBetweenRings = 10f; 
@@ -36,12 +36,6 @@ public class OldPhone : MonoBehaviour
         {
             StartCoroutine(RingPhone());
             SetNextRingTime(); 
-        }
-
-        // Если игрок рядом и нажал E, выключаем телефон
-        if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
-        {
-            StopPhone();
         }
     }
 
@@ -93,5 +87,10 @@ public class OldPhone : MonoBehaviour
         {
             isPlayerNear = false;
         }
+    }
+
+    public override void ToggleMode()
+    {
+        StopPhone();
     }
 }

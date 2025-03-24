@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8014783557314426700}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: LevelPhotoToFind
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cd2c40888ed824bb7eb338d0978ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupKey: 102
   itemIcon: {fileID: 0}
   itemObject: {fileID: 847705583138022862}
   pickupSound: {fileID: 0}

@@ -19,7 +19,7 @@ public class EffectController: MonoBehaviour
     };
 
 
-    private PlayerEffect activeEffects;
+    public PlayerEffect activeEffects;
     private PlayerController player;
     private float originalSpeed;
     private AudioSource audioSource;
@@ -58,7 +58,7 @@ public class EffectController: MonoBehaviour
     }
     public void RemoveEffect(PlayerEffect effect)
     {
-        activeEffects &= ~effect;
+        activeEffects = PlayerEffect.None;
         HandleEffectEnd(effect);
         UpdateSound();
     }

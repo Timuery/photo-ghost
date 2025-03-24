@@ -1,14 +1,28 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIController : MonoBehaviour
 {
     [SerializeField] float fadeTo = 1;
     public float fadeDuration = 2f;
     [SerializeField] Image _prefabUsePanel;
+
+    [SerializeField] int nowImages = 0;
+    [SerializeField] int maxImages = 5;
+
+
+    [SerializeField] Sprite _Eimage;
+    [SerializeField] Sprite _Fimage;
+
+    [SerializeField]
+    private TextMeshProUGUI _textToChange;
+
+
     Coroutine _fadeCoroutine;
     [SerializeField] private Photographer photoController;
+
 
     private void Start()
     {
@@ -17,8 +31,11 @@ public class UIController : MonoBehaviour
             GetComponent<Image>();
         
     }
-    public void ActiveUsePanel()
+    public void ActiveUsePanel(string type)
     {
+        if (type == "Photo") _prefabUsePanel.sprite = _Fimage;
+        else _prefabUsePanel.sprite = _Eimage;
+
         ActivatePanel(fadeTo, _prefabUsePanel);
     }
     private void ActivatePanel(float delay, Image p)
@@ -68,12 +85,15 @@ public class UIController : MonoBehaviour
         _prefabUsePanel.color = color;
     }
 
-    public void ToggleCameraUI(bool state)
+
+    private void ChangeCountPhotos()
     {
-        photoController.CameraOpen(state);
+        _textToChange.text = $"{nowImages}/{maxImages}";
     }
 
-    
-
-
+    public void AddCountPhotos()
+    {
+        ++nowImages;
+        ChangeCountPhotos();
+    }
 }

@@ -3,13 +3,14 @@ using UnityEngine.UI;
 
 public class ItemPickup : MonoBehaviour
 {
-    public KeyCode pickupKey = KeyCode.E; // Клавиша для подбора предмета
     public Image itemIcon; // Иконка предмета в UI (Canvas)
     public GameObject itemObject; // Объект предмета на сцене
     public AudioClip pickupSound; // Звук подбора предмета
 
-    private bool isPlayerNear = false; // Игрок рядом с предметом
     private AudioSource audioSource; // Источник звука
+    private SceneController sceneController;
+
+
 
     private void Start()
     {
@@ -29,14 +30,10 @@ public class ItemPickup : MonoBehaviour
 
     private void Update()
     {
-        // Проверяем, находится ли игрок рядом с предметом и нажал ли клавишу
-        if (isPlayerNear && Input.GetKeyDown(pickupKey))
-        {
-            PickupItem(); // Подбираем предмет
-        }
+
     }
 
-    private void PickupItem()
+    public void PickupItem()
     {
         // Воспроизводим звук подбора
         if (pickupSound != null)
@@ -72,23 +69,5 @@ public class ItemPickup : MonoBehaviour
         }
 
         Debug.Log("Предмет подобран и удален со сцены!");
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        // Проверяем, что игрок вошел в зону взаимодействия
-        if (other.CompareTag("Player"))
-        {
-            isPlayerNear = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        // Проверяем, что игрок вышел из зоны взаимодействия
-        if (other.CompareTag("Player"))
-        {
-            isPlayerNear = false;
-        }
     }
 }

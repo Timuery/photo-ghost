@@ -50,18 +50,22 @@ public class PlayerController : MonoBehaviour
     public void Update()
     {
         effectController.UpdateEffects();
-        //Movement();
         Looking();
-        CameraChecker();
         Keys();
+        CameraChecker();
         ArmController();
 
+
     }
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (!effectController.HasEffect(PlayerEffect.Stunning))
+        if (effectController.activeEffects != PlayerEffect.Photo)
+        {
             Movement();
+        }
+       
     }
+
     public void ApplyEffect(PlayerEffect effect)
     {
         effectController.AddEffect(effect);
@@ -114,15 +118,21 @@ public class PlayerController : MonoBehaviour
         // ���������, �������� �� ��� �� ������
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            findObject = hit.transform.gameObject;
-            if (hit.collider.CompareTag("Useble") || hit.collider.CompareTag("Door"))
+            if (effectController.activeEffects != PlayerEffect.Photo)
             {
-                Debug.Log("Find10");
-                _mainController.UIcontroller.ActiveUsePanel();
+                findObject = hit.transform.gameObject;
+                if (hit.collider.CompareTag("Useble") || hit.collider.CompareTag("Door"))
+                {
+                    Debug.Log("Find10");
+                    _mainController.UIcontroller.ActiveUsePanel("Use");
+                }
+                if (hit.collider.CompareTag("LevelPhotoToFind"))
+                {
+                    _mainController.UIcontroller.ActiveUsePanel("Photo");
+                }
             }
-
         }
-        else if (Physics.Raycast(ray, out hit, takeDistance))
+        if (Physics.Raycast(ray, out hit, takeDistance))
         {
             if (hit.transform.gameObject.layer == 6)
             {
@@ -143,28 +153,35 @@ public class PlayerController : MonoBehaviour
             ApplyEffect(PlayerEffect.Photo);
             
         }
-        if (Input.GetButtonDown("Use") && findObject != null)
+        if ((effectController.activeEffects != PlayerEffect.Photo))
         {
-            
-            if (findObject.CompareTag("Door"))
+            if (Input.GetButtonDown("Use") && findObject != null)
+            {
 
-            {
-                findObject.GetComponent<DoorScript.Door>().OpenDoor();
-            }
-            else if (findObject.CompareTag("Drawer"))
+                if (findObject.CompareTag("Door"))
 
-            {
-                findObject.GetComponent<DoorScript.Drawer>().ToggleDrawer();
+                {
+                    findObject.GetComponent<DoorScript.Door>().OpenDoor();
+                }
+                else if (findObject.CompareTag("Drawer"))
+
+                {
+                    findObject.GetComponent<DoorScript.Drawer>().ToggleDrawer();
+                }
+                else 
+                {
+                    findObject.GetComponent<SriptToUse>().ToggleMode();
+                }
             }
-            else
+            if (Input.GetButtonDown("TakePhoto") && findObject != null)
             {
-                findObject.GetComponent<SriptToUse>().ToggleMode();
+                if (findObject.CompareTag("LevelPhotoToFind"))
+                {
+                    findObject.GetComponent<ItemPickup>().PickupItem();
+                    _mainController.UIcontroller.AddCountPhotos();
+                }
             }
         }
-
-        
-
-     
     }
     void ArmController(GameObject _item = null)
     {
@@ -173,6 +190,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                
                 _objectOnArm = _item;
                 _objectOnArm.transform.SetParent(gameObject.transform);
                 _mainController._ItemManager.RigidbodyState(false, _objectOnArm);

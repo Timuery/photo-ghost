@@ -116,7 +116,7 @@ public class GhostBehavior : MonoBehaviour
                     GameObject item = validObjects[Random.Range(0, validObjects.Count)];
                     Rigidbody itemRigidbody = item.GetComponent<Rigidbody>();
 
-                    ThrowItem(itemRigidbody, Player.transform, 20f);
+                    ThrowItem(itemRigidbody, Player.transform, 8f);
                     Debug.Log("БРОСОК конец");
                 }
                 else

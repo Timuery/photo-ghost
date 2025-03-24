@@ -10,6 +10,7 @@ TagManager:
   - Door
   - Drawer
   - Picture
+  - LevelPhotoToFind
   layers:
   - Default
   - TransparentFX

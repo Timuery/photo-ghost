@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
             if (effectController.activeEffects != PlayerEffect.Photo)
             {
                 findObject = hit.transform.gameObject;
-                if (hit.collider.CompareTag("Useble") || hit.collider.CompareTag("Door"))
+                if (hit.collider.CompareTag("Useble") || hit.collider.CompareTag("Door") || hit.collider.CompareTag("Drawer"))
                 {
                     Debug.Log("Find10");
                     _mainController.UIcontroller.ActiveUsePanel("Use");

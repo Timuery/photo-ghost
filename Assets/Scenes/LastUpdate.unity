@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.1
+  m_FogDensity: 0.05
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  m_HaloStrength: 0.417
+  m_HaloStrength: 0.138
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -95703,17 +95703,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1659020062413896931, guid: e047e02c4157ccd4987db22418f54634, type: 3}
-      propertyPath: ghostHP
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1659020062413896931, guid: e047e02c4157ccd4987db22418f54634, type: 3}
-      propertyPath: maxAttach
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1659020062413896931, guid: e047e02c4157ccd4987db22418f54634, type: 3}
-      propertyPath: minAttach
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1871392997}
     - target: {fileID: 1659020062413896931, guid: e047e02c4157ccd4987db22418f54634, type: 3}
       propertyPath: 'teleportPoints.Array.data[0]'
       value: 

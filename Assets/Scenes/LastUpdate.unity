@@ -34484,6 +34484,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1530833996}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &702970531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5371353501496736038, guid: e047e02c4157ccd4987db22418f54634, type: 3}
+  m_PrefabInstance: {fileID: 1831950369}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &702970538
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702970531}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15.4
+  m_Center: {x: 0, y: -0.31508884, z: -0.21325915}
 --- !u!1001 &705288604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35642,6 +35668,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4662514499494048581, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 553
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662514499494048581, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.08001709
+      objectReference: {fileID: 0}
     - target: {fileID: 5358915552175876886, guid: f4132969f957d1d468c558439f0463c3, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -35688,11 +35722,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5450428464204120409, guid: f4132969f957d1d468c558439f0463c3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -614.248
+      value: -1337
       objectReference: {fileID: 0}
     - target: {fileID: 5450428464204120409, guid: f4132969f957d1d468c558439f0463c3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -411
+      value: -432
       objectReference: {fileID: 0}
     - target: {fileID: 5450428464204120409, guid: f4132969f957d1d468c558439f0463c3, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -95703,6 +95737,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1659020062413896931, guid: e047e02c4157ccd4987db22418f54634, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1871392997}
+    - target: {fileID: 1659020062413896931, guid: e047e02c4157ccd4987db22418f54634, type: 3}
       propertyPath: ghostHP
       value: 15
       objectReference: {fileID: 0}
@@ -95712,7 +95750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1659020062413896931, guid: e047e02c4157ccd4987db22418f54634, type: 3}
       propertyPath: minAttach
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1659020062413896931, guid: e047e02c4157ccd4987db22418f54634, type: 3}
       propertyPath: 'teleportPoints.Array.data[0]'
@@ -95761,6 +95799,10 @@ PrefabInstance:
     - target: {fileID: 5371353501496736038, guid: e047e02c4157ccd4987db22418f54634, type: 3}
       propertyPath: m_TagString
       value: Ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617509693652259654, guid: e047e02c4157ccd4987db22418f54634, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6673041846849546035, guid: e047e02c4157ccd4987db22418f54634, type: 3}
       propertyPath: Player
@@ -95862,7 +95904,10 @@ PrefabInstance:
     - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5371353501496736038, guid: e047e02c4157ccd4987db22418f54634, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 702970538}
   m_SourcePrefab: {fileID: 100100000, guid: e047e02c4157ccd4987db22418f54634, type: 3}
 --- !u!1001 &1832845955
 PrefabInstance:

@@ -90,53 +90,74 @@ public class GhostBehavior : MonoBehaviour
 
     private void GhostLogic()
     {
+        int id = Random.Range(0, 1);
         if (state == GhostState.Aggressive)
         {
-            var objectsInCollider = GetObjectsInRadius();
-            Debug.Log("БРОСОК начало");
-
-            // Если объекты найдены, выбираем случайный и бросаем его
-            if (objectsInCollider.Count > 0)
+            // Бросок Предмета
+            if (id == 0)
             {
-                // Создаем список для объектов с Rigidbody
-                List<GameObject> validObjects = new List<GameObject>();
-
-                // Фильтруем объекты, оставляя только те, у которых есть Rigidbody
-                foreach (var obj in objectsInCollider)
-                {
-                    if (obj.GetComponent<Rigidbody>() != null)
-                    {
-                        validObjects.Add(obj);
-                    }
-                }
-
-                // Если есть объекты с Rigidbody, выбираем случайный и бросаем его
-                if (validObjects.Count > 0)
-                {
-                    GameObject item = validObjects[Random.Range(0, validObjects.Count)];
-                    Rigidbody itemRigidbody = item.GetComponent<Rigidbody>();
-
-                    ThrowItem(itemRigidbody, Player.transform, 20f);
-                    Debug.Log("БРОСОК конец");
-                }
-                else
-                {
-                    // Если объектов с Rigidbody нет, перестаем "кидаться"
-                    Debug.Log("Объектов с Rigidbody для броска не найдено. Прекращаем кидаться.");
-                    state = GhostState.None; // Меняем состояние на неактивное
-                }
+                ThrowItem();
             }
-            else
+
+            if (id == 1)
             {
-                // Если объектов нет, перестаем "кидаться"
-                Debug.Log("Объектов для броска не найдено. Прекращаем кидаться.");
-                state = GhostState.None; // Меняем состояние на неактивное
+
             }
         }
     }
 
-    private List<GameObject> GetObjectsInRadius()
+    private void ThrowItem()
     {
+        var objectsInCollider = GetObjectsInRadius(mask);
+        Debug.Log("БРОСОК начало");
+
+        // Если объекты найдены, выбираем случайный и бросаем его
+        if (objectsInCollider.Count > 0)
+        {
+            // Создаем список для объектов с Rigidbody
+            List<GameObject> validObjects = new List<GameObject>();
+
+            // Фильтруем объекты, оставляя только те, у которых есть Rigidbody
+            foreach (var obj in objectsInCollider)
+            {
+                if (obj.GetComponent<Rigidbody>() != null)
+                {
+                    validObjects.Add(obj);
+                }
+            }
+
+            // Если есть объекты с Rigidbody, выбираем случайный и бросаем его
+            if (validObjects.Count > 0)
+            {
+                GameObject item = validObjects[Random.Range(0, validObjects.Count)];
+                Rigidbody itemRigidbody = item.GetComponent<Rigidbody>();
+
+                ThrowItem(itemRigidbody, Player.transform, 20f);
+                Debug.Log("БРОСОК конец");
+            }
+            else
+            {
+                // Если объектов с Rigidbody нет, перестаем "кидаться"
+                Debug.Log("Объектов с Rigidbody для броска не найдено. Прекращаем кидаться.");
+                state = GhostState.None; // Меняем состояние на неактивное
+            }
+        }
+        else
+        {
+            // Если объектов нет, перестаем "кидаться"
+            Debug.Log("Объектов для броска не найдено. Прекращаем кидаться.");
+            state = GhostState.None; // Меняем состояние на неактивное
+        }
+    }
+    public void UseItem()
+    {
+        // Получение всех объектов с которыми можно взаимодействовать
+        var objectsInCollider = GetObjectsInRadius(LayerMask.GetMask("Useble"));
+    }
+
+    private List<GameObject> GetObjectsInRadius(LayerMask msk)
+    {
+        
         // Используем позицию текущего объекта как центр сферы
         Vector3 center = transform.position;
 

@@ -6,8 +6,9 @@ public class SceneController : MonoBehaviour
     private GameObject player;
     private GameObject ghost;
 
-    [HideInInspector] public UIController UIcontroller;
-    [HideInInspector] public ItemManager _ItemManager;
+     public UIController UIcontroller;
+    public ItemManager _ItemManager;
+
     private void Start()
     {
         _ItemManager = GetComponent<ItemManager>();

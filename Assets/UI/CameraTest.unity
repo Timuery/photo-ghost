@@ -740,6 +740,11 @@ MonoBehaviour:
   fadeTo: 1
   fadeDuration: 2
   _prefabUsePanel: {fileID: 975828851}
+  nowImages: 0
+  maxImages: 5
+  _Eimage: {fileID: 0}
+  _Fimage: {fileID: 0}
+  _textToChange: {fileID: 0}
   photoController: {fileID: 1899277557}
 --- !u!4 &1259375507
 Transform:
@@ -855,6 +860,10 @@ PrefabInstance:
     - target: {fileID: 7223245723173941897, guid: 8702c9becaeab644bb69ffee7ee2d10e, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752789875666276822, guid: 8702c9becaeab644bb69ffee7ee2d10e, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7755421484405002857, guid: 8702c9becaeab644bb69ffee7ee2d10e, type: 3}
       propertyPath: m_OcclusionCulling

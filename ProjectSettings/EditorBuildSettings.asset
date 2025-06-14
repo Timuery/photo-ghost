@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ithappy/Furniture_FREE/Scenes/Menu.unity
+    path: Assets/old/ithappy/Furniture_FREE/Scenes/Menu.unity
     guid: 332e2a88d1c2cc643851d9c3aec21606
   - enabled: 1
     path: Assets/Scenes/LastUpdate.unity

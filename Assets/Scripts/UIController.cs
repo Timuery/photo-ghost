@@ -34,7 +34,7 @@ public class UIController : MonoBehaviour
         }
         catch
         {
-            Debug.LogError("Не найден объект UsePanel");
+           
         }
         
         

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DoorScript
 {
     [RequireComponent(typeof(AudioSource))]
-    public class Door : MonoBehaviour
+    public class Door : SriptToUse
     {
         public bool open;
         public float smooth = 1.0f;
@@ -15,12 +15,12 @@ namespace DoorScript
         public AudioSource asource;
         public AudioClip openDoor, closeDoor;
 
-        void Start()
+        public virtual void Start()
         {
             asource = GetComponent<AudioSource>();
         }
 
-        void Update()
+        public virtual void Update()
         {
             float openAngle = DoorOpenAngle * directionMultiplier;
             float closeAngle = DoorCloseAngle;
@@ -37,7 +37,8 @@ namespace DoorScript
             }
         }
 
-        public void OpenDoor()
+        
+        public override void Toggle()
         {
             open = !open;
             asource.clip = open ? openDoor : closeDoor;

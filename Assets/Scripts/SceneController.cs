@@ -6,7 +6,7 @@ public class SceneController : MonoBehaviour
     private GameObject player;
     private GameObject ghost;
 
-     public UIController UIcontroller;
+    public UIController UIcontroller;
     public ItemManager _ItemManager;
 
     private void Start()

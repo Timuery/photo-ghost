@@ -1,195 +1,127 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+
+
+// Эффекты не трогаем
+[Flags]
+
+public enum PlayerEffect
+{
+    None = 0,           // когда игрок стоит, 0
+    Walk = 1 << 0,      // Когда игрок ходит 1
+    Hit = 1 << 1,  // Когда игрок застанен 2
+    Stunning = 1 << 2,       // Когда игрок получает урон 4
+    Photo = 1 << 3      // Когда игрок находится в режиме фотографии 8
+}
+
+public enum Status
+{
+
+}
+
+
+// Эффекты не трогаем
 
 /// <summary>
 /// Состояния игрока
 /// </summary>
 public class EffectController: MonoBehaviour
 {
-    // Словарь для хранения приоритетов эффектов
-    private static readonly Dictionary<PlayerEffect, int> effectPriority = new Dictionary<PlayerEffect, int>
+
+    private PlayerController playerController;
+    // Аудиоклипы для эффектов (настраиваем в инспекторе)
+    [SerializeField] private AudioClip walkSound;
+    [SerializeField] private AudioClip runSound;
+    [SerializeField] private AudioClip stunSound;
+    [SerializeField] private AudioClip hitSound;
+    [SerializeField] private AudioClip photoSound;
+
+    private void Awake()
     {
-        {PlayerEffect.Stunning, 90},
-        {PlayerEffect.Hit, 80},
-        {PlayerEffect.Running, 60},
-        {PlayerEffect.Walk, 50},
-        {PlayerEffect.Photo, 70},
-        {PlayerEffect.None, 0}
-    };
-
-
-    public PlayerEffect activeEffects;
-    private PlayerController player;
-    private float originalSpeed;
-    private AudioSource audioSource;
-
-    [Header("Sound Settings")]
-    [SerializeField] private AudioClip walkClip;
-    [SerializeField] private AudioClip runClip;
-    [SerializeField] private AudioClip stunClip;
-    [SerializeField] private AudioClip hurtClip;
-
-    [SerializeField] private float rotateStrength = 10f;
-    private PlayerEffect currentSoundEffect;
-
-
-
-    public EffectController(PlayerController player, AudioSource audioSource)
-    {
-        this.player = player;
-        this.audioSource = audioSource;
-        originalSpeed = player.moveSpeed;
-        
+        audioSource = GetComponent<AudioSource>();
+        playerController = GetComponent<PlayerController>();
     }
+
+    public List<PlayerEffect> NowStatus { get; private set; } = new List<PlayerEffect>();
+    private PlayerEffect currentStatus = PlayerEffect.None;
+    private AudioSource audioSource;
+    // Добавляем эффект и обновляем текущий статус
     public void AddEffect(PlayerEffect effect)
     {
-        
-        if (HasEffect(effect))
+        if (!NowStatus.Contains(effect))
         {
-            RemoveEffect(effect);
+            NowStatus.Add(effect);
+            ReCheck();
+            PlayEffectSound(effect);
         }
-        else
-        {
-            activeEffects |= effect;
-            HandleEffectStart(effect);
-        }
-        UpdateSound();
     }
+    // Удаляем эффект и обновляем статус
     public void RemoveEffect(PlayerEffect effect)
     {
-        activeEffects = PlayerEffect.None;
-        HandleEffectEnd(effect);
-        UpdateSound();
-    }
-    private void UpdateSound()
-    {
-        PlayerEffect highestPriorityEffect = GetHighestPriorityEffect();
-
-        if (highestPriorityEffect == currentSoundEffect)
-            return;
-
-        // Мгновенная остановка текущего звука
-        if (audioSource.isPlaying)
+        if (NowStatus.Contains(effect))
         {
-            audioSource.Stop();
+            EndEffect(effect);
+            NowStatus.Remove(effect);
+            ReCheck();
+        }
+    }
+
+    // Определяем самый важный эффект (по максимальному значению в enum)
+    private void ReCheck()
+    {
+        if (NowStatus.Count == 0)
+        {
+            currentStatus = PlayerEffect.None;
+            return;
         }
 
-        currentSoundEffect = highestPriorityEffect;
-        PlayCurrentEffectSound();
+        // Выбираем эффект с максимальным значением флага
+        currentStatus = NowStatus.OrderByDescending(e => e).First();
+        IniEffect(currentStatus);
     }
-    private void PlayCurrentEffectSound()
-    {
-        Debug.Log("Current Effect: " + currentSoundEffect);
-        AudioClip clip = null;
-        bool loop = false;
 
-        switch (currentSoundEffect)
+    // Возвращаем текущий статус
+    public PlayerEffect GetEffect() => currentStatus;
+
+    // Проигрываем звук эффекта
+    private void PlayEffectSound(PlayerEffect effect)
+    {
+        if (audioSource == null) return;
+
+        switch (effect)
         {
             case PlayerEffect.Walk:
-                clip = walkClip;
-                loop = true;
-                break;
-            case PlayerEffect.Running:
-                clip = runClip;
-                loop = true;
+                if (walkSound != null) audioSource.PlayOneShot(walkSound);
                 break;
             case PlayerEffect.Stunning:
-                clip = stunClip;
-                loop = true;
+                if (stunSound != null) audioSource.PlayOneShot(stunSound);
                 break;
             case PlayerEffect.Hit:
-                clip = hurtClip;
-                loop = false;
-                break;
-            case PlayerEffect.None:
-                clip = null;
-                loop = false;
-                break;
-        }
-
-        if (clip != null)
-        {
-            audioSource.clip = clip;
-            audioSource.loop = loop;
-            audioSource.Play();
-        }
-    }
-    public bool HasEffect(PlayerEffect effect) => (activeEffects & effect) == effect;
-    private PlayerEffect GetHighestPriorityEffect()
-    {
-        PlayerEffect highestEffect = PlayerEffect.None;
-        int highestPriority = -1;
-
-        foreach (PlayerEffect effect in System.Enum.GetValues(typeof(PlayerEffect)))
-        {
-            if ((activeEffects & effect) == effect && effectPriority.TryGetValue(effect, out int priority))
-            {
-                if (priority > highestPriority)
-                {
-                    highestPriority = priority;
-                    highestEffect = effect;
-                }
-            }
-        }
-
-        return highestEffect;
-    }
-    public void UpdateEffects()
-    {
-        if (HasEffect(PlayerEffect.Running))
-             player.moveSpeed = originalSpeed * player.runningSpeedMultiplier;
-        else
-            player.moveSpeed = originalSpeed;
-
-        if (HasEffect(PlayerEffect.Stunning))
-        {
-            player.transform.Rotate(Vector3.up * rotateStrength * Time.deltaTime);
-            if (!audioSource.isPlaying) audioSource.Play();
-        }
-            
-        if (HasEffect(PlayerEffect.Hit))
-            HandleHitEffect();
-        if (HasEffect(PlayerEffect.Photo))
-        {
-            player.photographer.CameraOpen(true);
-        }
-    }
-    private void HandleEffectStart(PlayerEffect effect)
-    {
-        switch (effect)
-        {
-            case PlayerEffect.Stunning:
-                player.StartCoroutine(StunCoroutine());
-                break;
-            case PlayerEffect.Hit:
+                if (hitSound != null) audioSource.PlayOneShot(hitSound);
                 break;
             case PlayerEffect.Photo:
-                player.photographer.CameraOpen(true);
-                player.PhotoCamera.SetActive(true);
+                if (photoSound != null) audioSource.PlayOneShot(photoSound);
                 break;
         }
-    }
-    private void HandleEffectEnd(PlayerEffect effect)
-    {
-        switch (effect)
-        {
-            case PlayerEffect.Hit:
-                break;
-            case PlayerEffect.Photo:
-                player.photographer.CameraOpen(false);
-                player.PhotoCamera.SetActive(false);
-                break;
-        }
-    }
-    private System.Collections.IEnumerator StunCoroutine()
-    {
-        yield return new WaitForSeconds(player.stunDuration);
-        RemoveEffect(PlayerEffect.Stunning);
     }
 
-    private void HandleHitEffect()
+    private void IniEffect(PlayerEffect effect)
     {
-        // �������������� ������ ������� ���������
+        if (effect == PlayerEffect.Photo)
+        {
+            playerController.photographer.CameraOpen(true);
+            playerController.PhotoCamera.SetActive(true);
+        }
+    }
+
+    private void EndEffect(PlayerEffect effect)
+    {
+        if (effect == PlayerEffect.Photo)
+        {
+            playerController.photographer.CameraOpen(false);
+            playerController.PhotoCamera.SetActive(false);
+        }
     }
 }

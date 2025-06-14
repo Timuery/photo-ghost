@@ -91,7 +91,7 @@ public class OldPhone : SriptToUse
         }
     }
 
-    public override void ToggleMode()
+    public override void Toggle()
     {
         StopPhone();
     }

@@ -65,21 +65,30 @@ public class GhostBehavior : MonoBehaviour
 
     private void Teleport()
     {
-        if (teleportPoints.Length == 0)
+        try
         {
-            Debug.LogWarning("Нет точек для телепортации!");
+            if (teleportPoints.Length == 0)
+            {
+                Debug.LogWarning("Нет точек для телепортации!");
+                return;
+            }
+
+            // Выбираем случайную точку из массива
+            int randomIndex = Random.Range(0, teleportPoints.Length);
+            Transform newPosition = teleportPoints[randomIndex];
+
+
+            // Телепортируем призрака на новую позицию
+            transform.position = newPosition.position;
+            audioSource.PlayOneShot(ghostSound);
+
+            Debug.Log("Призрак телепортировался на новую позицию!");
+        }
+        catch
+        {
             return;
         }
-
-        // Выбираем случайную точку из массива
-        int randomIndex = Random.Range(0, teleportPoints.Length);
-        Transform newPosition = teleportPoints[randomIndex];
-
-        // Телепортируем призрака на новую позицию
-        transform.position = newPosition.position;
-        audioSource.PlayOneShot(ghostSound);
-
-        Debug.Log("Призрак телепортировался на новую позицию!");
+        
     }
 
     private void SetNextTeleportTime()

@@ -1,15 +1,6 @@
 using System;
 
-[Flags]
-public enum PlayerEffect
-{
-    None = 0,           // когда игрок стоит, 0
-    Walk = 1 << 0,      // Когда игрок ходит 1
-    Running = 1 << 1,   // Когда игрок бегает 2
-    Stunning = 1 << 2,  // Когда игрок застанен 4
-    Hit = 1 << 3,       // Когда игрок получает урон 8
-    Photo = 1 << 4      // Когда игрок находится в режиме фотографии 16
-}
+
 public enum Condition
 {
     Deactive,

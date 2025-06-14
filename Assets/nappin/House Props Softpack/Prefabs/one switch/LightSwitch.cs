@@ -81,7 +81,7 @@ public class LightSwitch : SriptToUse
         }
     }
 
-    public override void ToggleMode()
+    public override void Toggle()
     {
         ToggleLights();
     }

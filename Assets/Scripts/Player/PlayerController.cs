@@ -1,20 +1,30 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
+
 
 
 [RequireComponent(typeof(Rigidbody), typeof(Renderer))] 
 public class PlayerController : MonoBehaviour
 {
+    private static readonly HashSet<string> InteractableTags = new HashSet<string> { "Useble", "Door", "Drawer" };
+
     [Header("Player Settings")]
     public float moveSpeed = 5f;
-    public float mouseSensitivity = 1f; 
-    
+    public float mouseSensitivity = 1f;
+    public float runningSpeedMultiplier = 1.5f;
+    public float gravity = -9.81f;
+    private float curSpeed; bool run = false;
+
+
     private float xRotation = 0f;
     public float interactionDistance = 5f;
     public float takeDistance = 10f;
     private GameObject findObject;
     private GameObject _objectOnArm;
+    private Vector3 direct;
 
     [Header("Body Parts")]
     [SerializeField] private Transform arm;
@@ -29,19 +39,21 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public SceneController _mainController;
     [HideInInspector] public EffectController effectController;
     Rigidbody rb;
+
     public Photographer photographer;
 
-    [Header("Effects")]
-    public float runningSpeedMultiplier = 1.5f;
-    public float stunDuration = 2f;
     [Header("Lights")]
     public Light photoLight;
     public void Start()
     {
-        effectController = new EffectController(this, GetComponent<AudioSource>());
+        rb = GetComponent<Rigidbody>();
+
+        Physics.autoSyncTransforms = true;
+
+
+        effectController = GetComponent<EffectController>();
         playerBody = GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
-        rb = GetComponent<Rigidbody>();
 
         if (photographer == null) 
             photographer = GameObject.Find("PhotoMaker").
@@ -49,52 +61,36 @@ public class PlayerController : MonoBehaviour
     }
     public void Update()
     {
-        effectController.UpdateEffects();
         Looking();
         Keys();
         CameraChecker();
         ArmController();
-
-
     }
     private void FixedUpdate()
     {
-        if (effectController.activeEffects != PlayerEffect.Photo)
+        if ((int)effectController.GetEffect() <= (int)PlayerEffect.Stunning)
         {
             Movement();
         }
        
     }
-
-    public void ApplyEffect(PlayerEffect effect)
-    {
-        effectController.AddEffect(effect);
-
-    }
-    public void RemoveEffect(PlayerEffect effect)
-    {
-        effectController.RemoveEffect(effect);
-    }
     void Movement()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
-        
-        if (move.magnitude > 1f)
-            move.Normalize();
-
-        float currentSpeed = moveSpeed;
-        if (Input.GetButtonDown("Run")) // ��� ��� ������� Shift
+        if (direct.magnitude > 1f)
         {
-            ApplyEffect(PlayerEffect.Running);
+            direct.Normalize();
         }
-        else if (Input.GetButtonUp("Run"))
-        {
-            RemoveEffect(PlayerEffect.Running);
-        }
+        curSpeed = Input.GetButton("Run") ? moveSpeed * runningSpeedMultiplier : moveSpeed;
 
-        rb.MovePosition(rb.position + move * currentSpeed * Time.fixedDeltaTime);
+
+        // Установка скорости только по горизонтальным осям (X и Z)
+        rb.linearVelocity = new Vector3(
+            direct.x * curSpeed,
+            rb.linearVelocity.y,  // Сохраняем текущую вертикальную скорость (гравитация)
+            direct.z * curSpeed
+        );
+
+
     }
     void Looking()
     {
@@ -118,10 +114,11 @@ public class PlayerController : MonoBehaviour
         // ���������, �������� �� ��� �� ������
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            if (effectController.activeEffects != PlayerEffect.Photo)
+            if (effectController.GetEffect() != PlayerEffect.Photo)
             {
                 findObject = hit.transform.gameObject;
-                if (hit.collider.CompareTag("Useble") || hit.collider.CompareTag("Door") || hit.collider.CompareTag("Drawer"))
+
+                if (InteractableTags.Contains(hit.collider.tag))
                 {
                     Debug.Log("Find10");
                     _mainController.UIcontroller.ActiveUsePanel("Use");
@@ -146,31 +143,34 @@ public class PlayerController : MonoBehaviour
     }
     void Keys()
     {
+        
+        // Получаем ввод
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        direct = transform.right * horizontal + transform.forward * vertical;
+
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Debug.Log("bb");
-            ApplyEffect(PlayerEffect.Photo);
+            if (effectController.GetEffect() == PlayerEffect.Photo)
+            {
+                effectController.RemoveEffect(PlayerEffect.Photo);
+                return;
+            }    
+            effectController.AddEffect(PlayerEffect.Photo);
             
         }
-        if ((effectController.activeEffects != PlayerEffect.Photo))
+        if ((effectController.GetEffect() != PlayerEffect.Photo))
         {
             if (Input.GetButtonDown("Use") && findObject != null)
             {
-
-                if (findObject.CompareTag("Door"))
-
+                if (InteractableTags.Contains(findObject.tag))
                 {
-                    findObject.GetComponent<DoorScript.Door>().OpenDoor();
-                }
-                else if (findObject.CompareTag("Drawer"))
-
-                {
-                    findObject.GetComponent<DoorScript.Drawer>().ToggleDrawer();
+                    findObject.GetComponent<SriptToUse>().Toggle();
                 }
                 else 
                 {
-                    findObject.GetComponent<SriptToUse>().ToggleMode();
+                    findObject.GetComponent<SriptToUse>().Toggle();
                 }
             }
             if (Input.GetButtonDown("TakePhoto") && findObject != null)
@@ -182,8 +182,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             _mainController.LoadScene("Menu");

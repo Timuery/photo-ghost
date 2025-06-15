@@ -1,18 +1,15 @@
 using UnityEngine;
 
-public class LightSwitch : SriptToUse
+public class LightSwitch : ScriptToUse
 {
-    public Light[] lightSources; // Массив источников света
-    public KeyCode interactKey = KeyCode.E; // Клавиша для взаимодействия
+    public Lamp[] lightSources; // Массив источников света
     public float pressAngle = 15f; // Угол, на который поворачивается кнопка при нажатии
     public float pressSpeed = 5f; // Скорость вращения кнопки
     public AudioClip pressSound; // Звук нажатия кнопки
 
-    private bool isPressed = false; // Кнопка нажата
     private Quaternion initialRotation; // Начальное вращение кнопки
     private Quaternion targetRotation; // Целевое вращение кнопки
     private AudioSource audioSource; // Источник звука
-    private bool[] areLightsInitiallyEnabled; // Начальное состояние источников света
 
     private void Start()
     {
@@ -27,22 +24,12 @@ public class LightSwitch : SriptToUse
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
-
-        // Сохраняем начальное состояние источников света
-        areLightsInitiallyEnabled = new bool[lightSources.Length];
-        for (int i = 0; i < lightSources.Length; i++)
-        {
-            if (lightSources[i] != null)
-            {
-                areLightsInitiallyEnabled[i] = lightSources[i].enabled;
-            }
-        }
     }
 
     private void Update()
     {
         // Плавно вращаем кнопку в нужное состояние
-        if (isPressed)
+        if (active)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * pressSpeed);
         }
@@ -51,27 +38,16 @@ public class LightSwitch : SriptToUse
             transform.rotation = Quaternion.Lerp(transform.rotation, initialRotation, Time.deltaTime * pressSpeed);
         }
     }
-
-    public void ToggleLights()
+    public override void Toggle()
     {
-        // Переключаем состояние всех источников света
-        for (int i = 0; i < lightSources.Length; i++)
+        active = !active;
+
+        foreach (var source in lightSources)
         {
-            if (lightSources[i] != null)
-            {
-                lightSources[i].enabled = !lightSources[i].enabled;
-            }
+            source.Toggle();
         }
-        ToggleButton(); // Переключаем состояние кнопки
         PlayPressSound(); // Проигрываем звук нажатия
     }
-
-    private void ToggleButton()
-    {
-        // Переключаем состояние кнопки
-        isPressed = !isPressed;
-    }
-
     private void PlayPressSound()
     {
         // Проигрываем звук нажатия кнопки, если он назначен
@@ -81,8 +57,4 @@ public class LightSwitch : SriptToUse
         }
     }
 
-    public override void Toggle()
-    {
-        ToggleLights();
-    }
 }

@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
 {
     private static readonly HashSet<string> InteractableTags = new HashSet<string> { "Useble", "Door", "Drawer" };
 
+    public LayerMask layersToRender;
+
+
     [Header("Player Settings")]
     public float moveSpeed = 5f;
     public float mouseSensitivity = 1f;
@@ -38,6 +41,9 @@ public class PlayerController : MonoBehaviour
     [Header("MainComponent")]
     [HideInInspector] public SceneController _mainController;
     [HideInInspector] public EffectController effectController;
+    
+    ItemManager itemManager;
+
     Rigidbody rb;
 
     public Photographer photographer;
@@ -47,7 +53,7 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        itemManager = GetComponent<ItemManager>();
         Physics.autoSyncTransforms = true;
 
 
@@ -112,33 +118,30 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
 
         // ���������, �������� �� ��� �� ������
-        if (Physics.Raycast(ray, out hit, interactionDistance))
+        if (Physics.Raycast(ray, out hit, interactionDistance, layersToRender))
         {
             if (effectController.GetEffect() != PlayerEffect.Photo)
             {
                 findObject = hit.transform.gameObject;
 
-                if (InteractableTags.Contains(hit.collider.tag))
-                {
-                    Debug.Log("Find10");
-                    _mainController.UIcontroller.ActiveUsePanel("Use");
-                }
                 if (hit.collider.CompareTag("LevelPhotoToFind"))
                 {
                     _mainController.UIcontroller.ActiveUsePanel("Photo");
                 }
+                else
+                {
+                    _mainController.UIcontroller.ActiveUsePanel("Use");
+                } 
             }
         }
+        else findObject = null;
+
         if (Physics.Raycast(ray, out hit, takeDistance))
         {
             if (hit.transform.gameObject.layer == 6)
             {
                 ArmController(hit.transform.gameObject);
             }
-        }
-        else
-        {
-            findObject = null;
         }
     }
     void Keys()
@@ -160,18 +163,11 @@ public class PlayerController : MonoBehaviour
             effectController.AddEffect(PlayerEffect.Photo);
             
         }
-        if ((effectController.GetEffect() != PlayerEffect.Photo))
+        if (effectController.GetEffect() != PlayerEffect.Photo)
         {
             if (Input.GetButtonDown("Use") && findObject != null)
             {
-                if (InteractableTags.Contains(findObject.tag))
-                {
-                    findObject.GetComponent<SriptToUse>().Toggle();
-                }
-                else 
-                {
-                    findObject.GetComponent<SriptToUse>().Toggle();
-                }
+                findObject.GetComponent<ScriptToUse>().Toggle();
             }
             if (Input.GetButtonDown("TakePhoto") && findObject != null)
             {
@@ -198,7 +194,7 @@ public class PlayerController : MonoBehaviour
                 
                 _objectOnArm = _item;
                 _objectOnArm.transform.SetParent(gameObject.transform);
-                _mainController._ItemManager.RigidbodyState(false, _objectOnArm);
+                itemManager.RigidbodyState(false, _objectOnArm);
             }
         }
 
@@ -207,12 +203,12 @@ public class PlayerController : MonoBehaviour
             
             if (Input.GetMouseButtonUp(0))
             {
-                _mainController._ItemManager.RigidbodyState(true, _objectOnArm);
+                itemManager.RigidbodyState(true, _objectOnArm);
                 _objectOnArm.transform.SetParent(null); // �������� ������������ ������
                 _objectOnArm = null;
             }
 
-            _mainController._ItemManager.MoveItem(arm);
+            itemManager.MoveItem(arm);
         }
 
     }

@@ -215,6 +215,10 @@ PrefabInstance:
       value: "\u0434\u0432\u0435\u0440\u043A\u0430 (1)"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e758e1ccb288cae4fb7910d3953a9241, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e758e1ccb288cae4fb7910d3953a9241, type: 3}
       propertyPath: m_TagString
       value: Door
       objectReference: {fileID: 0}
@@ -346,12 +350,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731917776111cfd4e8e238be7a676f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 0
+  active: 0
+  state: 0
   smooth: 1
   directionMultiplier: 1
   asource: {fileID: 0}
   openDoor: {fileID: 8300000, guid: 44b63b0db16ce624b97e45ebde0a0971, type: 3}
   closeDoor: {fileID: 8300000, guid: bc37ad25465405a428a26ff0facd9a7b, type: 3}
+  CantOpen: {fileID: 0}
 --- !u!65 &3946596135910789074
 BoxCollider:
   m_ObjectHideFlags: 0

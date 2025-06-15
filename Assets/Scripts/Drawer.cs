@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class Drawer : SriptToUse
+public class Drawer : ScriptToUse
 {
-    public bool open;
     public float smooth = 1.0f;
     public float drawerDistance = 0.5f; // Насколько выдвигается ящик
     public Vector3 openDirection = Vector3.zero; // Теперь public, доступно в Inspector
@@ -33,14 +32,14 @@ public class Drawer : SriptToUse
 
     void Update()
     {
-        Vector3 targetPosition = open ? openPosition : closedPosition;
+        Vector3 targetPosition = active ? openPosition : closedPosition;
         transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, Time.deltaTime * 5 * smooth);
     }
 
     public override void Toggle()
     {
-        open = !open;
-        asource.clip = open ? openDrawer : closeDrawer;
+        active = !active;
+        asource.clip = active ? openDrawer : closeDrawer;
         asource.Play();
     }
 }

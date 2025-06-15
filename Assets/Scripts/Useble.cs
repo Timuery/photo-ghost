@@ -28,3 +28,4 @@ public interface IEntity
     public EntityCondition GetCondition();
     public void SetCondition(EntityCondition cdn);
 }
+

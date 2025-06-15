@@ -1,6 +1,23 @@
 using UnityEngine;
 
-public abstract class SriptToUse : MonoBehaviour
+public abstract class ScriptToUse : MonoBehaviour
 {
+    [Header("ScriptToUse")]
+    public bool active;
+    
     public abstract void Toggle();
+}
+
+public abstract class Opened : ScriptToUse
+{
+    public bool state;
+    public abstract void SetState(bool state);
+}
+
+public class ItemToTake: ScriptToUse
+{
+    public override void Toggle()
+    {
+        
+    }
 }

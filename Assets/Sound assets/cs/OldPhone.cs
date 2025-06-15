@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OldPhone : SriptToUse
+public class OldPhone : ScriptToUse
 {
     public AudioClip ringSound;  
     public float minTimeBetweenRings = 10f; 
@@ -74,8 +74,7 @@ public class OldPhone : SriptToUse
     }
 
     private void OnTriggerEnter(Collider other)
-    {
-        
+    { 
         if (other.CompareTag("Player"))
         {
             isPlayerNear = true;

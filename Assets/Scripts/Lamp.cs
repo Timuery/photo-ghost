@@ -1,58 +1,61 @@
 using UnityEngine;
 
-public class Lamp : MonoBehaviour, IUseble
+public class Lamp : ScriptToUse
 {
-    public Condition condition;
-
     Light lightComponent;
+    public override void Toggle()
+    {
+        active = !active;
 
+        if (lightComponent != null)
+        {
+            lightComponent.enabled = active;
+        }
+    }
     void Start()
     {
         lightComponent = GetComponent<Light>();
-    }
-    public void Use()
-    {
-        if (condition == Condition.Destroyed) return;
-
-        // Переключаем состояние между Active и Deactive
-        condition = condition == Condition.Active
-            ? Condition.Deactive
-            : Condition.Active;
-    }
-    public void UseAnyWhere(Color color = default)
-    {
-        if (condition == Condition.Destroyed) condition = Condition.Deactive;
-        condition = ~condition;
-        if (color != default) ChangeColor(color);
-    }
-    public string Information()
-    {
-        return condition switch
+        if (lightComponent == null)
         {
-            Condition.Active => "Лампа: Включена",
-            Condition.Deactive => "Лампа: Выключена",
-            Condition.Destroyed => "Лампа: Сломана",
-            _ => "Неизвестное состояние"
-        };
+            lightComponent = gameObject.AddComponent<Light>();
+        }
+        // Инициализируем состояние
+        lightComponent.enabled = active;
     }
+    // Изменение цвета света
     public void ChangeColor(Color newColor)
     {
-        if (condition != Condition.Destroyed)
+        if (lightComponent != null)
         {
             lightComponent.color = newColor;
         }
+
     }
-    public Condition GetCondition() => condition;
-    public void SetCondition(Condition cdn)
+    // Метод для внешнего использования (например, из других скриптов)
+    public void UseAnywhere(Color color = default)
     {
-        condition = cdn;
-        if (cdn == Condition.Destroyed)
+        TurnOn();
+        if (color != default)
         {
-            StartDestroy();
+            ChangeColor(color);
         }
     }
-    private void StartDestroy()
+    // Включение света (можно вызвать извне)
+    public void TurnOn()
     {
-        condition = Condition.Destroyed;
+        active = true;
+        if (lightComponent != null)
+        {
+            lightComponent.enabled = true;
+        }
+    }
+    // Выключение света (можно вызвать извне)
+    public void TurnOff()
+    {
+        active = false;
+        if (lightComponent != null)
+        {
+            lightComponent.enabled = false;
+        }
     }
 }

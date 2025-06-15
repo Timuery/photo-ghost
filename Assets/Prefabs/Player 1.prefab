@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1775910402058334527}
   - component: {fileID: 1329440464828055056}
   - component: {fileID: 5721388937833081508}
+  - component: {fileID: 2628910783700232069}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -288,7 +289,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!136 &5721388937833081508
 CapsuleCollider:
@@ -313,6 +314,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2628910783700232069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35723327885478942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b4f3a6f623dd8438976b364a3d1e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStrength: 30
+  resistanceForce: 15
+  acceleration: 50
+  maxSpeed: 20
+  snapDistance: 0.1
+  attachRotationSpeed: 10
 --- !u!1001 &742594588677191202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -505,11 +524,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4890471240474818058, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.189
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4890471240474818058, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.67
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7031688420470240768, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
       propertyPath: m_StopNaN

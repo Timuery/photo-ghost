@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2515340404541655641}
   - component: {fileID: 8449674765932267008}
   - component: {fileID: 7066988301460569323}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: placca_01
   m_TagString: Useble
   m_Icon: {fileID: 0}
@@ -100,11 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a18ab54c428fb48ba3cf7690eac699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightSource: {fileID: 0}
-  interactKey: 101
+  active: 0
+  lightSources: []
   pressAngle: 15
   pressSpeed: 5
-  switchSound: {fileID: 0}
+  pressSound: {fileID: 0}
 --- !u!135 &7066988301460569323
 SphereCollider:
   m_ObjectHideFlags: 0

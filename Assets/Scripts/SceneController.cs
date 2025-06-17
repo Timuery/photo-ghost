@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class SceneController : MonoBehaviour
 
     public UIController UIcontroller;
     public ItemManager _ItemManager;
+
+
 
     private void Start()
     {
@@ -23,7 +26,10 @@ public class SceneController : MonoBehaviour
         {
             Debug.LogError("Player not found in the scene");
         }
-        player.GetComponent<PlayerController>()._mainController = this;
+        PlayerController pl = player.GetComponent<PlayerController>();
+        pl._mainController = this;
+
+        
     }
 
     private void FindGhost()

@@ -20,7 +20,7 @@ public class Photographer : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private PhotoCollectionManager photoCollectionManager;
-    [SerializeField] private Camera photoCamera;
+    [SerializeField] public Camera photoCamera;
     [SerializeField] private LayerMask obstacleLayer;
 
     private bool findBool;

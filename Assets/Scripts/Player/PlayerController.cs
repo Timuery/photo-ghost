@@ -35,7 +35,8 @@ public class PlayerController : MonoBehaviour
     
     
     [Header("Camera")]
-    [SerializeField] private Camera playerCamera;
+    [SerializeField] public Camera playerCamera;
+    private CameraScript scriptsCamera;
     [SerializeField] public GameObject PhotoCamera;
 
     [Header("MainComponent")]
@@ -60,6 +61,8 @@ public class PlayerController : MonoBehaviour
         effectController = GetComponent<EffectController>();
         playerBody = GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
+        scriptsCamera = photographer.photoCamera.transform.GetComponent<CameraScript>();
+
 
         if (photographer == null) 
             photographer = GameObject.Find("PhotoMaker").
@@ -183,6 +186,10 @@ public class PlayerController : MonoBehaviour
             _mainController.LoadScene("Menu");
             Cursor.lockState = CursorLockMode.None;
         }
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        scriptsCamera.Zoom(scroll); 
     }
     void ArmController(GameObject _item = null)
     {

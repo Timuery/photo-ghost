@@ -17,7 +17,7 @@ namespace DoorScript
 
         public virtual void Start()
         {
-            state = true;
+            //state = true;
             asource = GetComponent<AudioSource>();
         }
         public virtual void Update()

@@ -35707,6 +35707,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1118828294447466106, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1106343235}
     - target: {fileID: 1257792531660580784, guid: f4132969f957d1d468c558439f0463c3, type: 3}
       propertyPath: m_Name
       value: UsePanel
@@ -35743,26 +35747,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4028539169714731523, guid: f4132969f957d1d468c558439f0463c3, type: 3}
-      propertyPath: fadeTo
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4028539169714731523, guid: f4132969f957d1d468c558439f0463c3, type: 3}
-      propertyPath: _Eimage
-      value: 
-      objectReference: {fileID: 21300000, guid: 9ab101737a8681a4086c9fe200bffef9, type: 3}
-    - target: {fileID: 4028539169714731523, guid: f4132969f957d1d468c558439f0463c3, type: 3}
-      propertyPath: _Fimage
-      value: 
-      objectReference: {fileID: 21300000, guid: e134f20af59f31444af6f85ca2f049ad, type: 3}
-    - target: {fileID: 4028539169714731523, guid: f4132969f957d1d468c558439f0463c3, type: 3}
-      propertyPath: fadeDuration
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4028539169714731523, guid: f4132969f957d1d468c558439f0463c3, type: 3}
-      propertyPath: _textToChange
-      value: 
-      objectReference: {fileID: 1170334230}
     - target: {fileID: 4336496490956713196, guid: f4132969f957d1d468c558439f0463c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -53.6
@@ -35901,7 +35885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6772424921331625000, guid: f4132969f957d1d468c558439f0463c3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7752789875666276822, guid: f4132969f957d1d468c558439f0463c3, type: 3}
       propertyPath: m_RenderMode
@@ -35915,9 +35899,37 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 7755421484405002857, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      propertyPath: m_ClearFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755421484405002857, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755421484405002857, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755421484405002857, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      propertyPath: m_FOVAxisMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755421484405002857, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      propertyPath: near clip plane
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755421484405002857, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      propertyPath: orthographic size
+      value: 7.83
+      objectReference: {fileID: 0}
     - target: {fileID: 8166409436849095369, guid: f4132969f957d1d468c558439f0463c3, type: 3}
       propertyPath: m_Name
       value: Useble
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202998532504661026, guid: f4132969f957d1d468c558439f0463c3, type: 3}
+      propertyPath: m_CameraType
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -62165,17 +62177,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 207956817}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1170334230 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7992149896212610623, guid: f4132969f957d1d468c558439f0463c3, type: 3}
-  m_PrefabInstance: {fileID: 710607734}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1173027492
 GameObject:
   m_ObjectHideFlags: 0
@@ -70719,6 +70720,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 94810032894493666, guid: b5ca4d7f33c807a4da99994f9b89c419, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 94810032894493666, guid: b5ca4d7f33c807a4da99994f9b89c419, type: 3}
+      propertyPath: texWidth
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 94810032894493666, guid: b5ca4d7f33c807a4da99994f9b89c419, type: 3}
+      propertyPath: texHeight
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 94810032894493666, guid: b5ca4d7f33c807a4da99994f9b89c419, type: 3}
+      propertyPath: renderTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: a4061c974825b654aa6bd679362ab4e9, type: 2}
     - target: {fileID: 2460805690815649037, guid: b5ca4d7f33c807a4da99994f9b89c419, type: 3}
       propertyPath: m_Name
       value: SceneController

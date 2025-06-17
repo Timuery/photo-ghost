@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         effectController = GetComponent<EffectController>();
         playerBody = GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
-        scriptsCamera = PhotoCamera.transform.GetComponent<CameraScript>();
+        scriptsCamera = photographer.photoCamera.transform.GetComponent<CameraScript>();
 
 
         if (photographer == null) 
@@ -187,9 +187,9 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
 
-        /*float scroll = Input.GetAxis("Mouse ScrollWheel");
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        scriptsCamera.Zoom(scroll);*/
+        scriptsCamera.Zoom(scroll); 
     }
     void ArmController(GameObject _item = null)
     {

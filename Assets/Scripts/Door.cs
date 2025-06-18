@@ -13,7 +13,6 @@ namespace DoorScript
         float DoorCloseAngle = 0.0f;
         public AudioSource asource;
         public AudioClip openDoor, closeDoor;
-        [SerializeField] AudioClip CantOpen;
 
         public virtual void Start()
         {

@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     _mainController.UIcontroller.ActiveUsePanel("Use");
+                    _mainController.UIcontroller.TextPanel(0);
                 } 
             }
         }

@@ -12,6 +12,7 @@ public abstract class Opened : ScriptToUse
 {
     public bool state;
     public abstract void SetState(bool state);
+    [SerializeField] public AudioClip CantOpen;
 }
 
 public class ItemToTake: ScriptToUse

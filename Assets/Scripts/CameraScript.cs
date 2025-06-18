@@ -18,10 +18,7 @@ public class CameraScript : MonoBehaviour
     {
         if (axis != 0)
         {
-            nowZoom -= axis * zoomSpeed;
-            Debug.Log(nowZoom + " ZOOM");
-            cam.fieldOfView -= nowZoom;
-            cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minZoom, maxZoom);
+            cam.fieldOfView = Mathf.Clamp(cam.fieldOfView - axis * zoomSpeed, minZoom, maxZoom);
         }
     }
 

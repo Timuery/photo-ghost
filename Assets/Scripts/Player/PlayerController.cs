@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public GameObject PhotoCamera;
 
     [Header("MainComponent")]
-    [HideInInspector] public SceneController _mainController;
+    public SceneController _mainController;
     [HideInInspector] public EffectController effectController;
     
     ItemManager itemManager;
@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
         if (photographer == null) 
             photographer = GameObject.Find("PhotoMaker").
                 GetComponent<Photographer>();
+        _mainController = SceneController.Instance;
     }
     public void Update()
     {

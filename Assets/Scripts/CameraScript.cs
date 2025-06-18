@@ -9,6 +9,11 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private float smoothTime = 0.2f;
     [SerializeField] private float nowZoom = 60f;
 
+    public void Awake()
+    {
+        cam = GetComponent<Camera>();
+    }
+
     public void Start()
     {
         cam = GetComponent<Camera>();

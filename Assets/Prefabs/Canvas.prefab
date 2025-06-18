@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8294111609832053791}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,13 +194,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTo: 1
-  fadeDuration: 5
   _prefabUsePanel: {fileID: 1493274995877769367}
   nowImages: 0
   maxImages: 5
   _Eimage: {fileID: 0}
   _Fimage: {fileID: 0}
   _textToChange: {fileID: 0}
+  uiTextPanel: {fileID: 0}
+  _image: {fileID: 0}
+  ACTIVE: 0
   photoController: {fileID: 0}
 --- !u!1 &5505267198448906857
 GameObject:

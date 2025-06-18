@@ -10,7 +10,13 @@ public class SceneController : MonoBehaviour
     public UIController UIcontroller;
     public ItemManager _ItemManager;
 
+    public static SceneController Instance {  get; private set; }
 
+    private void Awake()
+    {
+        if (Instance == null)
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -43,17 +49,8 @@ public class SceneController : MonoBehaviour
 
     private void FindCanvas()
     {
-        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
-        if (canvas == null)
-        {
-            Debug.LogError("Canvas not found in the scene");
-        }
-        UIcontroller = canvas.GetComponent<UIController>();
-        if (UIcontroller == null)
-        {
-            Debug.LogError("UIController not found on the Canvas");
-        }
-        Debug.Log(canvas.name);
+        UIcontroller = UIController.Instance;
+        Debug.Log(UIcontroller.name);
         Debug.Log(UIcontroller.transform.name + "UI");
     }
 

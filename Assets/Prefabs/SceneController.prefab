@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3458198791854605576}
   - component: {fileID: 94810032894493666}
+  - component: {fileID: 1792484122378529142}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -46,3 +47,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIcontroller: {fileID: 0}
   _ItemManager: {fileID: 0}
+--- !u!114 &1792484122378529142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2460805690815649037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b4f3a6f623dd8438976b364a3d1e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStrength: 30
+  resistanceForce: 15
+  acceleration: 25
+  maxSpeed: 8
+  snapDistance: 0.1
+  attachRotationSpeed: 10

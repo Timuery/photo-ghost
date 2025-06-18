@@ -10,15 +10,8 @@ public abstract class ScriptToUse : MonoBehaviour
 
 public abstract class Opened : ScriptToUse
 {
+    public int text;
     public bool state;
     public abstract void SetState(bool state);
     [SerializeField] public AudioClip CantOpen;
-}
-
-public class ItemToTake: ScriptToUse
-{
-    public override void Toggle()
-    {
-        
-    }
 }

@@ -7,11 +7,6 @@ public class Misk : MonoBehaviour, IUseble
     {
         Debug.Log("Using the Misk");
     }
-    // Если есть анимация
-    public virtual void startAnimation()
-    {
-
-    }
     public virtual string Information()
     {
         return "A handy, portable, and delicious snack.";

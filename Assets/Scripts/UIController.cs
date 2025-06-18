@@ -5,6 +5,11 @@ using TMPro;
 
 public class UIController : MonoBehaviour
 {
+
+    public static UIController Instance {  get; private set; }
+
+
+
     [SerializeField] float fadeTo = 1;
     [SerializeField] Image _prefabUsePanel;
 
@@ -18,6 +23,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _textToChange;
     [SerializeField] private TextMeshProUGUI uiTextPanel;
+    [SerializeField] private Image _image;
 
 
     [SerializeField] bool ACTIVE = false;
@@ -39,6 +45,7 @@ public class UIController : MonoBehaviour
         {
            
         }
+        if (Instance == null) Instance = this;
     }
     public void ActiveUsePanel(string type)
     {
@@ -62,6 +69,9 @@ public class UIController : MonoBehaviour
             // Получаем структуру время/текст
             Texts text = TextController.Instance.GetString(index);
             uiTextPanel.text = text.text;
+            Color color = uiTextPanel.color;
+            color.a = 255f;
+            uiTextPanel.color = color;
 
             if (textCoroutine != null)
             {
@@ -91,7 +101,6 @@ public class UIController : MonoBehaviour
         color.a = 0;
         _prefabUsePanel.color = color;
     }
-
     private IEnumerator FadeOutText(float delay, float timeWords=2)
     {
         yield return new WaitForSeconds(timeWords);
@@ -115,4 +124,18 @@ public class UIController : MonoBehaviour
         ++nowImages;
         ChangeCountPhotos();
     }
+
+    public void VisibleImage(Sprite sprite)
+    {
+        _image.sprite = sprite;
+        _image.gameObject.SetActive(true);
+        StartCoroutine(timeToClose());
+    }
+    private IEnumerator timeToClose()
+    {
+        yield return new WaitForSeconds(3);
+        _image.sprite = null;
+        _image.gameObject.SetActive(false);
+    }
+
 }

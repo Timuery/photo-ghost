@@ -133,8 +133,13 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    _mainController.UIcontroller.ActiveUsePanel("Use");
-                    _mainController.UIcontroller.TextPanel(0);
+                    var openedComponent = hit.transform.GetComponent<Opened>();
+                    if (openedComponent == null || openedComponent.state)
+                    {
+                        _mainController.UIcontroller.ActiveUsePanel("Use");
+                        _mainController.UIcontroller.TextPanel(0);
+                    }
+
                 } 
             }
         }
@@ -171,13 +176,16 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Use") && findObject != null)
             {
-                findObject.GetComponent<ScriptToUse>().Toggle();
+                if (!findObject.CompareTag("LevelPhotoToFind"))
+                {
+                    findObject.GetComponent<ScriptToUse>().Toggle();
+                }
             }
             if (Input.GetButtonDown("TakePhoto") && findObject != null)
             {
                 if (findObject.CompareTag("LevelPhotoToFind"))
                 {
-                    findObject.GetComponent<ItemPickup>().PickupItem();
+                    findObject.GetComponent<ScriptToUse>().Toggle();
                     _mainController.UIcontroller.AddCountPhotos();
                 }
             }

@@ -48,7 +48,7 @@ public class GhostBehavior : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         if (Player != null)
         {
-            GhostLogic();
+            //GhostLogic();
         }
     }
 

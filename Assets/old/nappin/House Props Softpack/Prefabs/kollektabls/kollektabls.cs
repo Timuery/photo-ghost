@@ -1,16 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemPickup : MonoBehaviour
+public class ItemPickup : ScriptToUse
 {
     public Image itemIcon; // Иконка предмета в UI (Canvas)
-    public GameObject itemObject; // Объект предмета на сцене
     public AudioClip pickupSound; // Звук подбора предмета
 
     private AudioSource audioSource; // Источник звука
     private SceneController sceneController;
-
-
 
     private void Start()
     {
@@ -27,13 +24,7 @@ public class ItemPickup : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
-
-    private void Update()
-    {
-
-    }
-
-    public void PickupItem()
+    public override void Toggle()
     {
         // Воспроизводим звук подбора
         if (pickupSound != null)
@@ -44,23 +35,22 @@ public class ItemPickup : MonoBehaviour
         // Запускаем анимацию исчезновения предмета
         StartCoroutine(AnimatePickup());
     }
-
     private System.Collections.IEnumerator AnimatePickup()
     {
         // Анимация масштабирования предмета до нуля
         float duration = 0.5f; // Длительность анимации
         float elapsedTime = 0f;
-        Vector3 initialScale = itemObject.transform.localScale;
+        Vector3 initialScale = transform.localScale;
 
         while (elapsedTime < duration)
         {
-            itemObject.transform.localScale = Vector3.Lerp(initialScale, Vector3.zero, elapsedTime / duration);
+            transform.localScale = Vector3.Lerp(initialScale, Vector3.zero, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         // Удаляем объект предмета со сцены
-        DestroyImmediate(itemObject);
+        DestroyImmediate(transform);
 
         // Отображаем иконку предмета в UI
         if (itemIcon != null)

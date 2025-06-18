@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7943463664202299122}
   - component: {fileID: 5902134339343251663}
   - component: {fileID: 2437753372999530152}
-  - component: {fileID: -8014783557314426700}
   m_Layer: 0
   m_Name: Plane
   m_TagString: LevelPhotoToFind
@@ -87,18 +86,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-8014783557314426700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 847705583138022862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34cd2c40888ed824bb7eb338d0978ed6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
-  itemObject: {fileID: 847705583138022862}
-  pickupSound: {fileID: 0}

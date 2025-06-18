@@ -32,14 +32,14 @@ public class TextController : MonoBehaviour
 [System.Serializable]
 public class Texts
 {
-    public int time;
+    public float time;
     public string text;
 
     // ѕустой конструктор дл€ сериализации
     public Texts() { }
 
     //  онструктор с параметрами (необ€зательно)
-    public Texts(int time, string text)
+    public Texts(float time, string text)
     {
         this.time = time;
         this.text = text;

@@ -733,6 +733,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PhotoMaker
       objectReference: {fileID: 0}
+    - target: {fileID: 612723009786012421, guid: cd81ea3e5c727e84ea0cf7b24de4b7bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1143441443463843476, guid: cd81ea3e5c727e84ea0cf7b24de4b7bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -838,29 +842,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 399940943735959348, guid: c7fbcc69d79305b4aa1bc325939d9b3e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1270403253638298047, guid: c7fbcc69d79305b4aa1bc325939d9b3e, type: 3}
       propertyPath: m_MatchWidthOrHeight
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5426738452336638677, guid: c7fbcc69d79305b4aa1bc325939d9b3e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5426738452336638677, guid: c7fbcc69d79305b4aa1bc325939d9b3e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6008501792503531684, guid: c7fbcc69d79305b4aa1bc325939d9b3e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6008501792503531684, guid: c7fbcc69d79305b4aa1bc325939d9b3e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6008501792503531684, guid: c7fbcc69d79305b4aa1bc325939d9b3e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 6059665916295522436, guid: c7fbcc69d79305b4aa1bc325939d9b3e, type: 3}
       propertyPath: m_Pivot.x

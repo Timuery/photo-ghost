@@ -41,13 +41,12 @@ public class SceneController : MonoBehaviour
         ghost = GameObject.FindGameObjectWithTag("Ghost");
         if (ghost == null)
         {
-            Debug.LogError("Ghost not found in the scene");
+            Debug.Log("Ghost not found in the scene");
         }
     }
 
     private void FindCanvas()
     {
-        UIcontroller = UIController.Instance;
         Debug.Log(UIcontroller.name);
         Debug.Log(UIcontroller.transform.name + "UI");
     }

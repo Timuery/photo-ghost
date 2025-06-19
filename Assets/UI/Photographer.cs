@@ -107,19 +107,25 @@ public class Photographer : MonoBehaviour
                 photoCamera.transform.position,
                 ghost.transform.position - photoCamera.transform.position
             );
-            
-
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, 
-                obstacleLayer | (1 << ghost.layer)))
+            try
+            {
+                if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity,
+                                obstacleLayer | (1 << ghost.layer)))
                 {
-                if (hit.collider.gameObject == ghost)
-                {
-                    hit.collider.gameObject.
-                        GetComponent<GhostBehavior>().
-                        GetDamage(1);
-                    findBool = true;
+                    if (hit.collider.gameObject == ghost)
+                    {
+                        hit.collider.gameObject.
+                            GetComponent<GhostBehavior>().
+                            GetDamage(1);
+                        findBool = true;
+                    }
                 }
             }
+            catch
+            {
+
+            }
+            
         }
         return findBool;
     }

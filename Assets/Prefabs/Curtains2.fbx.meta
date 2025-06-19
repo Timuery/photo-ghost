@@ -3,7 +3,17 @@ guid: b80e68613f2f8d54e8d09a52bc04bfdc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Curtain Rail Material
+    second: {fileID: 2100000, guid: 7aa460e04fbf9fc418ddea167f9e638b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Curtains 3 Material
+    second: {fileID: 2100000, guid: 7aa460e04fbf9fc418ddea167f9e638b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

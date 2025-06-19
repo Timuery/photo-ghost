@@ -161,17 +161,38 @@ PrefabInstance:
       addedObject: {fileID: 7123464819225827467}
     - targetCorrespondingSourceObject: {fileID: 9217234437682292332, guid: eab77848e5358e84e8d760cac9d686af, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8190125442452143164}
+      addedObject: {fileID: 5042904358159421773}
     - targetCorrespondingSourceObject: {fileID: 9217234437682292332, guid: eab77848e5358e84e8d760cac9d686af, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1259046606340552526}
+      addedObject: {fileID: 3892254714912438700}
   m_SourcePrefab: {fileID: 100100000, guid: eab77848e5358e84e8d760cac9d686af, type: 3}
 --- !u!1 &1196836363741034192 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9217234437682292332, guid: eab77848e5358e84e8d760cac9d686af, type: 3}
   m_PrefabInstance: {fileID: 8031666042310824124}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &8190125442452143164
+--- !u!65 &5042904358159421773
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196836363741034192}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.015375283, y: 0.009048689, z: 0.0042356816}
+  m_Center: {x: 0.00020611405, y: 0.000085443266, z: 0.00016970649}
+--- !u!54 &3892254714912438700
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,28 +219,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &1259046606340552526
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196836363741034192}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4142219771195877799, guid: eab77848e5358e84e8d760cac9d686af, type: 3}
 --- !u!1 &4324013121885946109 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6014503084441653313, guid: eab77848e5358e84e8d760cac9d686af, type: 3}

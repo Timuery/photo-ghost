@@ -73,32 +73,36 @@ PrefabInstance:
     m_TransformParent: {fileID: 3426438393454332279}
     m_Modifications:
     - target: {fileID: -8732663041989067067, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8732663041989067067, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_TagString
       value: Door
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.0041662217
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.0031913759
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99999964
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000000037748947
+      value: -0.0008457681
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_LocalRotation.z
@@ -106,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -0.097
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -137,8 +141,16 @@ PrefabInstance:
       value: "\u0441\u0442\u043E\u043B"
       objectReference: {fileID: 0}
     - target: {fileID: 3896014764528891861, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896014764528891861, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_TagString
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122924700266725627, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6122924700266725627, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_TagString
@@ -147,6 +159,10 @@ PrefabInstance:
     - target: {fileID: 7640156114988009946, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_TagString
       value: Drawer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806196369563520030, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7806196369563520030, guid: f4523e2af577c454cbd89e5a10105487, type: 3}
       propertyPath: m_TagString
@@ -368,7 +384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731917776111cfd4e8e238be7a676f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 0
+  active: 0
+  textID: 0
+  text: 0
+  state: 1
+  CantOpen: {fileID: 0}
   smooth: 1
   directionMultiplier: -1
   asource: {fileID: 0}
@@ -509,7 +529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922658b28c10c844f9d86a6932ad84b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 0
+  active: 0
+  textID: 0
   smooth: 1
   drawerDistance: 0.5
   openDirection: {x: 1, y: 0, z: 0}
@@ -682,7 +703,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731917776111cfd4e8e238be7a676f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 0
+  active: 0
+  textID: 0
+  text: 0
+  state: 1
+  CantOpen: {fileID: 0}
   smooth: 1
   directionMultiplier: 1
   asource: {fileID: 0}
@@ -823,7 +848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922658b28c10c844f9d86a6932ad84b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 0
+  active: 0
+  textID: 0
   smooth: 1
   drawerDistance: 0.5
   openDirection: {x: 1, y: 0, z: 0}
@@ -965,7 +991,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731917776111cfd4e8e238be7a676f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 1
+  active: 1
+  textID: 0
+  text: 0
+  state: 1
+  CantOpen: {fileID: 0}
   smooth: 1
   directionMultiplier: 1
   asource: {fileID: 0}
@@ -1106,7 +1136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922658b28c10c844f9d86a6932ad84b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 0
+  active: 0
+  textID: 0
   smooth: 1
   drawerDistance: 0.5
   openDirection: {x: 1, y: 0, z: 0}
@@ -1248,7 +1279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922658b28c10c844f9d86a6932ad84b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 0
+  active: 0
+  textID: 0
   smooth: 1
   drawerDistance: 0.5
   openDirection: {x: 1, y: 0, z: 0}
@@ -1390,7 +1422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922658b28c10c844f9d86a6932ad84b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 0
+  active: 0
+  textID: 0
   smooth: 1
   drawerDistance: 0.5
   openDirection: {x: 1, y: 0, z: 0}
@@ -1532,7 +1565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922658b28c10c844f9d86a6932ad84b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 0
+  active: 0
+  textID: 0
   smooth: 1
   drawerDistance: 0.5
   openDirection: {x: 1, y: 0, z: 0}
@@ -1674,7 +1708,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731917776111cfd4e8e238be7a676f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 1
+  active: 1
+  textID: 0
+  text: 0
+  state: 1
+  CantOpen: {fileID: 0}
   smooth: 1
   directionMultiplier: 1
   asource: {fileID: 0}

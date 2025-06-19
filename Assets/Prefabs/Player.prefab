@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5980654095703372670}
   - component: {fileID: 5209027498376786792}
   - component: {fileID: 2024559800625152388}
+  - component: {fileID: 419192010194714982}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -141,7 +142,7 @@ MonoBehaviour:
     m_Bits: 1024
   layerToTake:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   moveSpeed: 5
   mouseSensitivity: 1
   runningSpeedMultiplier: 1.5
@@ -337,6 +338,27 @@ MonoBehaviour:
   maxSpeed: 8
   snapDistance: 0.1
   attachRotationSpeed: 10
+--- !u!65 &419192010194714982
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6262210563864459029}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2171312518326819362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -643,6 +665,18 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3335702993566549196, guid: 0d29ec25115db314e8bdfec2dd21eda6, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d4c2bcc43a6dd0e4cb2dfdd5a2b87c8e, type: 2}
+    - target: {fileID: 3335702993566549196, guid: 0d29ec25115db314e8bdfec2dd21eda6, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 768263421439331816, guid: d4c2bcc43a6dd0e4cb2dfdd5a2b87c8e, type: 2}
+    - target: {fileID: 3335702993566549196, guid: 0d29ec25115db314e8bdfec2dd21eda6, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3415369846357571530, guid: 0d29ec25115db314e8bdfec2dd21eda6, type: 3}
       propertyPath: m_Camera
       value: 
@@ -810,6 +844,8 @@ MonoBehaviour:
     text: 
   - time: 0.2
     text: "\u0421\u0423\u0427\u041A\u0418"
+  - time: 0.2
+    text: "\u041D\u0430\u0434\u043E \u0432\u0437\u044F\u0442\u044C \u043A\u043B\u044E\u0447\u0438"
 --- !u!224 &2236826536356940847 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6627161704643258931, guid: 0d29ec25115db314e8bdfec2dd21eda6, type: 3}

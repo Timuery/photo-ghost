@@ -14,9 +14,11 @@ public class Trigger : EnergyBox
         {
             UIController.Instance.TextPanel(textID);
         }
+        Debug.Log("PIDORASS");
         active = ToState;
-        Destroy(gameObject);
         base.ToggleAudio(active);
         base.ToggleBoolInOpened(active);
+        if (active) Destroy(gameObject);
+
     }
 }

@@ -4,11 +4,14 @@ public class ZoneTrigger : Trigger
 {
     [Header("Слои с которыми будет контоктировать триггер")]
     public LayerMask lms;
-    private void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.layer == lms)
+        if (other.gameObject.layer == 11)
         {
+            Debug.Log("PIDORAS1");
             Toggle();
         }
+        Debug.Log("PIDORAS");
     }
+    
 }

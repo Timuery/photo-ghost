@@ -15,14 +15,14 @@ public class EnergyBox : ScriptToUse
         ToggleAudio(active);
         ToggleBoolInOpened(active);
     }
-    private void ToggleBoolInOpened(bool state)
+    public void ToggleBoolInOpened(bool state)
     {
         foreach (Opened opened in energyMassive)
         {
             opened.SetState(state);
         }
     }
-    private void ToggleAudio(bool active)
+    public void ToggleAudio(bool active)
     {
         try
         {

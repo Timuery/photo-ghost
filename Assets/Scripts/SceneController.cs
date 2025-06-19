@@ -51,8 +51,11 @@ public class SceneController : MonoBehaviour
         Debug.Log(UIcontroller.transform.name + "UI");
     }
 
-    public void LoadScene(string name)
+    public void LoadScene(string name="Menu")
     {
         SceneManager.LoadScene(name);
+
+
     }
+
 }

@@ -4,15 +4,11 @@ public abstract class ScriptToUse : MonoBehaviour
 {
     [Header("ScriptToUse")]
     public bool active;
-
-    [SerializeField] private int textID;
-    public int GetId() => textID;
     public abstract void Toggle();
 }
 
 public abstract class Opened : ScriptToUse
 {
-    public int text;
     public bool state;
     public abstract void SetState(bool state);
     [SerializeField] public AudioClip CantOpen;

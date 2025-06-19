@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     private static readonly HashSet<string> InteractableTags = new HashSet<string> { "Useble", "Door", "Drawer" };
 
     public LayerMask layersToRender;
-
+    public LayerMask layerToTake;
+    
 
     [Header("Player Settings")]
     public float moveSpeed = 5f;
@@ -116,13 +117,13 @@ public class PlayerController : MonoBehaviour
     }
     void CameraChecker()
     {
-        // ������� ��� �� ������ ������
+
         Ray ray = playerCamera.
             ScreenPointToRay(new Vector3
             (Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
 
-        // ���������, �������� �� ��� �� ������
+
         if (Physics.Raycast(ray, out hit, interactionDistance, layersToRender))
         {
             if (effectController.GetEffect() != PlayerEffect.Photo)
@@ -191,11 +192,19 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _mainController.LoadScene("Menu");
-            Cursor.lockState = CursorLockMode.None;
+            if ((int)effectController.GetEffect() <= (int)PlayerEffect.Stunning)
+            {
+                SceneController.Instance.LoadScene("Menu");
+            }
+            else
+            {
+                effectController.SetEffect(PlayerEffect.None);
+            }
         }
+
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 

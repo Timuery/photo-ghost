@@ -186,7 +186,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.35283017, b: 0.73715204, a: 1}
   m_Intensity: 6
   m_Range: 11.71
   m_SpotAngle: 30
@@ -277,3 +277,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
+  textID: 0

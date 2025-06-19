@@ -3,7 +3,12 @@ guid: 2554fd76962f50f4182a57be7d90aeda
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MCrossWood.001
+    second: {fileID: 2100000, guid: 33c37dc3842fdc54f8b01a27edf37b82, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

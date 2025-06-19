@@ -340,8 +340,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
+  textID: 0
+  text: 0
   state: 1
-  CantOpen: {fileID: 0}
+  CantOpen: {fileID: 8300000, guid: 3b96652c76054834888f064c132a04c2, type: 3}
   smooth: 1
   directionMultiplier: 1
   asource: {fileID: 0}

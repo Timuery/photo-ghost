@@ -87,7 +87,7 @@ PrefabInstance:
     - target: {fileID: -6985238722427882440, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6d48330e399457949bb20bb149537694, type: 2}
+      objectReference: {fileID: 2100000, guid: 8c6e830b338ff0947b58881b663cb2e0, type: 2}
     - target: {fileID: -5801374171703111789, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.176
@@ -95,7 +95,7 @@ PrefabInstance:
     - target: {fileID: -4051483116923549578, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6d48330e399457949bb20bb149537694, type: 2}
+      objectReference: {fileID: 2100000, guid: 8c6e830b338ff0947b58881b663cb2e0, type: 2}
     - target: {fileID: -1995867253173500742, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
       propertyPath: m_TagString
       value: Drawer
@@ -115,11 +115,11 @@ PrefabInstance:
     - target: {fileID: 1992829890736993650, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6d48330e399457949bb20bb149537694, type: 2}
+      objectReference: {fileID: 2100000, guid: 8c6e830b338ff0947b58881b663cb2e0, type: 2}
     - target: {fileID: 3995265086672805120, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b4dfb4cd1e13f3b49aa7bb3f86bc2335, type: 2}
+      objectReference: {fileID: 2100000, guid: 17a23f22c2eab2e4d9e6e65b42b58f98, type: 2}
     - target: {fileID: 6808428572801135024, guid: d6d4d9853c57e634faed68b818f67ccb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.199
@@ -310,7 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922658b28c10c844f9d86a6932ad84b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 0
+  active: 0
+  textID: 0
   smooth: 1
   drawerDistance: 0.3
   openDirection: {x: 1, y: 0, z: 0}
@@ -452,7 +453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922658b28c10c844f9d86a6932ad84b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 1
+  active: 0
+  textID: 0
   smooth: 1
   drawerDistance: 0.3
   openDirection: {x: 1, y: 0, z: 0}
@@ -594,7 +596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922658b28c10c844f9d86a6932ad84b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 1
+  active: 0
+  textID: 0
   smooth: 1
   drawerDistance: 0.5
   openDirection: {x: 0, y: 0, z: 0}
@@ -736,7 +739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922658b28c10c844f9d86a6932ad84b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: 1
+  active: 0
+  textID: 0
   smooth: 1
   drawerDistance: 0.3
   openDirection: {x: 1, y: 0, z: 0}

@@ -73,7 +73,10 @@ public class PlayerController : MonoBehaviour
     }
     public void Update()
     {
-        Looking();
+        if (effectController.GetEffect() != PlayerEffect.InUI)
+        {
+            Looking();
+        }
         Keys();
         CameraChecker();
         ArmController();
@@ -93,6 +96,7 @@ public class PlayerController : MonoBehaviour
             direct.Normalize();
         }
         curSpeed = Input.GetButton("Run") ? moveSpeed * runningSpeedMultiplier : moveSpeed;
+
 
 
         // Установка скорости только по горизонтальным осям (X и Z)
@@ -161,8 +165,21 @@ public class PlayerController : MonoBehaviour
         // Получаем ввод
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        direct = transform.right * horizontal + transform.forward * vertical;
 
+        // Если нет ввода (значения близки к нулю), обнуляем скорость
+        if (effectController.GetEffect() == PlayerEffect.InUI)
+        {
+            rb.linearVelocity = new Vector3(
+                0f,
+                rb.linearVelocity.y,  // Сохраняем только вертикальную скорость (гравитация)
+                0f
+            );
+        }
+        else
+        {
+            direct = transform.right * horizontal + transform.forward * vertical;
+        }
+        
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -180,14 +197,22 @@ public class PlayerController : MonoBehaviour
             {
                 if (!findObject.CompareTag("LevelPhotoToFind"))
                 {
-                    findObject.GetComponent<ScriptToUse>().Toggle();
+                    ScriptToUse[] allScripts = findObject.GetComponents<ScriptToUse>();
+                    foreach (ScriptToUse script in allScripts)
+                    {
+                        script.Toggle();
+                    }
                 }
             }
             if (Input.GetButtonDown("TakePhoto") && findObject != null)
             {
                 if (findObject.CompareTag("LevelPhotoToFind"))
                 {
-                    findObject.GetComponent<ScriptToUse>().Toggle();
+                    ScriptToUse[] allScripts = findObject.GetComponents<ScriptToUse>();
+                    foreach (ScriptToUse script in allScripts)
+                    {
+                        script.Toggle();
+                    }
                     _mainController.UIcontroller.AddCountPhotos();
                 }
             }

@@ -22,15 +22,17 @@ public class toUI : ScriptToUse
        
 
         PlayerController controller = FindFirstObjectByType<PlayerController>();
-        if (active) controller.effectController.AddEffect(PlayerEffect.InUI);
-        controller.effectController.RemoveEffect(PlayerEffect.Photo);
-
-        if (!active)
+        if (active)
+        {
+            controller.effectController.AddEffect(PlayerEffect.InUI);
+            controller.effectController.RemoveEffect(PlayerEffect.Photo);
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
         {
             controller.effectController.RemoveEffect(PlayerEffect.InUI);
+            Cursor.lockState = CursorLockMode.Locked;
         }
-
-
         // Можно добавить здесь логику блокировки управления игроком
         Debug.Log($"PC UI {(active ? "opened" : "closed")}");
     }
@@ -53,49 +55,11 @@ public class toUI : ScriptToUse
             }*/
         }
     }
-    private bool IsSlotEmpty(UIIndex uiIndex)
-    {
-        if (uiIndex == null)
-            return true; // Если сам объект null — слот пуст
-
-        // Проверяем, что Image либо null, либо не имеет спрайта
-        bool isImageEmpty = (uiIndex.image == null) ||
-                          (uiIndex.image.sprite == null);
-
-        // Проверяем, что Text либо null, либо пустая строка
-        bool isTextEmpty = (uiIndex.TMPROtext == null) ||
-                          (uiIndex.TMPROtext.text == "");
-
-        return isImageEmpty && isTextEmpty;
-    }
-
     public void CloseUI()
     {
         active = false;
         canvas.SetActive(false);
     }
-    // Метод для очистки конкретного слота
-    public void ClearSlot(int index)
-    {
-        if (index >= 0 && index < uIIndices.Count)
-        {
-            if (uIIndices[index].image != null)
-            {
-                uIIndices[index].image.sprite = null;
-                uIIndices[index].image.enabled = false;
-            }
-
-            if (uIIndices[index].TMPROtext != null)
-                uIIndices[index].TMPROtext.text = "";
-        }
-    }
-
-    public void Enter()
-    {
-        // Чо-то там
-    }
-
-    
 }
 [System.Serializable]
 public class UIIndex

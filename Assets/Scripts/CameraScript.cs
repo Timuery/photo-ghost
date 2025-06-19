@@ -13,12 +13,6 @@ public class CameraScript : MonoBehaviour
     {
         cam = GetComponent<Camera>();
     }
-
-    public void Start()
-    {
-        cam = GetComponent<Camera>();
-    }
-
     public void Zoom (float axis)
     {
         if (axis != 0)

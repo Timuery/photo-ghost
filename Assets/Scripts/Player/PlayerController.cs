@@ -138,7 +138,6 @@ public class PlayerController : MonoBehaviour
                     if (openedComponent == null || openedComponent.state)
                     {
                         _mainController.UIcontroller.ActiveUsePanel("Use");
-                        _mainController.UIcontroller.TextPanel(0);
                     }
 
                 } 

@@ -4,7 +4,9 @@ public abstract class ScriptToUse : MonoBehaviour
 {
     [Header("ScriptToUse")]
     public bool active;
-    
+
+    [SerializeField] private int textID;
+    public int GetId() => textID;
     public abstract void Toggle();
 }
 

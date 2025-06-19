@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Photographer : MonoBehaviour
 {
+    public static Photographer Instance {  get; private set; }
+
 
     [SerializeField] private RenderTexture ghostRT;
     [SerializeField] private UIPhoto uiPhotoPrefab;

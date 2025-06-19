@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
     public Light photoLight;
     public void Start()
     {
+        _mainController = SceneController.Instance;
         rb = GetComponent<Rigidbody>();
         itemManager = GetComponent<ItemManager>();
         Physics.autoSyncTransforms = true;
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
         if (photographer == null) 
             photographer = GameObject.Find("PhotoMaker").
                 GetComponent<Photographer>();
-        _mainController = SceneController.Instance;
+        
     }
     public void Update()
     {

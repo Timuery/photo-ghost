@@ -406,15 +406,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d02c3a141bc254da0f12c14e91649f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTo: 1
-  _prefabUsePanel: {fileID: 1493274995877769367}
+  fadeTo: 0.2
+  _prefabUsePanel: {fileID: 1057242939952860426}
   nowImages: 0
   maxImages: 5
-  _Eimage: {fileID: 0}
-  _Fimage: {fileID: 0}
-  _textToChange: {fileID: 0}
-  uiTextPanel: {fileID: 0}
-  _image: {fileID: 0}
+  _Eimage: {fileID: 21300000, guid: 9ab101737a8681a4086c9fe200bffef9, type: 3}
+  _Fimage: {fileID: 21300000, guid: e134f20af59f31444af6f85ca2f049ad, type: 3}
+  _textToChange: {fileID: 3034146781077248035}
+  uiTextPanel: {fileID: 3335702993566549196}
+  _image: {fileID: 7537612819281368695}
   ACTIVE: 0
   photoController: {fileID: 0}
 --- !u!1 &5505267198448906857
@@ -635,7 +635,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0/5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7d613a9e84b8d4043ad38bee20b35c61, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -9071912302438364322, guid: 7d613a9e84b8d4043ad38bee20b35c61, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

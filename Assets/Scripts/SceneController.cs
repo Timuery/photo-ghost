@@ -33,9 +33,7 @@ public class SceneController : MonoBehaviour
             Debug.LogError("Player not found in the scene");
         }
         PlayerController pl = player.GetComponent<PlayerController>();
-        pl._mainController = this;
-
-        
+        pl._mainController = this; 
     }
 
     private void FindGhost()

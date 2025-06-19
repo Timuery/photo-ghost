@@ -224,10 +224,10 @@ public class PlayerController : MonoBehaviour
             {
                 SceneController.Instance.LoadScene("Menu");
             }
-            else
+            /*else
             {
                 effectController.SetEffect(PlayerEffect.None);
-            }
+            }*/
         }
 
 

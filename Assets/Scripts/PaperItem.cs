@@ -9,5 +9,6 @@ public class PaperItem : ItemPickup
         base.Toggle();
         UIController.Instance.VisibleImage(_sprite);
         UIEnvironment.Instance.SetTextAndImage(_sprite, _text);
+        Destroy(gameObject);
     }
 }

@@ -46,6 +46,8 @@ public class toUI : ScriptToUse
                 Debug.Log(uiIndex.image.name + " " + uiIndex.TMPROtext.text + " я тут —учки");
                 uiIndex.image.sprite = spr;
                 uiIndex.TMPROtext.text = text;
+                uiIndex.image.gameObject.SetActive(true);
+                uiIndex.TMPROtext.transform.parent?.gameObject.SetActive(true);
                 break;
             }
             

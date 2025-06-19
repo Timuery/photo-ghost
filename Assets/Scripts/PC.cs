@@ -14,12 +14,12 @@ public class PC : ScriptToUse
     public List<string> needTexts;
 
     private AudioSource source;
-    public AudioClip clip;
+    public AudioClip clipWin;
+    public AudioClip error;
 
     private void Start()
     {
         source = GetComponent<AudioSource>();
-        source.clip = clip;
     }
     public override void Toggle()
     {
@@ -28,12 +28,16 @@ public class PC : ScriptToUse
 
 
         PlayerController controller = FindFirstObjectByType<PlayerController>();
-        if (active) controller.effectController.AddEffect(PlayerEffect.InUI);
-        controller.effectController.RemoveEffect(PlayerEffect.Photo);
-
-        if (!active)
+        if (active)
+        {
+            controller.effectController.AddEffect(PlayerEffect.InUI);
+            controller.effectController.RemoveEffect(PlayerEffect.Photo);
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
         {
             controller.effectController.RemoveEffect(PlayerEffect.InUI);
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
 
@@ -46,6 +50,7 @@ public class PC : ScriptToUse
         {
             if (textsUGUI[i].text != needTexts[i])
             {
+                source.clip = error;
                 source.Play();
                 foreach(var t in textsUGUI)
                 {
@@ -54,6 +59,8 @@ public class PC : ScriptToUse
                 break;
             }
         }
+        source.clip = clipWin;
+        source.Play();
         Debug.Log("YOU ARE FUCKING LUCKING WIIIINE");
     }
     public void CloseUI()

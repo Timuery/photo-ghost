@@ -13,7 +13,8 @@ public enum PlayerEffect
     Walk = 1 << 0,      // Когда игрок ходит 1
     Hit = 1 << 1,  // Когда игрок застанен 2
     Stunning = 1 << 2,       // Когда игрок получает урон 4
-    Photo = 1 << 3      // Когда игрок находится в режиме фотографии 8
+    Photo = 1 << 3,      // Когда игрок находится в режиме фотографии 8
+    InUI = 1 << 4,
 }
 
 public enum Status
@@ -65,6 +66,22 @@ public class EffectController: MonoBehaviour
             EndEffect(effect);
             NowStatus.Remove(effect);
             ReCheck();
+        }
+    }
+    public void SetEffect(PlayerEffect effect)
+    {
+        try
+        {
+            foreach (PlayerEffect p in NowStatus)
+            {
+                RemoveEffect(p);
+            }
+            AddEffect(effect);
+            ReCheck();
+        }
+        catch
+        {
+            Debug.Log("Invalid Operation Effect");
         }
     }
 
@@ -122,6 +139,10 @@ public class EffectController: MonoBehaviour
         {
             playerController.photographer.CameraOpen(false);
             playerController.PhotoCamera.SetActive(false);
+        }
+        else if (effect == PlayerEffect.InUI)
+        {
+            UIEnvironment.Instance.CloseUI();
         }
     }
 }

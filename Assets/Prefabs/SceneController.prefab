@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3458198791854605576}
   - component: {fileID: 94810032894493666}
   - component: {fileID: 1792484122378529142}
+  - component: {fileID: 5371055073769152422}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -65,3 +66,17 @@ MonoBehaviour:
   maxSpeed: 8
   snapDistance: 0.1
   attachRotationSpeed: 10
+--- !u!114 &5371055073769152422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2460805690815649037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f191337b0b862734fb59fcbdda628cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  COMPUDAHTER: {fileID: 0}
+  DOSKA: {fileID: 0}

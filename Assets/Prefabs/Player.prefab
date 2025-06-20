@@ -433,15 +433,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8467550131105695819, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
       propertyPath: m_ClearFlags
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8467550131105695819, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
       propertyPath: m_OcclusionCulling
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8467550131105695819, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.09411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467550131105695819, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.0039215707
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467550131105695819, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.013498349
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467550131105695819, guid: 2766ecd90f976e8458ee876a8f0584bc, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 1399
+      value: 3447
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -729,6 +741,14 @@ PrefabInstance:
     - target: {fileID: 1103780314091415365, guid: 0d29ec25115db314e8bdfec2dd21eda6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 368
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283289581693306075, guid: 0d29ec25115db314e8bdfec2dd21eda6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283289581693306075, guid: 0d29ec25115db314e8bdfec2dd21eda6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 3034146781077248035, guid: 0d29ec25115db314e8bdfec2dd21eda6, type: 3}
       propertyPath: m_fontAsset
